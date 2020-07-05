@@ -9,6 +9,8 @@ int		main(int argc, char **argv)
 	a.m.name = argv[1];
 	init_all(&a);
 	map_read(&a);
+    init_win(&a);
+    ray_launch(&a);
 	mlx_process(&a);
 	return (EXIT_SUCCESS);
 }

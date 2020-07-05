@@ -3,25 +3,19 @@
 int     atoi_nb(char *str)
 {
     int i;
+    int m;
     int a[3] = {0};
     int d;
 
     i = 0;
-    while (ft_isdigit(str[i]) && str[i])
+    m = -1;
+    while (++m < 3)
     {
-        a[0] = a[0] * 10 + (str[i] - 48);
-        i++;
-    }
-    i++;
-    while (ft_isdigit(str[i]) && str[i])
-    {
-        a[1] = a[1] * 10 + (str[i] - 48);
-        i++;
-    }
-    i++;
-    while (ft_isdigit(str[i]) && str[i])
-    {
-        a[2] = a[2] * 10 + (str[i] - 48);
+        while (ft_isdigit(str[i]) && str[i])
+        {
+            a[m] = a[m] * 10 + (str[i] - 48);
+            i++;
+        }
         i++;
     }
     d = (a[0] * 65536) + (a[1] * 256) + a[2];
