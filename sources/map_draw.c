@@ -54,15 +54,15 @@ void    map_show(all_t *a)
         while (a->m.map_tab[i][++n])
         {
             if (a->m.map_tab[i][n] == '1')
-                map_draw(a, i, n, map_color("102,175,255"));
+                map_draw(a, i, n, a->m.map_rgb[1] );
             else if (a->m.map_tab[i][n] == '0')
-                map_draw(a, i, n, map_color("0,255,0"));
+                map_draw(a, i, n, a->m.map_rgb[0] );
             else if (a->m.map_tab[i][n] == '2')
-                map_draw(a, i, n, map_color("0,0,255"));
+                map_draw(a, i, n, a->m.map_rgb[2] );
             else if (ft_isstr(a->m.map_tab[i][n], "NSWE"))
-                map_draw(a, i, n, map_color("0,255,0"));
+                map_draw(a, i, n, a->m.map_rgb[3] );
             else
-                map_draw(a, i, n, map_color("0,0,0"));
+                map_draw(a, i, n, a->m.map_rgb[4] );
         }
         n = -1;
     }

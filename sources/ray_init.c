@@ -29,12 +29,8 @@ void    ray_pos(int x, all_t *a)
     a->r.camX = 2 * x / (double)a->m.width - 1;
     a->r.rDirX = a->r.dirX + a->r.planX * a->r.camX;
     a->r.rDirY = a->r.dirY + a->r.planY * a->r.camX;
-    a->r.mapX = (int)a->m.pos_x; 
-    a->r.mapY = (int)a->m.pos_y; 
-    // a->r.mapX = 5;
-    // a->r.mapY = 3;
-    // a->m.pos_x = 5.5;
-    // a->m.pos_y = 3.5;
+    a->r.mapX = (int)a->m.pos_x + 1; 
+    a->r.mapY = (int)a->m.pos_y;
     a->r.deltaDistY = (a->r.rDirX == 0) ? 0 : ((a->r.rDirY == 0) ? 1 : fabs(1 / a->r.rDirY)); 
     a->r.deltaDistX = (a->r.rDirY == 0) ? 0 : ((a->r.rDirX == 0) ? 1 : fabs(1 / a->r.rDirX)); 
 }
@@ -55,7 +51,7 @@ void    ray_dda(all_t *a)
           a->r.mapY = a->r.mapY + a->r.stepY;
           a->r.side = 1;
         }
-        if(a->m.map_tab[a->r.mapX][a->r.mapY] == '1')
+        if(a->m.map_tab[a->r.mapX][a->r.mapY] > '0')
           a->r.hit = 1;
     }
 }
@@ -77,29 +73,25 @@ void    ray_wall(int x, all_t *a)
         a->m.w = 16711935;
     else
         a->m.w = 16776960;
-;
-    fprintf(stderr, "sideDistX = %f\t\tsideDistY = %f\n", a->r.sideDistX, a->r.sideDistY);
-    fprintf(stderr, "lineHeight = %d\t\tperpWallDist = %f\t\tstepY = %d\t\trDirX = %f\trDirY = %f\n", a->r.lineHeight, a->r.perpWallDist, a->r.stepY, a->r.rDirX, a->r.rDirY);
-    fprintf(stderr, "start = %f\t\t\tend = %f\t\t\tx = %d\n\n", a->r.drawStart, a->r.drawEnd, x);
-    fprintf(stderr, "mapX = %d\t\t\tmapY = %d\t\t\tx = %d\n\n", a->r.mapX, a->r.mapY, x);
+    (void)x;
 }
 
 void    ray_launch(all_t *a)
 {
     int x = 0;
-    while (x <= a->m.width)
+    
+    while (x <= 10)
     {
         a->r.hit = 0;
-        fprintf(stderr, "avant\n");
         ray_pos(x, a);
-        fprintf(stderr, "ap pos\n");
         ray_step(a);        
-        fprintf(stderr, "ap step\n");
         ray_dda(a);
-        fprintf(stderr, "ap dda\n");
         ray_wall(x, a);
-        fprintf(stderr, "ap wall\n");
         verline(x, a);
+    fprintf(stderr, "sideDistX[%.2f]\t\tlineHeight[%d]\t\tstepX[%d]\trDirX[%.2f]\tstart[%.2f]\tmapX[%d]\t\tposX[%.2f]\tx[%d]\n",\
+                    a->r.sideDistX, a->r.lineHeight, a->r.stepX, a->r.rDirX, a->r.drawStart, a->r.mapX, a->m.pos_x, x);
+    fprintf(stderr, "sideDistY[%.2f]\t\tperpWallDist[%.2f]\tstepY[%d]\trDirY[%.2f]\tend[%.2f]\tmapY[%d]\t\tposY[%.2f]\n\n",\
+                    a->r.sideDistY, a->r.perpWallDist, a->r.stepY, a->r.rDirY, a->r.drawEnd, a->r.mapY, a->m.pos_y);
         x++;
     }
 }

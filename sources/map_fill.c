@@ -89,28 +89,15 @@ void    map_read(all_t *a)
 
 	i = -1;
     ret = 1;
-    fd = 0;
-    fprintf(stderr, "name = %s\n", a->m.name);
-	fd = open("source/map2.cub", O_RDONLY);
+	fd = open(a->m.name, O_RDONLY);
     fprintf(stderr, "fd = %d\n", fd);
     while (ret > 0)
     {
         ret = get_next_line(fd, &line);
-        fprintf(stderr, "line = %s\n", line);
-        fprintf(stderr, "ret = %d\n", ret);
-
 		map_data(line, a);
         map_save(line, a);
     }
-        fprintf(stderr, "R = %dx%d\n", a->m.width, a->m.height);
-        fprintf(stderr, "map = %s|\n", a->m.map);
-        fprintf(stderr, "h = %d\tw = %d\n", a->m.map_h, a->m.map_w);
-    while (++i < a->m.map_h)
-        a->m.map_tab = malloc(sizeof(char *) * a->m.map_w);
     if (!(a->m.map_tab = ft_split(a->m.map, '|')))
         fprintf(stderr, "Erreur split");
-    int q = -1;
-    while (a->m.map_tab[++q])
-        fprintf(stderr, "%s\n", a->m.map_tab[q]);
 	close(fd);
 }

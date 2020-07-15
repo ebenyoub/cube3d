@@ -8,6 +8,9 @@ void    init_win(all_t *a)
 
 void    init_map(all_t *a)
 {
+    int i;
+
+    i = 0;
     a->m.width = 0;
     a->m.height = 0;
     a->m.map_h = 0;
@@ -16,6 +19,11 @@ void    init_map(all_t *a)
     a->m.map_count = 0;
     a->m.map = ft_strdup("");
     a->m.w = map_color("255,0,0");
+    a->m.map_rgb[0] = map_color("0,255,0");
+    a->m.map_rgb[1] = map_color("102,175,255");
+    a->m.map_rgb[2] = map_color("0,0,255");
+    a->m.map_rgb[3] = map_color("0,255,0");
+    a->m.map_rgb[4] = map_color("0,0,0");
 }
 
 void    init_ray(all_t *a)

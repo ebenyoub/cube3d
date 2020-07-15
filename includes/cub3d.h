@@ -32,6 +32,7 @@ typedef	struct 		map_s
 	char			*we;
 	char			*ea;
 	int				map_count;
+	int				map_rgb[5];
 	int				height;
 	int				width;
 	int				map_h;
