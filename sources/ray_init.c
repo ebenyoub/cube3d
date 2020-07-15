@@ -29,7 +29,7 @@ void    ray_pos(int x, all_t *a)
     a->r.camX = 2 * x / (double)a->m.width - 1;
     a->r.rDirX = a->r.dirX + a->r.planX * a->r.camX;
     a->r.rDirY = a->r.dirY + a->r.planY * a->r.camX;
-    a->r.mapX = (int)a->m.pos_x + 1; 
+    a->r.mapX = (int)a->m.pos_x; 
     a->r.mapY = (int)a->m.pos_y;
     a->r.deltaDistY = (a->r.rDirX == 0) ? 0 : ((a->r.rDirY == 0) ? 1 : fabs(1 / a->r.rDirY)); 
     a->r.deltaDistX = (a->r.rDirY == 0) ? 0 : ((a->r.rDirX == 0) ? 1 : fabs(1 / a->r.rDirX)); 
@@ -80,7 +80,7 @@ void    ray_launch(all_t *a)
 {
     int x = 0;
     
-    while (x <= 10)
+    while (x <= a->m.width)
     {
         a->r.hit = 0;
         ray_pos(x, a);
