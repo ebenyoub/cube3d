@@ -3,7 +3,7 @@
 void    verline(int x, all_t *a)
 {
 	int y = a->r.drawStart;
-	while (y <= a->r.drawEnd)
+	while (y < a->r.drawEnd)
 	{
 		mlx_pixel_put(a->w.mlx, a->w.win, x, y, a->m.w);
 		y++;
