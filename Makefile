@@ -1,7 +1,7 @@
 NAME		=	cub3d
 
 CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror -g
+CFLAGS		=	-Wall -Wextra -Werror -g3
 LFLAGS		=	
 MEMFLAGS	=	-ggdb -fsanitize=address 
 

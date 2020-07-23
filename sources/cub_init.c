@@ -18,12 +18,7 @@ void    init_map(all_t *a)
     a->m.map_tab = NULL;
     a->m.map_count = 0;
     a->m.map = ft_strdup("");
-    a->m.w = map_color("255,0,0");
-    a->m.map_rgb[0] = map_color("0,255,0");
-    a->m.map_rgb[1] = map_color("102,175,255");
-    a->m.map_rgb[2] = map_color("0,0,255");
-    a->m.map_rgb[3] = map_color("0,255,0");
-    a->m.map_rgb[4] = map_color("0,0,0");
+    a->m.w = map_color("52,149,255");
 }
 
 void    init_ray(all_t *a)
@@ -33,11 +28,16 @@ void    init_ray(all_t *a)
 	a->r.dirX = 0;
 	a->r.dirY = 0;
 	a->r.planX = 0;
-	a->r.planY = 0;
+	a->r.planY = 0.66;
     a->r.camX = 0;
     a->r.rDirX = 0;
     a->r.rDirY = 0;
     a->r.hit = 0;
+    a->r.perpWallDist = 0;
+    a->r.deltaDistX = 0;
+    a->r.deltaDistY = 0;
+    a->r.drawEnd = 0;
+    a->r.drawStart = 0;
 }
 
 void    init_fps(all_t *a)

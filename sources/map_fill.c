@@ -24,6 +24,30 @@ void    map_dir(char c, all_t *a)
     }
 }
 
+void    map_plan(char c, all_t *a)
+{
+	if (c == 'N')
+	{
+		a->r.planX = 0;
+		a->r.planY = 0.66;
+	}
+	if (c == 'S')
+	{
+		a->r.planX = 0;
+		a->r.planY = -0.66;
+	}
+	if (c == 'W')
+	{
+		a->r.planX = -0.66;
+		a->r.planY = 0;
+	}
+	if (c == 'E')
+	{
+		a->r.planX = 0.66;
+		a->r.planY = 0;
+	}
+}
+
 void    map_save(char *line, all_t *a)
 {
     int i;
@@ -42,12 +66,14 @@ void    map_save(char *line, all_t *a)
                 a->m.pos_x = (double)i + 0.5;
                 a->m.pos_y = (double)a->m.map_h + 0.5;
                 map_dir(line[i], a);
+                map_plan(line[i], a);
             }
             i++;
         }
         a->m.map_h = a->m.map_h + 1;
         if(i > a->m.map_w)
             a->m.map_w = i;
+        fprintf(stderr, "w = %.2f et h = %.2f\n", a->m.pos_x, a->m.pos_y);
     }
 }
 
@@ -87,7 +113,6 @@ void    map_read(all_t *a)
     int         ret;
 	char		*line;
 
-	i = -1;
     ret = 1;
 	fd = open(a->m.name, O_RDONLY);
     fprintf(stderr, "fd = %d\n", fd);
@@ -99,5 +124,8 @@ void    map_read(all_t *a)
     }
     if (!(a->m.map_tab = ft_split(a->m.map, '|')))
         fprintf(stderr, "Erreur split");
+    i = 0;
+    while (a->m.map_tab[i])
+        fprintf(stderr, "%s\n", a->m.map_tab[i++]);
 	close(fd);
 }

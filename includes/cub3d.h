@@ -49,8 +49,8 @@ typedef struct		ray_s
 	double			deltaDistY;
 	double			sideDistX;	
 	double			sideDistY;
-	double			drawStart;
-	double			drawEnd;
+	int				drawStart;
+	int				drawEnd;
 	double			planX;
 	double			planY;
 	double			rDirX;
