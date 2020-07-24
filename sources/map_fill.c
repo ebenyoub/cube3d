@@ -63,8 +63,8 @@ void    map_save(char *line, all_t *a)
         {
             if (ft_isstr(line[i], "NSEW"))
             {
-                a->m.pos_x = (double)i + 0.5;
-                a->m.pos_y = (double)a->m.map_h + 0.5;
+                a->m.pos_x = (double)a->m.map_h + 0.5;
+                a->m.pos_y = (double)i + 0.5;
                 map_dir(line[i], a);
                 map_plan(line[i], a);
             }
