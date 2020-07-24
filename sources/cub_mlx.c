@@ -9,6 +9,7 @@ int		ft_close(all_t *a)
 
 int		keypress(int keycode, all_t *a)
 {
+	printf("key = %d\n", keycode);
 	if (keycode == KEY_ESC)
 		ft_close(a);
 	if (keycode == KEY_M)
@@ -26,6 +27,8 @@ int		keypress(int keycode, all_t *a)
 		}
 	}
 	read_key(keycode, a);
+	map_black(a);
+	ray_launch(a);
 	return (1);
 }
 

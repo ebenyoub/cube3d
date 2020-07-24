@@ -88,13 +88,13 @@ void    ray_launch(all_t *a)
         ray_dda(a);
         ray_wall(a);
         verline(x, a);
-        if (x == 0 || x == 100 || x == 200 || x == 400 || x == 500 || x == 600 || x == 640)
-        {
-            fprintf(stderr, "map_w[%d]\t\tsideDistX[%.2f]\t\tdeltaDistX[%.2f]\t\tlineHeight[%d]\t\tstepX[%d]\trDirX[%.2f]\tstart[%d]\tmapX[%d]\t\tposX[%.2f]\tx[%d]\n",\
-                            a->m.map_w, a->r.sideDistX, a->r.deltaDistX, a->r.lineHeight, a->r.stepX, a->r.rDirX, a->r.drawStart, a->r.mapX, a->m.pos_x, x);
-            fprintf(stderr, "map_h[%d]\t\tsideDistY[%.2f]\t\tdeltaDistY[%.2f]\t\tperpWallDist[%.2f]\tstepY[%d]\trDirY[%.2f]\tend[%d]\tmapY[%d]\t\tposY[%.2f]\n\n",\
-                            a->m.map_h, a->r.sideDistY, a->r.deltaDistY, a->r.perpWallDist, a->r.stepY, a->r.rDirY, a->r.drawEnd, a->r.mapY, a->m.pos_y);
-        }
+        // if (x == 0 || x == 100 || x == 200 || x == 400 || x == 500 || x == 600 || x == 640)
+        // {
+        //     fprintf(stderr, "map_w[%d]\t\tsideDistX[%.2f]\t\tdeltaDistX[%.2f]\t\tlineHeight[%d]\t\tstepX[%d]\trDirX[%.2f]\tstart[%d]\tmapX[%d]\t\tposX[%.2f]\tx[%d]\n",\
+        //                     a->m.map_w, a->r.sideDistX, a->r.deltaDistX, a->r.lineHeight, a->r.stepX, a->r.rDirX, a->r.drawStart, a->r.mapX, a->m.pos_x, x);
+        //     fprintf(stderr, "map_h[%d]\t\tsideDistY[%.2f]\t\tdeltaDistY[%.2f]\t\tperpWallDist[%.2f]\tstepY[%d]\trDirY[%.2f]\tend[%d]\tmapY[%d]\t\tposY[%.2f]\n\n",\
+        //                     a->m.map_h, a->r.sideDistY, a->r.deltaDistY, a->r.perpWallDist, a->r.stepY, a->r.rDirY, a->r.drawEnd, a->r.mapY, a->m.pos_y);
+        // }
         x++;
     }
 }
