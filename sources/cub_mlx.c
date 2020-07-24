@@ -25,6 +25,7 @@ int		keypress(int keycode, all_t *a)
 			a->m.map_count = 0;
 		}
 	}
+	read_key(keycode, a);
 	return (1);
 }
 

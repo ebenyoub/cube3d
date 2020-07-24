@@ -74,6 +74,8 @@ typedef	struct		fps_s
 {
 	double			moveSpeed;
 	double			rotSpeed;
+	double			oldDirX;
+	double			oldPlanX;
 }					fps_t;
 
 typedef	struct		all_s
@@ -100,3 +102,5 @@ int     map_color(char *str);
 
 void    ray_launch(all_t *a);
 void    verline(int x, all_t *a);
+
+void    read_key(int keycode, all_t *a);

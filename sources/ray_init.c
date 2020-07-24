@@ -56,7 +56,7 @@ void    ray_dda(all_t *a)
     }
 }
 
-void    ray_wall(int x, all_t *a)
+void    ray_wall(all_t *a)
 {
     if(a->r.side == 0)
         a->r.perpWallDist = (a->r.mapX - a->m.pos_x + (1 - a->r.stepX) / 2) / a->r.rDirX;
@@ -70,10 +70,9 @@ void    ray_wall(int x, all_t *a)
     if (a->r.drawEnd >= a->m.height)
         a->r.drawEnd = a->m.height - 1;
     if(a->r.side == 1) 
-        a->m.w = map_color("255,0,0");
+        a->m.w = map_color("255,59,1");
     else
         a->m.w = map_color("52,149,255");
-    (void)x;
 }
 
 void    ray_launch(all_t *a)
@@ -87,7 +86,7 @@ void    ray_launch(all_t *a)
         ray_pos(x, a);
         ray_step(a);
         ray_dda(a);
-        ray_wall(x, a);
+        ray_wall(a);
         verline(x, a);
         if (x == 0 || x == 100 || x == 200 || x == 400 || x == 500 || x == 600 || x == 640)
         {
