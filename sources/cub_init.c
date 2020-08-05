@@ -23,6 +23,8 @@ void    init_map(all_t *a)
 
 void    init_ray(all_t *a)
 {
+    a->r.mapX = 0;
+    a->r.mapY = 0;
     a->r.posX = 0;
 	a->r.posY = 0;
 	a->r.dirX = 0;
@@ -42,7 +44,7 @@ void    init_ray(all_t *a)
 
 void    init_fps(all_t *a)
 {
-    a->f.moveSpeed = 10;
+    a->f.moveSpeed = 0.3;
     a->f.rotSpeed = 0.2;
 }
 

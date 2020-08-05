@@ -10,7 +10,10 @@ int		main(int argc, char **argv)
 	init_all(&a);
 	map_read(&a);
     init_win(&a);
-    ray_launch(&a);
-	mlx_process(&a);
+	mlx_hook(a.w.win, 2, 0, hold_key, &a);
+	mlx_hook(a.w.win, 3, 0, release_key, &a);
+	mlx_hook(a.w.win, 17, 0, ft_close, &a);
+	mlx_loop_hook(a.w.mlx, read_key, &a);
+	mlx_loop(a.w.mlx);
 	return (EXIT_SUCCESS);
 }

@@ -63,8 +63,8 @@ void    map_save(char *line, all_t *a)
         {
             if (ft_isstr(line[i], "NSEW"))
             {
-                a->m.pos_x = (double)a->m.map_h + 0.5;
-                a->m.pos_y = (double)i + 0.5;
+                a->r.posX = (double)a->m.map_h + 0.5;
+                a->r.posY = (double)i + 0.5;
                 map_dir(line[i], a);
                 map_plan(line[i], a);
             }
@@ -122,5 +122,8 @@ void    map_read(all_t *a)
     }
     if (!(a->m.map_tab = ft_split(a->m.map, '|')))
         fprintf(stderr, "Erreur split");
+    int i = -1;
+    while (a->m.map_tab[++i])
+        fprintf(stderr, "%d | %s\n", i, a->m.map_tab[i]);
 	close(fd);
 }

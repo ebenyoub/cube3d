@@ -2,6 +2,7 @@
     
 int     hold_key(int key, all_t *a)
 {
+	fprintf(stderr, "key = %d\n", key);
 	if (key == KEY_Z)
 		a->k.z = 1;
 	if (key == KEY_Q)
@@ -44,8 +45,6 @@ int     release_key(int key, all_t *a)
 
 int     read_key(all_t *a)
 {
-    	mlx_hook(a->w.win, 2, 0, hold_key, a);
-	    mlx_hook(a->w.win, 3, 0, release_key, a);
         if (a->k.z == 1)
         {
             if ((a->m.map_tab[(int)(a->r.posX + a->r.dirX * a->f.moveSpeed)][(int)a->r.posY]) != '1')
@@ -94,5 +93,7 @@ int     read_key(all_t *a)
 	    		a->m.map_count = 0;
 	    	}
 	    }
+	    map_black(a);
+		ray_launch(a);
     return (0);
 }

@@ -112,7 +112,6 @@ void    init_win(all_t *a);
 void    init_win_map(all_t *a);
 
 
-void    mlx_process(all_t *a);
 int    	error_display(int argc);
 int     map_color(char *str);
 
