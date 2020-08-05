@@ -3,7 +3,7 @@
 int     hold_key(int key, all_t *a)
 {
 	fprintf(stderr, "key = %d\n", key);
-	if (key == KEY_Z)
+	if (key == KEY_Z || key == ARROW_UP)
 		a->k.z = 1;
 	if (key == KEY_Q)
 		a->k.q = 1;
@@ -93,7 +93,6 @@ int     read_key(all_t *a)
 	    		a->m.map_count = 0;
 	    	}
 	    }
-	    map_black(a);
 		ray_launch(a);
     return (0);
 }

@@ -76,6 +76,11 @@ typedef	struct		fps_s
 	double			rotSpeed;
 	double			oldDirX;
 	double			oldPlanX;
+	void			*img_ptr;
+	int				*img_data;
+	int				bpp;
+	int				size_line;
+	int				endian;
 }					fps_t;
 
 typedef struct		key_s

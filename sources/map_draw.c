@@ -2,10 +2,15 @@
 
 void    verline(int x, all_t *a)
 {
-	int y = a->r.drawStart;
-	while (y < a->r.drawEnd)
+	int y = 0;
+	while (y < a->m.height)
 	{
-		mlx_pixel_put(a->w.mlx, a->w.win, x, y, a->m.w);
+		if (y < a->r.drawStart)
+			a->f.img_data[x + y * a->m.width] = a->m.c;
+		if (y >= a->r.drawStart && y <= a->r.drawEnd)
+			a->f.img_data[x + y * a->m.width] = a->m.w;
+		if (y > a->r.drawEnd)
+			a->f.img_data[x + y * a->m.width] = a->m.f;
 		y++;
 	}
 }
