@@ -73,7 +73,6 @@ void    map_save(char *line, all_t *a)
         a->m.map_h = a->m.map_h + 1;
         if(i > a->m.map_w)
             a->m.map_w = i;
-        fprintf(stderr, "w = %.2f et h = %.2f\n", a->m.pos_x, a->m.pos_y);
     }
 }
 
@@ -108,7 +107,6 @@ void    map_data(char *line, all_t *a)
 
 void    map_read(all_t *a)
 {
-    int			i;
 	int			fd;
     int         ret;
 	char		*line;
@@ -124,8 +122,5 @@ void    map_read(all_t *a)
     }
     if (!(a->m.map_tab = ft_split(a->m.map, '|')))
         fprintf(stderr, "Erreur split");
-    i = 0;
-    while (a->m.map_tab[i])
-        fprintf(stderr, "%s\n", a->m.map_tab[i++]);
 	close(fd);
 }

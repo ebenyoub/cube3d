@@ -2,7 +2,7 @@
 # define KEYCODE_H
 
 # define KEY_ESC		53
-# define KEY_A			0
+# define KEY_A			12
 # define KEY_B			11
 # define KEY_C			8
 # define KEY_D			2
@@ -18,7 +18,7 @@
 # define KEY_N			45
 # define KEY_O			31
 # define KEY_P			35
-# define KEY_Q			12
+# define KEY_Q			0
 # define KEY_R			15
 # define KEY_S			1
 # define KEY_T			17

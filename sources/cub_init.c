@@ -28,7 +28,7 @@ void    init_ray(all_t *a)
 	a->r.dirX = 0;
 	a->r.dirY = 0;
 	a->r.planX = 0;
-	a->r.planY = 0.66;
+	a->r.planY = 0;
     a->r.camX = 0;
     a->r.rDirX = 0;
     a->r.rDirY = 0;
@@ -42,8 +42,8 @@ void    init_ray(all_t *a)
 
 void    init_fps(all_t *a)
 {
-    a->f.moveSpeed = 0.03;
-    a->f.rotSpeed = 0.08;
+    a->f.moveSpeed = 10;
+    a->f.rotSpeed = 0.2;
 }
 
 void    init_all(all_t *a)

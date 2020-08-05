@@ -78,12 +78,25 @@ typedef	struct		fps_s
 	double			oldPlanX;
 }					fps_t;
 
+typedef struct		key_s
+{
+	int				z;
+	int				s;
+	int				q;
+	int				d;
+	int				m;
+	int				al;
+	int				ar;
+	int				esc;
+}					key_t;
+
 typedef	struct		all_s
 {
 	win_t			w;
 	map_t			m;
 	ray_t			r;
 	fps_t			f;
+	key_t			k;
 }					all_t;
 
 
@@ -93,9 +106,12 @@ void    map_data(char *line, all_t *a);
 void	map_black(all_t *a);
 void    map_read(all_t *a);
 void    map_show(all_t *a);
+
 void    init_all(all_t *a);
 void    init_win(all_t *a);
 void    init_win_map(all_t *a);
+
+
 void    mlx_process(all_t *a);
 int    	error_display(int argc);
 int     map_color(char *str);
@@ -103,4 +119,7 @@ int     map_color(char *str);
 void    ray_launch(all_t *a);
 void    verline(int x, all_t *a);
 
-void    read_key(int keycode, all_t *a);
+int	    read_key(all_t *a);
+int		hold_key(int key, all_t *a);
+int		release_key(int key, all_t *a);
+int		ft_close(all_t *a);
