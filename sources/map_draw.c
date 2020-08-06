@@ -41,8 +41,6 @@ void    map_show(all_t *a)
 
     x = -1;
     y = -1;
-	a->m.img_map_ptr = mlx_new_image(a->w.mlx, a->m.map_w * 20, a->m.map_h * 20);
-    a->m.img_map_data = (int *)mlx_get_data_addr(a->m.img_map_ptr, &a->m.map_bpp, &a->m.map_size_line, &a->m.map_endian);
     while (a->m.map_tab[++y])
     {
         while (a->m.map_tab[y][++x])
@@ -53,10 +51,10 @@ void    map_show(all_t *a)
                 map_draw_img(a, x, y, map_color("0,0,0"));
             else if (a->m.map_tab[y][x] == '2')
                 map_draw_img(a, x, y, map_color("0,0,0"));
-			else if (x == a->r.mapX && y == a->r.mapY)
-                map_draw_img(a, x, y, map_color("255,255,255"));
             else
                 map_draw_img(a, x, y, map_color("0,0,0"));
+			if (x == (int)a->r.posY && y == (int)a->r.posX)
+                map_draw_img(a, x, y, map_color("255,255,255"));
         }
         x = -1;
     }

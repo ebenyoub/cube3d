@@ -5,9 +5,9 @@ int     hold_key(int key, all_t *a)
 	fprintf(stderr, "key = %d\n", key);
 	if (key == KEY_Z || key == ARROW_UP)
 		a->k.z = 1;
-	if (key == KEY_Q || key == ARROW_DOWN)
+	if (key == KEY_Q)
 		a->k.q = 1;
-	if (key == KEY_S)
+	if (key == KEY_S || key == ARROW_DOWN)
 		a->k.s = 1;
 	if (key == KEY_D)
 		a->k.d = 1;
@@ -59,6 +59,20 @@ int     read_key(all_t *a)
             if ((a->m.map_tab[(int)a->r.posX][(int)(a->r.posY - a->r.dirY * a->f.moveSpeed)]) != '1')
                 a->r.posY -= a->r.dirY * a->f.moveSpeed;
         }
+        if (a->k.d == 1)
+        {
+            if ((a->m.map_tab[(int)(a->r.posX + a->r.planX * a->f.moveSpeed)][(int)a->r.posY]) != '1')
+                a->r.posX += a->r.planX * a->f.moveSpeed;
+            if ((a->m.map_tab[(int)a->r.posX][(int)(a->r.posY + a->r.planY * a->f.moveSpeed)]) != '1')
+                a->r.posY += a->r.planY * a->f.moveSpeed;
+        }
+        if (a->k.q == 1)
+        {
+            if ((a->m.map_tab[(int)(a->r.posX - a->r.planX * a->f.moveSpeed)][(int)a->r.posY]) != '1')
+                a->r.posX -= a->r.planX * a->f.moveSpeed;
+            if ((a->m.map_tab[(int)a->r.posX][(int)(a->r.posY - a->r.planY * a->f.moveSpeed)]) != '1')
+                a->r.posY -= a->r.planY * a->f.moveSpeed;
+        }
         if (a->k.ar == 1)
         {
             a->f.oldDirX = a->r.dirX;
@@ -83,7 +97,6 @@ int     read_key(all_t *a)
 	    {
 	    	if (a->m.map_count == 0)
 	    	{
-        		map_show(a);
 	    		a->m.map_count = 1;
 	    	}
 	    	else if (a->m.map_count == 1)
@@ -95,6 +108,9 @@ int     read_key(all_t *a)
 		if (a->m.map_count == 1)
 		{
 			ray_launch(a);
+			a->m.img_map_ptr = mlx_new_image(a->w.mlx, a->m.map_w * 20, a->m.map_h * 20);
+    		a->m.img_map_data = (int *)mlx_get_data_addr(a->m.img_map_ptr, &a->m.map_bpp, &a->m.map_size_line, &a->m.map_endian);
+        	map_show(a);
     		mlx_put_image_to_window(a->w.mlx, a->w.win, a->m.img_map_ptr, 0, 0);
 		}
 		else if (a->m.map_count == 0)
