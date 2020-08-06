@@ -32,11 +32,15 @@ typedef	struct 		map_s
 	char			*we;
 	char			*ea;
 	int				map_count;
-	int				map_rgb[5];
 	int				height;
 	int				width;
 	int				map_h;
 	int				map_w;
+	void			*img_map_ptr;
+	int				*img_map_data;
+	int				map_bpp;
+	int				map_size_line;
+	int				map_endian;
 	int				f;
 	int				c;
 	int				w;
@@ -108,7 +112,6 @@ typedef	struct		all_s
 void	map_draw(all_t *a, int i, int n, int colo);
 void    map_save(char *line, all_t *a);
 void    map_data(char *line, all_t *a);
-void	map_black(all_t *a);
 void    map_read(all_t *a);
 void    map_show(all_t *a);
 

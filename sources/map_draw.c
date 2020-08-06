@@ -15,60 +15,49 @@ void    verline(int x, all_t *a)
 	}
 }
 
-void	map_black(all_t *a)
+void	map_draw_img(all_t *z, int i, int n, int colo)
 {
-	int x = 0;
-	int y = 0;
-	while (y <= a->m.height)
-	{
-		while (x <= a->m.width)
-		{
-			mlx_pixel_put(a->w.mlx, a->w.win, x, y, map_color("0,0,0"));
-			x++;
-		}
-		x = 0;
-		y++;
-	}
-}
+	int a = 0;
+	int b = 0;
+	int x = i * 20;
+	int y = n * 20;
 
-void	map_draw(all_t *a, int i, int n, int colo)
-{
-	int x = n * 20;
-	int y = i * 20;
-	while (y <= i * 20 + 20)
+	while (b < 20)
 	{
-		while (x <= n * 20 + 20)
+		while (a < 20)
 		{
-			mlx_pixel_put(a->w.mlx, a->w.win, x, y, colo);
-			x++;
+			z->m.img_map_data[(x + a) + (y + b) * (z->m.map_w * 20)] = colo;
+			a++;
 		}
-		x = n * 20;
-		y++;
+		a = 0;
+		b++;
 	}
 }
 
 void    map_show(all_t *a)
 {
-    int i;
-    int n;
+    int x;
+    int y;
 
-    i = -1;
-    n = -1;
-    while (a->m.map_tab[++i])
+    x = -1;
+    y = -1;
+	a->m.img_map_ptr = mlx_new_image(a->w.mlx, a->m.map_w * 20, a->m.map_h * 20);
+    a->m.img_map_data = (int *)mlx_get_data_addr(a->m.img_map_ptr, &a->m.map_bpp, &a->m.map_size_line, &a->m.map_endian);
+    while (a->m.map_tab[++y])
     {
-        while (a->m.map_tab[i][++n])
+        while (a->m.map_tab[y][++x])
         {
-            if (a->m.map_tab[i][n] == '1')
-                map_draw(a, i, n, a->m.map_rgb[1] );
-            else if (a->m.map_tab[i][n] == '0')
-                map_draw(a, i, n, a->m.map_rgb[0] );
-            else if (a->m.map_tab[i][n] == '2')
-                map_draw(a, i, n, a->m.map_rgb[2] );
-            else if (ft_isstr(a->m.map_tab[i][n], "NSWE"))
-                map_draw(a, i, n, a->m.map_rgb[3] );
+            if (a->m.map_tab[y][x] == '1')
+                map_draw_img(a, x, y, map_color("139,69,19") );
+            else if (a->m.map_tab[y][x] == '0')
+                map_draw_img(a, x, y, map_color("0,0,0"));
+            else if (a->m.map_tab[y][x] == '2')
+                map_draw_img(a, x, y, map_color("0,0,0"));
+			else if (x == a->r.mapX && y == a->r.mapY)
+                map_draw_img(a, x, y, map_color("255,255,255"));
             else
-                map_draw(a, i, n, a->m.map_rgb[4] );
+                map_draw_img(a, x, y, map_color("0,0,0"));
         }
-        n = -1;
+        x = -1;
     }
 }
