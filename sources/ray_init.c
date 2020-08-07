@@ -53,7 +53,7 @@ void    ray_dda(all_t *a)
           a->r.mapY = a->r.mapY + a->r.stepY;
           a->r.side = 1;
         }
-        if (a->m.map_tab[a->r.mapX][a->r.mapY] > '0')
+        if (a->m.map_tab[a->r.mapX][a->r.mapY] == '1')
             a->r.hit = 1;
     }
 }
@@ -91,7 +91,7 @@ void    ray_launch(all_t *a)
         ray_step(a);
         ray_dda(a);
         ray_wall(a);
-        verline(x, a);
+        ray_line(x, a);
         x++;
     }
     mlx_put_image_to_window(a->w.mlx, a->w.win, a->f.img_ptr, 0, 0);

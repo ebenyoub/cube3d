@@ -85,9 +85,8 @@ void    map_data(char *line, all_t *a)
     {
         while (ft_isdigit(line[i]))
             a->m.width = a->m.width * 10 + (line[i++] - 48);
-        i++;
-        while (ft_isdigit(line[i]))
-            a->m.height = a->m.height * 10 + (line[i++] - 48);
+        while (ft_isdigit(line[++i]))
+            a->m.height = a->m.height * 10 + (line[i] - 48);
     }
     if (line[0] == 'N')
         a->m.no = ft_strdup(line + 3);
@@ -113,17 +112,12 @@ void    map_read(all_t *a)
 
     ret = 1;
 	fd = open(a->m.name, O_RDONLY);
-    fprintf(stderr, "fd = %d\n", fd);
     while (ret > 0)
     {
         ret = get_next_line(fd, &line);
 		map_data(line, a);
         map_save(line, a);
     }
-    if (!(a->m.map_tab = ft_split(a->m.map, '|')))
-        fprintf(stderr, "Erreur split");
-    int i = -1;
-    while (a->m.map_tab[++i])
-        fprintf(stderr, "%d | %s\n", i, a->m.map_tab[i]);
+    a->m.map_tab = ft_split(a->m.map, '|');
 	close(fd);
 }

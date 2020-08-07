@@ -37,7 +37,7 @@ typedef	struct 		map_s
 	int				map_h;
 	int				map_w;
 	void			*img_map_ptr;
-	int				*img_map_data;
+	int				*img_map_to_img;
 	int				map_bpp;
 	int				map_size_line;
 	int				map_endian;
@@ -94,6 +94,7 @@ typedef struct		key_s
 	int				q;
 	int				d;
 	int				m;
+	int				l;
 	int				al;
 	int				ar;
 	int				esc;
@@ -109,24 +110,18 @@ typedef	struct		all_s
 }					all_t;
 
 
+int    	cub_fault(int argc);
+
 void	map_draw(all_t *a, int i, int n, int colo);
-void    map_save(char *line, all_t *a);
-void    map_data(char *line, all_t *a);
 void    map_read(all_t *a);
-void    map_show(all_t *a);
+void    map_to_img(all_t *a);
+int     map_color(char *str);
 
 void    init_all(all_t *a);
 void    init_win(all_t *a);
-void    init_win_map(all_t *a);
-
-
-int    	error_display(int argc);
-int     map_color(char *str);
 
 void    ray_launch(all_t *a);
-void    verline(int x, all_t *a);
+void    ray_line(int x, all_t *a);
 
-int	    read_key(all_t *a);
-int		hold_key(int key, all_t *a);
-int		release_key(int key, all_t *a);
-int		ft_close(all_t *a);
+int	    key_read(all_t *a);
+int		key_close(all_t *a);

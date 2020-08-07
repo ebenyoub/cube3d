@@ -21,6 +21,8 @@ void    init_map(all_t *a)
     a->m.map_count = 0;
     a->m.map = ft_strdup("");
     a->m.w = map_color("52,149,255");
+    a->f.moveSpeed = 0.04;
+    a->f.rotSpeed = 0.08;
 }
 
 void    init_ray(all_t *a)
@@ -44,15 +46,8 @@ void    init_ray(all_t *a)
     a->r.drawStart = 0;
 }
 
-void    init_fps(all_t *a)
-{
-    a->f.moveSpeed = 0.08;
-    a->f.rotSpeed = 0.08;
-}
-
 void    init_all(all_t *a)
 {
     init_map(a);
     init_ray(a);
-    init_fps(a);
 }

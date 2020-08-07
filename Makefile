@@ -11,14 +11,13 @@ INC_DIR		=	./includes/
 
 SRCS		=	cub_main.c
 SRCS		+=	cub_gnl.c
-SRCS		+=	cub_mlx.c
 SRCS		+=	cub_error.c
 SRCS		+=	cub_init.c
 SRCS		+=	map_fill.c
 SRCS		+=	map_color.c
 SRCS		+=	map_draw.c
 SRCS		+=	ray_init.c
-SRCS		+=	ray_move.c
+SRCS		+=	ray_shift.c
 
 OBJ			=	$(addprefix $(OBJ_DIR),$(SRCS:.c=.o))
 

@@ -1,6 +1,6 @@
 #include "../includes/cub3d.h"
 
-void    verline(int x, all_t *a)
+void    ray_line(int x, all_t *a)
 {
 	int y = 0;
 	while (y < a->m.height)
@@ -26,7 +26,7 @@ void	map_draw_img(all_t *z, int i, int n, int colo)
 	{
 		while (a < 20)
 		{
-			z->m.img_map_data[(x + a) + (y + b) * (z->m.map_w * 20)] = colo;
+			z->m.img_map_to_img[(x + a) + (y + b) * (z->m.map_w * 20)] = colo;
 			a++;
 		}
 		a = 0;
@@ -34,7 +34,7 @@ void	map_draw_img(all_t *z, int i, int n, int colo)
 	}
 }
 
-void    map_show(all_t *a)
+void    map_to_img(all_t *a)
 {
     int x;
     int y;
