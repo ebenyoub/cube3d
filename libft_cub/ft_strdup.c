@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   main.c                                           .::    .:/ .      .::   */
+/*   ft_strdup.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: lnieto <marvin@le-101.fr>                  +:+   +:    +:    +:+     */
+/*   By: ebenyoub <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/11/14 14:01:54 by lnieto       #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/16 11:13:39 by lnieto      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/14 19:43:04 by ebenyoub     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/14 20:06:09 by ebenyoub    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "mlx.h"
 #include "libft_cub.h"
 
-int		main()
+char	*ft_strdup(const char *s1)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		y;
-	int		x;
-	int		color;
+	char	*cpy;
+	int		len;
+	int		i;
 
-	x = 0;
-	y = 0;
-	ft_putstr("ok");
-	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 500, 500, "FdF test");
-	while (y <= 15)
-	{
-		x = 0;
-		while (x < 15)
-			mlx_pixel_put(mlx_ptr, win_ptr, x++, y, 0xcd);
-		y++;
-	}
-	mlx_loop(mlx_ptr);
-	return (0);
+	i = 0;
+	len = ft_strlen(s1) + 1;
+	cpy = malloc(sizeof(char) * len);
+	if (cpy == NULL)
+		return (NULL);
+	ft_strcpy(cpy, s1);
+	return (cpy);
 }

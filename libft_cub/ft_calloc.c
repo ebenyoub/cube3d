@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   main.c                                           .::    .:/ .      .::   */
+/*   ft_calloc.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: lnieto <marvin@le-101.fr>                  +:+   +:    +:    +:+     */
+/*   By: ebenyoub <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/11/14 14:01:54 by lnieto       #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/16 11:13:39 by lnieto      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/14 18:24:50 by ebenyoub     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/14 19:42:27 by ebenyoub    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "mlx.h"
 #include "libft_cub.h"
 
-int		main()
+void	*ft_calloc(size_t count, size_t size)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		y;
-	int		x;
-	int		color;
+	unsigned long	len;
+	int				*area;
 
-	x = 0;
-	y = 0;
-	ft_putstr("ok");
-	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 500, 500, "FdF test");
-	while (y <= 15)
-	{
-		x = 0;
-		while (x < 15)
-			mlx_pixel_put(mlx_ptr, win_ptr, x++, y, 0xcd);
-		y++;
-	}
-	mlx_loop(mlx_ptr);
-	return (0);
+	len = size * count;
+	if (!(area = malloc(len)))
+		return (NULL);
+	return (ft_memset(area, '\0', len));
 }

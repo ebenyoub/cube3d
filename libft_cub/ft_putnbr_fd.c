@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   main.c                                           .::    .:/ .      .::   */
+/*   ft_putnbr_fd.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: lnieto <marvin@le-101.fr>                  +:+   +:    +:    +:+     */
+/*   By: ebenyoub <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/11/14 14:01:54 by lnieto       #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/16 11:13:39 by lnieto      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/24 17:05:21 by ebenyoub     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/24 17:05:27 by ebenyoub    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "mlx.h"
 #include "libft_cub.h"
 
-int		main()
+void	ft_putnbr_fd(int n, int fd)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		y;
-	int		x;
-	int		color;
-
-	x = 0;
-	y = 0;
-	ft_putstr("ok");
-	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 500, 500, "FdF test");
-	while (y <= 15)
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	if (n != -2147483648)
 	{
-		x = 0;
-		while (x < 15)
-			mlx_pixel_put(mlx_ptr, win_ptr, x++, y, 0xcd);
-		y++;
+		if (n < 0)
+		{
+			ft_putchar_fd('-', fd);
+			n = -n;
+		}
+		if (n < 10)
+			ft_putchar_fd(n + 48, fd);
+		if (n >= 10)
+		{
+			ft_putnbr_fd(n / 10, fd);
+			ft_putnbr_fd(n % 10, fd);
+		}
 	}
-	mlx_loop(mlx_ptr);
-	return (0);
 }

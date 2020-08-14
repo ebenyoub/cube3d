@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   main.c                                           .::    .:/ .      .::   */
+/*   ft_strmapi.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: lnieto <marvin@le-101.fr>                  +:+   +:    +:    +:+     */
+/*   By: ebenyoub <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/11/14 14:01:54 by lnieto       #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/16 11:13:39 by lnieto      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/23 17:41:07 by ebenyoub     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/23 17:41:10 by ebenyoub    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "mlx.h"
 #include "libft_cub.h"
 
-int		main()
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		y;
-	int		x;
-	int		color;
+	char	*str;
+	int		i;
 
-	x = 0;
-	y = 0;
-	ft_putstr("ok");
-	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 500, 500, "FdF test");
-	while (y <= 15)
+	i = 0;
+	if (!s || !f)
+		return (NULL);
+	str = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (str == NULL)
+		return (NULL);
+	while (s[i])
 	{
-		x = 0;
-		while (x < 15)
-			mlx_pixel_put(mlx_ptr, win_ptr, x++, y, 0xcd);
-		y++;
+		str[i] = f(i, s[i]);
+		++i;
 	}
-	mlx_loop(mlx_ptr);
-	return (0);
+	str[i] = '\0';
+	return (str);
 }

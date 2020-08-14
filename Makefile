@@ -23,7 +23,7 @@ OBJ			=	$(addprefix $(OBJ_DIR),$(SRCS:.c=.o))
 
 INC			=	$(addprefix -I,$(INC_DIR))
 
-LIBFT		=	libft/libft.a
+libft_cub		=	libft_cub/libft_cub.a
 
 RM			=	/bin/rm -f
 RM_DIR		=	/bin/rm -rf
@@ -36,24 +36,24 @@ all:
 	mkdir -p $(OBJ_DIR)
 	$(MAKE) $(NAME) --no-print-directory
 
-make_libft:
-	make -C libft/
-	make bonus -C libft/
+make_libft_cub:
+	make -C libft_cub/
+	make bonus -C libft_cub/
 
 make_mlx:
 	make -C minilibx_macos/
 
-$(NAME): $(OBJ) $(INC_DIR) make_libft make_mlx
-	$(CC) $(CFLAGS) $(OBJ) -I ./minilibx_macos/mlx.h ./minilibx_macos/libmlx.a ./libft/libft.a -framework OpenGL -framework AppKit -I ./libft/includes $(INC) -o $(NAME)
+$(NAME): $(OBJ) $(INC_DIR) make_libft_cub make_mlx
+	$(CC) $(CFLAGS) $(OBJ) -I ./minilibx_macos/mlx.h ./minilibx_macos/libmlx.a ./libft_cub/libft_cub.a -framework OpenGL -framework AppKit -I ./libft_cub/includes $(INC) -o $(NAME)
 	
 clean:
 	$(RM_DIR) $(OBJ_DIR)
-	$(MAKE) clean -C libft/
+	$(MAKE) clean -C libft_cub/
 	$(MAKE) clean -C minilibx_macos/
 
 fclean: clean
 	$(RM_DIR) $(NAME) a.out cub3d.dSYM a.out.dSYM
-	$(MAKE) fclean -C libft/
+	$(MAKE) fclean -C libft_cub/
 
 fclean_wolf: clean
 	$(RM_DIR) $(NAME) a.out cub3d.dSYM a.out.dSYM
@@ -67,4 +67,4 @@ bin: re clean
 
 .SILENT: make_mlx
 #.PRECIOUS:
-.PHONY: all clean fclean re bin make_libft
+.PHONY: all clean fclean re bin make_libft_cub

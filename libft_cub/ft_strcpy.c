@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   main.c                                           .::    .:/ .      .::   */
+/*   ft_strcpy.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: lnieto <marvin@le-101.fr>                  +:+   +:    +:    +:+     */
+/*   By: ebenyoub <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/11/14 14:01:54 by lnieto       #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/16 11:13:39 by lnieto      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/18 00:13:56 by ebenyoub     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/18 00:14:06 by ebenyoub    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "mlx.h"
 #include "libft_cub.h"
 
-int		main()
+char	*ft_strcpy(char *dest, const char *src)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		y;
-	int		x;
-	int		color;
+	int i;
 
-	x = 0;
-	y = 0;
-	ft_putstr("ok");
-	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 500, 500, "FdF test");
-	while (y <= 15)
+	i = 0;
+	while (src[i])
 	{
-		x = 0;
-		while (x < 15)
-			mlx_pixel_put(mlx_ptr, win_ptr, x++, y, 0xcd);
-		y++;
+		dest[i] = src[i];
+		i++;
 	}
-	mlx_loop(mlx_ptr);
-	return (0);
+	dest[i] = '\0';
+	return (dest);
 }

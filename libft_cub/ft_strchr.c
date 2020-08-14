@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   main.c                                           .::    .:/ .      .::   */
+/*   ft_strchr.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: lnieto <marvin@le-101.fr>                  +:+   +:    +:    +:+     */
+/*   By: elyasbenyoub <elyasbenyoub@student.le-1    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/11/14 14:01:54 by lnieto       #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/16 11:13:39 by lnieto      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/08 13:08:00 by ebenyoub     #+#   ##    ##    #+#       */
+/*   Updated: 2020/06/17 12:58:38 by elyasbenyou ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "mlx.h"
 #include "libft_cub.h"
 
-int		main()
+char	*ft_strchr(const char *s, int c)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		y;
-	int		x;
-	int		color;
+	int i;
 
-	x = 0;
-	y = 0;
-	ft_putstr("ok");
-	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 500, 500, "FdF test");
-	while (y <= 15)
-	{
-		x = 0;
-		while (x < 15)
-			mlx_pixel_put(mlx_ptr, win_ptr, x++, y, 0xcd);
-		y++;
-	}
-	mlx_loop(mlx_ptr);
+	i = 0;
+	while (s[i] != (unsigned char)c)
+		if (!s[i])
+			return (0);
+		else
+			i++;
+	return ((char *)s + i);
+}
+
+int		ft_strchr_gnl(char *s)
+{
+	int		i;
+
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i] && (s[i] != '\n'))
+		i++;
+	if (s[i] == '\n')
+		return (1);
 	return (0);
 }
