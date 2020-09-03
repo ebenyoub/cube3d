@@ -1,15 +1,15 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   ft_isdigit.c                                     .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: elyasbenyoub <elyasbenyoub@student.le-1    +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/07 14:31:59 by ebenyoub     #+#   ##    ##    #+#       */
-/*   Updated: 2020/06/17 12:55:13 by elyasbenyou ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: elyasbenyoub <elyasbenyoub@student.42.f    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/07 14:31:59 by ebenyoub          #+#    #+#             */
+/*   Updated: 2020/09/03 17:08:15 by elyasbenyou      ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
+
 
 #include "libft_cub.h"
 
@@ -20,9 +20,9 @@ int		ft_isdigit(int c)
 	return (0);
 }
 
-int		ft_isstr(char c, char * str)
+int		ft_isstr(char c, char *str)
 {
-	int i;
+	int		i;
 
 	i = -1;
 	while (str[++i])

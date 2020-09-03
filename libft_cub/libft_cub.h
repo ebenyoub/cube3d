@@ -1,18 +1,18 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   libft_cub.h                                          .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: elyasbenyoub <elyasbenyoub@student.le-1    +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/14 21:04:28 by ebenyoub     #+#   ##    ##    #+#       */
-/*   Updated: 2020/06/17 12:58:57 by elyasbenyou ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft_cub_cub.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: elyasbenyoub <elyasbenyoub@student.42.f    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/14 21:04:28 by ebenyoub          #+#    #+#             */
+/*   Updated: 2020/09/03 17:02:56 by elyasbenyou      ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
-#ifndef libft_cub_H
-# define libft_cub_H
+
+#ifndef LIBFT_CUB_H
+# define LIBFT_CUB_H
 
 # include <string.h>
 # include <stdlib.h>
@@ -68,7 +68,7 @@ size_t				ft_strlcat(char *dst, const char *src, size_t size);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					ft_atoi(const char *str);
-int					ft_isstr(char c, char * str);
+int					ft_isstr(char c, char *str);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
