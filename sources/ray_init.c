@@ -73,10 +73,6 @@ void    ray_wall(all_t *a)
     a->r.drawEnd = a->r.lineHeight / 2 + a->m.height / 2;
     if (a->r.drawEnd >= a->m.height)
         a->r.drawEnd = a->m.height - 1;
-    if(a->r.side == 1) 
-        a->m.w = map_color("255,59,1");
-    else
-        a->m.w = map_color("52,149,255");
 }
 
 void    ray_launch(all_t *a)

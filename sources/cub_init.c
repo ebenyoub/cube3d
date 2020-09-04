@@ -44,6 +44,7 @@ void    init_ray(all_t *a)
     a->r.deltaDistY = 0;
     a->r.drawEnd = 0;
     a->r.drawStart = 0;
+    a->r.side = 0;
 }
 
 void    init_all(all_t *a)

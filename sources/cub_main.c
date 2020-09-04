@@ -61,8 +61,8 @@ int		main(int argc, char **argv)
 	a.m.name = argv[1];
 	init_all(&a);
 	map_read(&a);
-    tex_load(&a);
     init_win(&a);
+    tex_load(&a);
 	ray_launch(&a);
 	mlx_hook(a.w.win, 2, 0, key_hold, &a);
 	mlx_hook(a.w.win, 3, 0, key_release, &a);

@@ -11,6 +11,17 @@
 
 # define BUFFER_SIZE 1
 
+typedef struct		img_s
+{
+	void			*img_ptr;
+	int				*img_data;
+	int				bpp;
+	int				size_line;
+	int				endian;
+	int				texWidth;
+	int				texHeight;
+}					img_t;
+
 typedef struct		win_s
 {
 	void			*mlx;
@@ -80,14 +91,6 @@ typedef	struct		fps_s
 	double			oldPlanX;
 }					fps_t;
 
-typedef struct		img_s
-{
-	void			*img_ptr;
-	int				*img_data;
-	int				bpp;
-	int				size_line;
-	int				endian;
-}					img_t;
 
 typedef struct		tex_s
 {
@@ -95,8 +98,6 @@ typedef struct		tex_s
 	double			wallX;
 	int				texX;
 	int				texY;
-	int				texWidth;
-	int				texHeight;
 	double			step;
 	double			texPos;
 

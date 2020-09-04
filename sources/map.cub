@@ -1,16 +1,15 @@
 R 640 480
-NO ../bricks/bricks_red.xpm
-SO ../bricks/bricks_grey.xpm
-WE ../bricks/bricks_white.xpm
-EA ../bricks/bricks_red.xpm
+NO ./fake_sky.xpm
+SO ./bricks/bricks_grey.xpm
+WE ./bricks/bricks_white.xpm
+EA ./bricks/bricks_red.xpm
 
 S ./path_to_the_sprite_texture
 F 220,100,0
 C 225,30,0
 
-11111111111
-11100300001
-11030020201
-1100E000001
-10000200001
-11111111111
+11111
+100S1
+11101
+10001
+11111
