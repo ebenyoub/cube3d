@@ -18,6 +18,7 @@ SRCS		+=	map_color.c
 SRCS		+=	map_draw.c
 SRCS		+=	ray_init.c
 SRCS		+=	ray_shift.c
+SRCS		+=	tex_init.c
 
 OBJ			=	$(addprefix $(OBJ_DIR),$(SRCS:.c=.o))
 

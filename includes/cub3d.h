@@ -15,8 +15,6 @@ typedef struct		win_s
 {
 	void			*mlx;
 	void			*win;
-	void			*mlx_map;
-	void			*win_map;
 }					win_t;
 
 typedef	struct 		map_s
@@ -80,12 +78,29 @@ typedef	struct		fps_s
 	double			rotSpeed;
 	double			oldDirX;
 	double			oldPlanX;
+}					fps_t;
+
+typedef struct		img_s
+{
 	void			*img_ptr;
 	int				*img_data;
 	int				bpp;
 	int				size_line;
 	int				endian;
-}					fps_t;
+}					img_t;
+
+typedef struct		tex_s
+{
+	int				texNum;
+	double			wallX;
+	int				texX;
+	int				texY;
+	int				texWidth;
+	int				texHeight;
+	double			step;
+	double			texPos;
+
+}					tex_t;
 
 typedef struct		key_s
 {
@@ -107,6 +122,8 @@ typedef	struct		all_s
 	ray_t			r;
 	fps_t			f;
 	key_t			k;
+	tex_t			t;
+	img_t			i[5];
 }					all_t;
 
 
@@ -125,3 +142,6 @@ void    ray_line(int x, all_t *a);
 
 int	    key_read(all_t *a);
 int		key_close(all_t *a);
+
+void    tex_load(all_t *a);
+void    tex_clac(int x, all_t *a);

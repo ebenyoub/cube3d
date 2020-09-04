@@ -94,5 +94,5 @@ void    ray_launch(all_t *a)
         ray_line(x, a);
         x++;
     }
-    mlx_put_image_to_window(a->w.mlx, a->w.win, a->f.img_ptr, 0, 0);
+    mlx_put_image_to_window(a->w.mlx, a->w.win, a->i[0].img_ptr, 0, 0);
 }

@@ -6,11 +6,11 @@ void    ray_line(int x, all_t *a)
 	while (y < a->m.height)
 	{
 		if (y < a->r.drawStart)
-			a->f.img_data[x + y * a->m.width] = a->m.c;
+			a->i[0].img_data[x + y * a->m.width] = a->m.c;
 		if (y >= a->r.drawStart && y <= a->r.drawEnd)
-			a->f.img_data[x + y * a->m.width] = a->m.w;
+			tex_clac(x, a);
 		if (y > a->r.drawEnd)
-			a->f.img_data[x + y * a->m.width] = a->m.f;
+			a->i[0].img_data[x + y * a->m.width] = a->m.f;
 		y++;
 	}
 }

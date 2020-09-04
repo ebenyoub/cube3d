@@ -4,8 +4,8 @@ void    init_win(all_t *a)
 {
     a->w.mlx = mlx_init();
 	a->w.win = mlx_new_window(a->w.mlx, a->m.width, a->m.height, "cub3d");
-    a->f.img_ptr = mlx_new_image(a->w.mlx, a->m.width, a->m.height);
-    a->f.img_data = (int *)mlx_get_data_addr(a->f.img_ptr, &a->f.bpp, &a->f.size_line, &a->f.endian);
+    a->i[0].img_ptr = mlx_new_image(a->w.mlx, a->m.width, a->m.height);
+    a->i[0].img_data = (int *)mlx_get_data_addr(a->i[0].img_ptr, &a->i[0].bpp, &a->i[0].size_line, &a->i[0].endian);
 }
 
 void    init_map(all_t *a)
