@@ -2,11 +2,8 @@
 
 void    tex_load(all_t *a)
 {
-    fprintf(stderr, "tex_load\n");
-    if (!(a->i[1].img_ptr = mlx_xpm_file_to_image(a->w.mlx, a->m.so, &a->i[1].texWidth, &a->i[1].texHeight)))
-        fprintf(stderr, "NULL\n");
-    if (!(a->i[1].img_data = (int *)mlx_get_data_addr(a->i[1].img_ptr, &a->i[1].bpp, &a->i[1].size_line, &a->i[1].endian)))
-        fprintf(stderr, "NULL2\n");
+    a->i[1].img_ptr = mlx_xpm_file_to_image(a->w.mlx, a->m.so, &a->i[1].texWidth, &a->i[1].texHeight);
+    a->i[1].img_data = (int *)mlx_get_data_addr(a->i[1].img_ptr, &a->i[1].bpp, &a->i[1].size_line, &a->i[1].endian);
     a->i[2].img_ptr = mlx_xpm_file_to_image(a->w.mlx, a->m.so, &a->i[2].texWidth, &a->i[1].texHeight);
     a->i[2].img_data = (int *)mlx_get_data_addr(a->i[2].img_ptr, &a->i[2].bpp, &a->i[2].size_line, &a->i[2].endian);
     a->i[3].img_ptr = mlx_xpm_file_to_image(a->w.mlx, a->m.we, &a->i[3].texWidth, &a->i[3].texHeight);
@@ -40,4 +37,17 @@ void    tex_clac(int x, all_t *a)
             a->m.w = (a->m.w >> 1) & 8355711;
         a->i[0].img_data[x + y * a->m.width] = a->m.w;
     }
+	    if (a->r.side == 0)
+	    	a->t.wallX = a->r.posy + a->r.perpwalldist * a->r.raydiry;
+	    else
+	    	a->t.wallX = a->r.posx + a->r.perpwalldist * a->r.raydirx;
+	    a->t.wallX -= floor((a->t.wallX));
+	    m->tex.texx = (int)(a->t.wallX * m->tex.texheight);
+	    if (a->r.side == 0 && a->r.raydirx > 0)
+	    	m->tex.texx = m->tex.texwidth - m->tex.texx - 1;
+	    if (a->r.side == 1 && a->r.raydiry < 0)
+	    	m->tex.texx = m->tex.texwidth - m->tex.texx - 1;
+	    m->tex.step = 1.0 * m->tex.texheight / a->r.lineheight;
+	    m->tex.texpos = (a->r.drawstart - m->el.res_y / 2 + a->r.lineheight / 2)
+	    	* m->tex.step;
 }
