@@ -1,8 +1,8 @@
 R 640 480
-NO ./fake_sky.xpm
-SO ./bricks/bricks_grey.xpm
-WE ./bricks/bricks_white.xpm
-EA ./bricks/bricks_red.xpm
+NO ./bricks/bricks_red.xpm
+SO ./bricks/shield_gold.xpm
+WE ./bricks/shield_grey.xpm
+EA ./bricks/shield_white.xpm
 
 S ./path_to_the_sprite_texture
 F 220,100,0

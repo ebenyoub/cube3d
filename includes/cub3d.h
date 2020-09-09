@@ -85,6 +85,8 @@ typedef struct		tex_s
 	int				texNum;
 	int				texX;
 	int				texY;
+	int				tmp_x;
+	int				tmp_y;
 }					tex_t;
 
 typedef struct		img_s
@@ -118,14 +120,14 @@ typedef	struct		all_s
 	ray_t			r;
 	fps_t			f;
 	tex_t			t;
-	img_t			i[5];
+	img_t			i[6];
 	key_t			k;
 }					all_t;
 
 
 int    	cub_fault(int argc);
 
-void	map_draw(all_t *a, int i, int n, int colo);
+void	map_draw(all_t *a, int i, int n, int color);
 void    map_read(all_t *a);
 void    map_to_img(all_t *a);
 int     map_color(char *str);
@@ -139,4 +141,4 @@ void    ray_line(int x, all_t *a);
 int	    key_read(all_t *a);
 int		key_close(all_t *a);
 
-void    tex_calc(int x, all_t *a);
+void    tex_wall(all_t *a);

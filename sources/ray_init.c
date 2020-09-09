@@ -74,6 +74,7 @@ void    ray_wall(all_t *a)
     a->r.drawEnd = a->r.lineHeight / 2 + a->m.height / 2;
     if (a->r.drawEnd >= a->m.height)
         a->r.drawEnd = a->m.height - 1;
+    tex_wall(a);
 }
 
 int   ray_launch(all_t *a)

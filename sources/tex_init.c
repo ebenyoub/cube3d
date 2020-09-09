@@ -1,10 +1,7 @@
 #include "../includes/cub3d.h"
 
-void    tex_calc(int x, all_t *a)
+void    tex_wall(all_t *a)
 {
-    int     y;
-
-    y = a->r.drawStart - 1;
     if (a->r.side == 1)
         a->t.texNum = a->r.rDirY < 0 ? 3 : 4;
     else
@@ -21,10 +18,4 @@ void    tex_calc(int x, all_t *a)
         a->t.texX = a->i[a->t.texNum].texWidth - a->t.texX - 1;
     if(a->r.side == 1 && a->r.rDirY > 0)
         a->t.texX = a->i[a->t.texNum].texWidth - a->t.texX - 1;
-    while (++y < a->r.drawEnd)
-    {
-        a->t.texY = ((y - a->m.height * 0.5 + a->r.lineHeight * 0.5) * a->i[a->t.texNum].texHeight - 1) / a->r.lineHeight;
-        a->m.w = a->i[a->t.texNum].img_data[a->i[a->t.texNum].texWidth * a->t.texY + a->t.texX];
-        a->i[0].img_data[x + y * a->m.width] = a->m.w;
-    }
 }

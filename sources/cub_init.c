@@ -8,12 +8,19 @@ void    init_win(all_t *a)
     a->w.mlx = mlx_init();
 	a->w.win = mlx_new_window(a->w.mlx, a->m.width, a->m.height, "cub3d");
     a->i[0].img_ptr = mlx_new_image(a->w.mlx, a->m.width, a->m.height);
-    a->i[0].img_data = (int *)mlx_get_data_addr(a->i[0].img_ptr, &a->i[0].bpp, &a->i[0].size_line, &a->i[0].endian);
+    a->i[0].img_data = (int *)mlx_get_data_addr
+        (a->i[0].img_ptr, &a->i[0].bpp, &a->i[0].size_line, &a->i[0].endian);
     while (++o < 5)
     {
-        a->i[o].img_ptr = mlx_xpm_file_to_image(a->w.mlx, a->m.axe[o - 1], &a->i[o].texWidth, &a->i[o].texHeight);
-        a->i[o].img_data = (int *)mlx_get_data_addr(a->i[o].img_ptr, &a->i[o].bpp, &a->i[o].size_line, &a->i[o].endian);
+        a->i[o].img_ptr = mlx_xpm_file_to_image
+            (a->w.mlx, a->m.axe[o - 1], &a->i[o].texWidth, &a->i[o].texHeight);
+        a->i[o].img_data = (int *)mlx_get_data_addr
+            (a->i[o].img_ptr, &a->i[o].bpp, &a->i[o].size_line, &a->i[o].endian);
     }
+    a->i[5].img_ptr = mlx_xpm_file_to_image
+        (a->w.mlx, "./voltorb.xpm", &a->i[5].texWidth, &a->i[5].texHeight);
+    a->i[5].img_data = (int *)mlx_get_data_addr
+        (a->i[5].img_ptr, &a->i[5].bpp, &a->i[5].size_line, &a->i[5].endian);
 }
 
 void    init_map(all_t *a)
@@ -25,6 +32,8 @@ void    init_map(all_t *a)
     a->m.height = 0;
     a->m.map_h = 0;
     a->m.map_w = 0;
+    a->t.tmp_x = 0;
+    a->t.tmp_y = 0;
     a->m.map_tab = NULL;
     a->m.map_count = 0;
     a->m.map = ft_strdup("");
@@ -34,10 +43,12 @@ void    init_map(all_t *a)
     a->i[2].texWidth = 510;
     a->i[3].texWidth = 510;
     a->i[4].texWidth = 510;
+    a->i[5].texWidth = 28;
     a->i[1].texHeight = 640;
     a->i[2].texHeight = 785;
     a->i[3].texHeight = 785;
     a->i[4].texHeight = 785;
+    a->i[5].texHeight = 28;
 }
 
 void    init_ray(all_t *a)
