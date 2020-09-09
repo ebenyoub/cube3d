@@ -81,7 +81,6 @@ int   ray_launch(all_t *a)
     int x;
     
     x = 0;
-    key_read(a);
     while (x < a->m.width)
     {
         ray_pos(x, a);

@@ -85,7 +85,6 @@ void    key_window(all_t *a)
     	a->m.img_map_to_img = (int *)mlx_get_data_addr(a->m.img_map_ptr,\
 			&a->m.map_bpp, &a->m.map_size_line, &a->m.map_endian);
     	map_to_img(a);
-        ray_launch(a);
     	mlx_put_image_to_window(a->w.mlx, a->w.win, a->m.img_map_ptr, 0, 0);
         free(a->m.img_map_to_img);
 	}
@@ -97,5 +96,6 @@ int     key_read(all_t *a)
     key_horizontal(a);
     key_rotation(a);
     key_window(a);
+    ray_launch(a);
     return (0);
 }
