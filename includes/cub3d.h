@@ -11,17 +11,6 @@
 
 # define BUFFER_SIZE 1
 
-typedef struct		img_s
-{
-	void			*img_ptr;
-	int				*img_data;
-	int				bpp;
-	int				size_line;
-	int				endian;
-	int				texWidth;
-	int				texHeight;
-}					img_t;
-
 typedef struct		win_s
 {
 	void			*mlx;
@@ -36,10 +25,7 @@ typedef	struct 		map_s
 	char			*sprite;
 	char			*name;
 	char			*map;
-	char			*no;
-	char			*so;
-	char			*we;
-	char			*ea;
+	char			*axe[4];
 	int				map_count;
 	int				height;
 	int				width;
@@ -91,17 +77,26 @@ typedef	struct		fps_s
 	double			oldPlanX;
 }					fps_t;
 
-
 typedef struct		tex_s
 {
-	int				texNum;
 	double			wallX;
-	int				texX;
-	int				texY;
 	double			step;
 	double			texPos;
-
+	int				texNum;
+	int				texX;
+	int				texY;
 }					tex_t;
+
+typedef struct		img_s
+{
+	void			*img_ptr;
+	int				*img_data;
+	int				bpp;
+	int				size_line;
+	int				endian;
+	int				texWidth;
+	int				texHeight;
+}					img_t;
 
 typedef struct		key_s
 {
@@ -122,9 +117,9 @@ typedef	struct		all_s
 	map_t			m;
 	ray_t			r;
 	fps_t			f;
-	key_t			k;
 	tex_t			t;
 	img_t			i[5];
+	key_t			k;
 }					all_t;
 
 
@@ -138,11 +133,10 @@ int     map_color(char *str);
 void    init_all(all_t *a);
 void    init_win(all_t *a);
 
-void    ray_launch(all_t *a);
+int	    ray_launch(all_t *a);
 void    ray_line(int x, all_t *a);
 
 int	    key_read(all_t *a);
 int		key_close(all_t *a);
 
-void    tex_load(all_t *a);
-void    tex_clac(int x, all_t *a);
+void    tex_calc(int x, all_t *a);

@@ -39,6 +39,7 @@ void    ray_pos(int x, all_t *a)
 
 void    ray_dda(all_t *a)
 {
+    a->r.hit = 0;
     while (a->r.hit == 0)
     {
         if(a->r.sideDistX < a->r.sideDistY)
@@ -75,14 +76,14 @@ void    ray_wall(all_t *a)
         a->r.drawEnd = a->m.height - 1;
 }
 
-void    ray_launch(all_t *a)
+int   ray_launch(all_t *a)
 {
     int x;
     
     x = 0;
+    key_read(a);
     while (x < a->m.width)
     {
-        a->r.hit = 0;
         ray_pos(x, a);
         ray_step(a);
         ray_dda(a);
@@ -91,4 +92,5 @@ void    ray_launch(all_t *a)
         x++;
     }
     mlx_put_image_to_window(a->w.mlx, a->w.win, a->i[0].img_ptr, 0, 0);
+    return (0);
 }

@@ -89,13 +89,13 @@ void    map_data(char *line, all_t *a)
             a->m.height = a->m.height * 10 + (line[i] - 48);
     }
     if (line[0] == 'N')
-        a->m.no = ft_strdup(line + 3);
+        a->m.axe[0] = ft_strdup(line + 3);
     if (line[0] == 'S' && line[1] == 'O')
-        a->m.so = ft_strdup(line + 3);
+        a->m.axe[1] = ft_strdup(line + 3);
     if (line[0] == 'W')
-        a->m.we = ft_strdup(line + 3);
+        a->m.axe[2] = ft_strdup(line + 3);
     if (line[0] == 'E')
-        a->m.ea = ft_strdup(line + 3);
+        a->m.axe[3] = ft_strdup(line + 3);
     if (line[0] == 'S')
         a->m.sprite = ft_strdup(line + 2);
     if (line[0] == 'F')

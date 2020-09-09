@@ -8,7 +8,7 @@ void    ray_line(int x, all_t *a)
 		if (y < a->r.drawStart)
 			a->i[0].img_data[x + y * a->m.width] = a->m.c;
 		if (y >= a->r.drawStart && y <= a->r.drawEnd)
-			tex_clac(x, a);
+			tex_calc(x, a);
 		if (y > a->r.drawEnd)
 			a->i[0].img_data[x + y * a->m.width] = a->m.f;
 		y++;
