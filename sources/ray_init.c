@@ -82,6 +82,7 @@ int   ray_launch(all_t *a)
     int x;
     
     x = 0;
+    a->s.zbuffer = malloc(sizeof(double) * a->m.width);
     while (x < a->m.width)
     {
         ray_pos(x, a);
@@ -89,8 +90,10 @@ int   ray_launch(all_t *a)
         ray_dda(a);
         ray_wall(a);
         ray_line(x, a);
+        a->s.zbuffer[x] = a->r.perpWallDist;
         x++;
     }
-    mlx_put_image_to_window(a->w.mlx, a->w.win, a->i[0].img_ptr, 0, 0);
+    if (a->s.spr_nbr > 0)
+        spr_data(a);
     return (0);
 }

@@ -1,0 +1,6 @@
+
+./pokemon/pikachu.xpm
+./pokemon/mew.xpm
+./pokemon/osselet.xpm
+./pokemon/papillusion.xpm
+./pokemon/rondoudou.xpm

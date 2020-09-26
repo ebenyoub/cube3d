@@ -1,16 +1,16 @@
 R 640 480
-NO ./bricks/bricks_red.xpm
-SO ./bricks/shield_gold.xpm
-WE ./bricks/shield_grey.xpm
-EA ./bricks/shield_white.xpm
+NO ./bricks/handpaintedwall2.xpm
+SO ./bricks/ESCAPE--Wild-Hunt--Team-_Old-School_-Page-3.xpm
+WE ./bricks/Hand-Painted-Textures_-Ulrick-Wery.xpm
+EA ./bricks/Archive-»-Texture-Painting.xpm
 
-S ./path_to_the_sprite_texture
-F 220,100,0
-C 225,30,0
+S ./pok.txt
+F 115,232,138
+C 115,192,232
 
-111111111
-100S00001
-110001001
-100011001
-111100001
-111111111
+111111111111111
+120S00020000021
+110001000010001
+102011002000001
+111120000000001
+111111111111111

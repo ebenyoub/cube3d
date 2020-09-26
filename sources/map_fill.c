@@ -68,6 +68,8 @@ void    map_save(char *line, all_t *a)
                 map_dir(line[i], a);
                 map_plan(line[i], a);
             }
+            if (line[i] >= '2' && line[i] <= '6')
+                a->s.spr_nbr += 1;
             i++;
         }
         a->m.map_h = a->m.map_h + 1;
@@ -96,7 +98,7 @@ void    map_data(char *line, all_t *a)
         a->m.axe[2] = ft_strdup(line + 3);
     if (line[0] == 'E')
         a->m.axe[3] = ft_strdup(line + 3);
-    if (line[0] == 'S')
+    if (line[0] == 'S' && line[1] == ' ')
         a->m.sprite = ft_strdup(line + 2);
     if (line[0] == 'F')
         a->m.f = map_color(line + 2);
@@ -119,5 +121,6 @@ void    map_read(all_t *a)
         map_save(line, a);
     }
     a->m.map_tab = ft_split(a->m.map, '|');
+    a->d = malloc(sizeof(pos_t) * a->s.spr_nbr);
 	close(fd);
 }

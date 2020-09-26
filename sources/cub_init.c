@@ -21,6 +21,10 @@ void    init_win(all_t *a)
         (a->w.mlx, "./voltorb.xpm", &a->i[5].texWidth, &a->i[5].texHeight);
     a->i[5].img_data = (int *)mlx_get_data_addr
         (a->i[5].img_ptr, &a->i[5].bpp, &a->i[5].size_line, &a->i[5].endian);
+    a->p.img_ptr = mlx_xpm_file_to_image
+        (a->w.mlx, "./pokemon/mew.xpm", &a->p.spr_width, &a->p.spr_height);
+    a->p.img_data = (int *)mlx_get_data_addr
+        (a->p.img_ptr, &a->p.bpp, &a->p.size_line, &a->p.endian);
 }
 
 void    init_map(all_t *a)
@@ -34,21 +38,24 @@ void    init_map(all_t *a)
     a->m.map_w = 0;
     a->t.tmp_x = 0;
     a->t.tmp_y = 0;
+    a->s.spr_nbr = 0;
     a->m.map_tab = NULL;
     a->m.map_count = 0;
     a->m.map = ft_strdup("");
     a->f.moveSpeed = 0.04;
     a->f.rotSpeed = 0.08;
-    a->i[1].texWidth = 640;
-    a->i[2].texWidth = 510;
-    a->i[3].texWidth = 510;
-    a->i[4].texWidth = 510;
+    a->i[1].texWidth = 1024;
+    a->i[2].texWidth = 512;
+    a->i[3].texWidth = 512;
+    a->i[4].texWidth = 512;
     a->i[5].texWidth = 28;
-    a->i[1].texHeight = 640;
-    a->i[2].texHeight = 785;
-    a->i[3].texHeight = 785;
-    a->i[4].texHeight = 785;
+    a->i[1].texHeight = 1024;
+    a->i[2].texHeight = 512;
+    a->i[3].texHeight = 512;
+    a->i[4].texHeight = 512;
     a->i[5].texHeight = 28;
+    a->p.spr_width = 120;
+    a->p.spr_height = 121;
 }
 
 void    init_ray(all_t *a)
@@ -84,6 +91,7 @@ void    init_key(all_t *a)
 	a->k.al = 0;
 	a->k.ar = 0;
 	a->k.esc = 0;
+    a->k.lock = 0;
 }
 
 void    init_all(all_t *a)

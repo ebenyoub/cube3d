@@ -19,6 +19,7 @@ SRCS		+=	map_draw.c
 SRCS		+=	ray_init.c
 SRCS		+=	ray_shift.c
 SRCS		+=	tex_init.c
+SRCS		+=	spr_calc.c
 
 OBJ			=	$(addprefix $(OBJ_DIR),$(SRCS:.c=.o))
 
@@ -44,7 +45,7 @@ make_mlx:
 	make -C minilibx_macos/
 
 $(NAME): $(OBJ) $(INC_DIR) make_libft_cub make_mlx
-	$(CC) $(CFLAGS) $(OBJ) -I ./minilibx_macos/mlx.h ./minilibx_macos/libmlx.a ./libft_cub/libft_cub.a -framework OpenGL -framework AppKit -I ./libft_cub/includes $(INC) -o $(NAME)
+	$(CC) $(CFLAGS) $(MEMFLAGS) $(OBJ) -I ./minilibx_macos/mlx.h ./minilibx_macos/libmlx.a ./libft_cub/libft_cub.a -framework OpenGL -framework AppKit -I ./libft_cub/includes $(INC) -o $(NAME)
 	
 clean:
 	$(RM_DIR) $(OBJ_DIR)

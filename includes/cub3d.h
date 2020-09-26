@@ -100,6 +100,46 @@ typedef struct		img_s
 	int				texHeight;
 }					img_t;
 
+typedef	struct		spr_s
+{
+	double			*zbuffer;
+	int				spr_nbr;
+	int				*order;
+	double			*spr_dist;
+    double          spriteX;
+    double          spriteY;
+    double          invDet;
+    double          transformX;
+    double          transformY;
+    int             spriteScreenX;
+    int             spriteHeight;
+    int             drawStartY;
+    int             drawEndY;
+    int             spriteWidth;
+    int             drawStartX;
+    int             drawEndX;
+    int             stripe;
+    int             texX;
+    int             texY;
+}                   spr_t;
+
+typedef	struct		pok_s
+{
+    void            *img_ptr;
+    int             *img_data;
+    int             bpp;
+    int             size_line;
+    int             endian;
+    int             spr_width;
+    int             spr_height;
+}					pok_t;
+
+typedef	struct		pos_s
+{
+    double          x;
+    double          y;
+}					pos_t;
+
 typedef struct		key_s
 {
 	int				z;
@@ -111,6 +151,7 @@ typedef struct		key_s
 	int				al;
 	int				ar;
 	int				esc;
+	int				lock;
 }					key_t;
 
 typedef	struct		all_s
@@ -122,6 +163,9 @@ typedef	struct		all_s
 	tex_t			t;
 	img_t			i[6];
 	key_t			k;
+	spr_t			s;
+	pok_t			p;
+	pos_t			*d;
 }					all_t;
 
 
@@ -142,3 +186,7 @@ int	    key_read(all_t *a);
 int		key_close(all_t *a);
 
 void    tex_wall(all_t *a);
+void    spr_data(all_t *a);
+void    spr_pos(all_t *a);
+void	spr_save(all_t *a);
+
