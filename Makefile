@@ -16,10 +16,12 @@ SRCS		+=	cub_init.c
 SRCS		+=	map_fill.c
 SRCS		+=	map_color.c
 SRCS		+=	map_draw.c
+SRCS		+=	key_init.c
 SRCS		+=	ray_init.c
 SRCS		+=	ray_shift.c
 SRCS		+=	tex_init.c
 SRCS		+=	spr_calc.c
+SRCS		+=	img_init.c
 
 OBJ			=	$(addprefix $(OBJ_DIR),$(SRCS:.c=.o))
 

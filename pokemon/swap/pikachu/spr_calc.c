@@ -1,7 +1,7 @@
 #include "../includes/cub3d.h"
 
-#define uDiv 3
-#define vDiv 3
+#define uDiv 2
+#define vDiv 2
 
 void    spr_swap(all_t *a)
 {
@@ -59,7 +59,7 @@ void    spr_calc_resize(int i, all_t *a)
 	a->s.invDet = 1.0 / (a->r.planX * a->r.dirY - a->r.dirX * a->r.planY);
 	a->s.transformX = a->s.invDet * (a->r.dirY * a->s.spriteX - a->r.dirX * a->s.spriteY);
 	a->s.transformY = a->s.invDet * (-(a->r.planY) * a->s.spriteX + a->r.planX * a->s.spriteY);
-	a->s.vMoveScreen = -(int)(a->i[6].texWidth / a->s.transformY);
+	a->s.vMoveScreen = (int)(a->i[6].texWidth / a->s.transformY);
 	a->s.spriteScreenX = (int)((a->m.width / 2) * (1 + a->s.transformX / a->s.transformY));
 	a->s.spriteHeight = abs((int)(a->m.height / (a->s.transformY))) / vDiv;
 	a->s.drawStartY = -a->s.spriteHeight / 2 + a->m.height / 2 + a->s.vMoveScreen;
@@ -69,30 +69,6 @@ void    spr_calc_resize(int i, all_t *a)
 	if(a->s.drawEndY >= a->m.height)
 		a->s.drawEndY = a->m.height - 1;
 	a->s.spriteWidth = abs((int)(a->m.height / (a->s.transformY))) / uDiv;
-	a->s.drawStartX = -a->s.spriteWidth / 2 + a->s.spriteScreenX;
-	if(a->s.drawStartX < 0)
-		a->s.drawStartX = 0;
-	a->s.drawEndX = a->s.spriteWidth / 2 + a->s.spriteScreenX;
-	if(a->s.drawEndX >= a->m.width)
-		a->s.drawEndX = a->m.width - 1;
-}
-
-void    spr_calc(int i, all_t *a)
-{
-	a->s.spriteX = a->d[i].x - a->r.posX;
-	a->s.spriteY = a->d[i].y - a->r.posY;
-	a->s.invDet = 1.0 / (a->r.planX * a->r.dirY - a->r.dirX * a->r.planY);
-	a->s.transformX = a->s.invDet * (a->r.dirY * a->s.spriteX - a->r.dirX * a->s.spriteY);
-	a->s.transformY = a->s.invDet * (-(a->r.planY) * a->s.spriteX + a->r.planX * a->s.spriteY);   
-	a->s.spriteScreenX = (int)((a->m.width / 2) * (1 + a->s.transformX / a->s.transformY));
-	a->s.spriteHeight = abs((int)(a->m.height / (a->s.transformY)));
-	a->s.drawStartY = -a->s.spriteHeight / 2 + a->m.height / 2;
-	if(a->s.drawStartY < 0)
-		a->s.drawStartY = 0;
-	a->s.drawEndY = a->s.spriteHeight / 2 + a->m.height / 2;
-	if(a->s.drawEndY >= a->m.height)
-		a->s.drawEndY = a->m.height - 1;
-	a->s.spriteWidth = abs((int)(a->m.height / (a->s.transformY)));
 	a->s.drawStartX = -a->s.spriteWidth / 2 + a->s.spriteScreenX;
 	if(a->s.drawStartX < 0)
 		a->s.drawStartX = 0;

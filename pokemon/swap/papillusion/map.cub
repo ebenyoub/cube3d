@@ -4,7 +4,7 @@ SO ./bricks/ground_root.xpm
 WE ./bricks/brick_grass.xpm
 EA ./bricks/wood_gate.xpm
 
-S ./pokemon/ronflex.xpm
+S ./pokemon/papillusion.xpm
 F 115,232,138
 C 115,192,232
 

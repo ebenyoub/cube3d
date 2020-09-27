@@ -28,12 +28,13 @@ void    map_player(all_t *a)
 
     b = 0;
     c = 0;
-    while (b < 28)
+    while (b < a->i[5].texHeight)
     {
         c = 0;
-        while (c < 28)
+        while (c < a->i[5].texWidth)
         {
-            a->i[0].img_data[(a->t.tmp_x + c) + (a->t.tmp_y + b) * a->m.width] =
+			if ((a->i[5].img_data[c + b * a->i[5].texWidth] & 0x00FFFFFF) != 0)
+            	a->i[0].img_data[(a->t.tmp_x + c) + (a->t.tmp_y + b) * a->m.width] =
 				a->i[5].img_data[c + b * a->i[5].texWidth];
             c++;
         }
@@ -75,10 +76,12 @@ void    map_to_img(all_t *a)
                 map_draw_img(a, x, y, map_color("125,213,42"));
 			else if (a->m.map_tab[y][x] >= '2' && a->m.map_tab[y][x] <= '6')
                 map_draw_img(a, x, y, map_color("139,69,19"));
+			else
+                map_draw_img(a, x, y, map_color("0,0,0"));
 			if (x == (int)a->r.posY && y == (int)a->r.posX)
             {
-				a->t.tmp_x = x * 20 - 4;
-				a->t.tmp_y = y * 20 - 4;
+				a->t.tmp_x = x * 20 - ((a->i[5].texWidth - 20) / 2);
+				a->t.tmp_y = y * 20 - ((a->i[5].texHeight - 20) / 2);
 				map_player(a);
 			}
         }

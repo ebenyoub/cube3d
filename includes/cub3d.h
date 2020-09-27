@@ -19,8 +19,6 @@ typedef struct		win_s
 
 typedef	struct 		map_s
 {
-	double			pos_x;
-	double			pos_y;
 	char			**map_tab;
 	char			*sprite;
 	char			*name;
@@ -111,6 +109,7 @@ typedef	struct		spr_s
     double          invDet;
     double          transformX;
     double          transformY;
+	int				vMoveScreen;
     int             spriteScreenX;
     int             spriteHeight;
     int             drawStartY;
@@ -122,17 +121,6 @@ typedef	struct		spr_s
     int             texX;
     int             texY;
 }                   spr_t;
-
-typedef	struct		pok_s
-{
-    void            *img_ptr;
-    int             *img_data;
-    int             bpp;
-    int             size_line;
-    int             endian;
-    int             spr_width;
-    int             spr_height;
-}					pok_t;
 
 typedef	struct		pos_s
 {
@@ -161,10 +149,9 @@ typedef	struct		all_s
 	ray_t			r;
 	fps_t			f;
 	tex_t			t;
-	img_t			i[6];
+	img_t			i[7];
 	key_t			k;
 	spr_t			s;
-	pok_t			p;
 	pos_t			*d;
 }					all_t;
 
@@ -184,6 +171,8 @@ void    ray_line(int x, all_t *a);
 
 int	    key_read(all_t *a);
 int		key_close(all_t *a);
+int     key_hold(int key, all_t *a);
+int     key_release(int key, all_t *a);
 
 void    tex_wall(all_t *a);
 void    spr_data(all_t *a);
