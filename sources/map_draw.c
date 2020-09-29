@@ -13,10 +13,11 @@ void    ray_line(int x, all_t *a)
 				* a->i[a->t.texNum].texHeight - 1) / a->r.lineHeight;
         	a->m.w = a->i[a->t.texNum].img_data[a->i[a->t.texNum].texWidth
 				* a->t.texY + a->t.texX];
-        	a->i[0].img_data[x + y * a->m.width] = a->m.w;
+            if((a->m.w & 0x00FFFFFF) != 0)
+        		a->i[0].img_data[x + y * a->m.width] = a->m.w;
+			else
+				a->i[0].img_data[x + y * a->m.width] = 0;
 		}
-		if (y > a->r.drawEnd)
-			a->i[0].img_data[x + y * a->m.width] = a->m.f;
 		y++;
 	}
 }
@@ -34,8 +35,8 @@ void    map_player(all_t *a)
         while (c < a->i[5].texWidth)
         {
 			if ((a->i[5].img_data[c + b * a->i[5].texWidth] & 0x00FFFFFF) != 0)
-            	a->i[0].img_data[(a->t.tmp_x + c) + (a->t.tmp_y + b) * a->m.width] =
-				a->i[5].img_data[c + b * a->i[5].texWidth];
+            	a->i[0].img_data[(a->t.tmp_x + c) + (a->t.tmp_y + b) * a->m.width]
+				= a->i[5].img_data[c + b * a->i[5].texWidth];
             c++;
         }
         b++;

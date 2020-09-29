@@ -67,6 +67,28 @@ typedef struct		ray_s
 
 }					ray_t;
 
+typedef	struct		flo_s
+{
+	float 			rayDirX0;
+	float 			rayDirY0;
+	float 			rayDirX1;
+	float 			rayDirY1;
+	int				p;
+	float 			posZ;
+	float 			rowDistance;
+	float 			floorStepX;
+	float			floorStepY;
+	float			floorX;
+	float			floorY;
+	int				cellX;
+	int				cellY;
+	int				tx;
+	int				ty;
+	int				floorTexture;
+	int				plafondTexture;
+
+}					flo_t;
+
 typedef	struct		fps_s
 {
 	double			moveSpeed;
@@ -149,10 +171,11 @@ typedef	struct		all_s
 	ray_t			r;
 	fps_t			f;
 	tex_t			t;
-	img_t			i[7];
+	img_t			i[8];
 	key_t			k;
 	spr_t			s;
 	pos_t			*d;
+	flo_t			c;
 }					all_t;
 
 
@@ -175,7 +198,10 @@ int     key_hold(int key, all_t *a);
 int     key_release(int key, all_t *a);
 
 void    tex_wall(all_t *a);
+void    tex_floor(all_t *a);
 void    spr_data(all_t *a);
 void    spr_pos(all_t *a);
 void	spr_save(all_t *a);
+void    spr_swap(all_t *a);
 
+void	ft_get_color(int i, all_t *a);

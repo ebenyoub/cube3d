@@ -1,12 +1,14 @@
 #include "../includes/cub3d.h"
 
-/*  a->i[0] = image principale  */
-/*  a->i[1] = NO                */
-/*  a->i[2] = SO                */
-/*  a->i[3] = WE                */
-/*  a->i[4] = EA                */
-/*  a->i[5] = localisation		*/
-/*  a->i[6] = SP                */
+/*
+**  a->i[0] = image principale
+**  a->i[1] = NO              
+**  a->i[2] = SO              
+**  a->i[3] = WE              
+**  a->i[4] = EA              
+**  a->i[5] = localisation
+**  a->i[6] = SP              
+*/
 
 void    tex_img(all_t *a)
 {
@@ -26,6 +28,10 @@ void    tex_img(all_t *a)
 		(a->w.mlx, a->m.axe[3], &a->i[4].texWidth, &a->i[4].texHeight);
 	a->i[4].img_data = (int *)mlx_get_data_addr
 		(a->i[4].img_ptr, &a->i[4].bpp, &a->i[4].size_line, &a->i[4].endian);
+	a->i[7].img_ptr = mlx_xpm_file_to_image
+		(a->w.mlx, "./bricks/grass_floor.xpm", &a->i[7].texWidth, &a->i[7].texHeight);
+	a->i[7].img_data = (int *)mlx_get_data_addr
+		(a->i[7].img_ptr, &a->i[7].bpp, &a->i[7].size_line, &a->i[7].endian);
 }
 
 void    spr_img(all_t *a)

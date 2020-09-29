@@ -20,7 +20,9 @@ SRCS		+=	key_init.c
 SRCS		+=	ray_init.c
 SRCS		+=	ray_shift.c
 SRCS		+=	tex_init.c
+SRCS		+=	tex_floor.c
 SRCS		+=	spr_calc.c
+SRCS		+=	spr_utils.c
 SRCS		+=	img_init.c
 
 OBJ			=	$(addprefix $(OBJ_DIR),$(SRCS:.c=.o))

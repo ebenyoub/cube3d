@@ -1,10 +1,10 @@
-R 1600 900
+R 640 480
 NO ./bricks/brick_painted.xpm
 SO ./bricks/ground_root.xpm
 WE ./bricks/brick_grass.xpm
 EA ./bricks/wood_gate.xpm
 
-S ./pokemon/ronflex.xpm
+S ./pokemon/pikachu.xpm
 F 115,232,138
 C 115,192,232
 

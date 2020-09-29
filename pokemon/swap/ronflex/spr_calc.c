@@ -1,7 +1,7 @@
 #include "../includes/cub3d.h"
 
-#define uDiv 2
-#define vDiv 2
+#define uDiv 1
+#define vDiv 1
 
 void    spr_pos(all_t *a)
 {
@@ -80,7 +80,7 @@ void    spr_calc(int i, all_t *a)
 					a->r.dirX * a->s.spriteY);
 	a->s.transformY = a->s.invDet * (-(a->r.planY) * a->s.spriteX +
 					a->r.planX * a->s.spriteY);
-	a->s.vMoveScreen = (int)(a->i[6].texHeight / a->s.transformY);
+	a->s.vMoveScreen = (int)((a->i[6].texHeight - 21) / a->s.transformY);
 	a->s.spriteScreenX = (int)((a->m.width / 2) *
 					(1 + a->s.transformX / a->s.transformY));
 	a->s.spriteHeight = abs((int)(a->m.height / (a->s.transformY))) / vDiv;
