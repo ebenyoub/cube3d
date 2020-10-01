@@ -47,13 +47,13 @@ void	map_draw_img(all_t *z, int i, int n, int color)
 {
 	int a = 0;
 	int b = 0;
-	int x = i * 20;
-	int y = n * 20;
+	int x = i * z->m.map_size_x;
+	int y = n * z->m.map_size_x;
 
-	while (b < 20)
+	while (b < z->m.map_size_x)
 	{
 		a = 0;
-		while (a < 20)
+		while (a < z->m.map_size_x)
 		{
 			z->i[0].img_data[(x + a) + (y + b) * (z->m.width)] = color;
 			a++;
@@ -69,6 +69,9 @@ void    map_to_img(all_t *a)
 
     x = -1;
     y = -1;
+	a->m.map_size_x = (a->m.width / 3) / a->m.map_w;
+	if (a->m.map_size_x * a->m.map_h > a->m.height)
+		a->m.map_size_x = (a->m.height / 4) / a->m.map_h;
     while (a->m.map_tab[++y])
     {
         while (a->m.map_tab[y][++x])
@@ -81,8 +84,8 @@ void    map_to_img(all_t *a)
                 map_draw_img(a, x, y, map_color("0,0,0"));
 			if (x == (int)a->r.posY && y == (int)a->r.posX)
             {
-				a->t.tmp_x = x * 20 - ((a->i[5].texWidth - 20) / 2);
-				a->t.tmp_y = y * 20 - ((a->i[5].texHeight - 20) / 2);
+				a->t.tmp_x = x * a->m.map_size_x - ((a->i[5].texWidth - a->m.map_size_x) / 2);
+				a->t.tmp_y = y * a->m.map_size_x - ((a->i[5].texHeight - a->m.map_size_x) / 2);
 				map_player(a);
 			}
         }

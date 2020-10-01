@@ -25,6 +25,8 @@ typedef	struct 		map_s
 	char			*map;
 	char			*axe[4];
 	int				map_count;
+	int				map_size_x;
+	int				map_size_y;
 	int				height;
 	int				width;
 	int				map_h;

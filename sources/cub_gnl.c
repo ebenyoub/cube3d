@@ -33,7 +33,7 @@ int		new_line(char **tmp, int len, char **line)
 	char			*clean;
 
 	i = 0;
-	if (*tmp == '\0')
+	if (*tmp == NULL)
 	{
 		*line = ft_strdup("");
 		return (0);

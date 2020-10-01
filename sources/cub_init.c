@@ -15,8 +15,10 @@ void    init_map(all_t *a)
 	a->m.map_tab = NULL;
 	a->m.map_count = 0;
 	a->m.map = ft_strdup("");
-	a->f.moveSpeed = 0.08;
+	a->f.moveSpeed = 0.04;
 	a->f.rotSpeed = 0.08;
+	a->m.map_size_x = 0;
+	a->m.map_size_y = 0;
 }
 
 void    init_ray(all_t *a)
