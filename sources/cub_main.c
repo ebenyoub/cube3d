@@ -3,13 +3,16 @@
 int		main(int argc, char **argv)
 {
 	all_t        a;
+	int wa;
 
 	if (cub_fault(argc))
 		return (EXIT_FAILURE);
 	a.m.name = argv[1];
 	init_all(&a);
 	map_read(&a);
-    init_win(&a);
+    wa = init_win(&a);
+	if (wa != 0)
+		ret_exit("une erreur est survenue\n");
 	mlx_hook(a.w.win, 2, 0, key_hold, &a);
 	mlx_hook(a.w.win, 3, 0, key_release, &a);
 	mlx_hook(a.w.win, 17, 0, key_close, &a);

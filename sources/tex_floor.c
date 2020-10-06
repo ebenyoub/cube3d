@@ -6,13 +6,13 @@ void    tex_floor_draw(int x, int y, all_t *a)
     {
         a->c.cellX = (int) (a->c.floorX);
         a->c.cellY = (int) (a->c.floorY);
-        a->c.tx = (int)(a->i[7].texWidth * (a->c.floorX - a->c.cellX)) &
-                (a->i[7].texWidth - 1);
-        a->c.ty = (int)(a->i[7].texHeight * (a->c.floorY - a->c.cellY)) &
-                (a->i[7].texHeight - 1);
+        a->c.tx = (int)(a->i[5].texWidth * (a->c.floorX - a->c.cellX)) &
+                (a->i[5].texWidth - 1);
+        a->c.ty = (int)(a->i[5].texHeight * (a->c.floorY - a->c.cellY)) &
+                (a->i[5].texHeight - 1);
         a->c.floorX = a->c.floorX + a->c.floorStepX;
         a->c.floorY = a->c.floorY + a->c.floorStepY;
-        a->m.w = a->i[7].img_data[a->i[7].texWidth * a->c.ty + a->c.tx];
+        a->m.w = a->i[5].img_data[a->i[5].texWidth * a->c.ty + a->c.tx];
         a->i[0].img_data[x + y * a->i[0].size_line / 4] = a->m.w;
         x++;
     }

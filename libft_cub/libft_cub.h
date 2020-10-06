@@ -76,5 +76,7 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
+void    			ft_putchar(char c);
+void    			ft_putstr(char *str);
 
 #endif

@@ -15,6 +15,7 @@ typedef struct		win_s
 {
 	void			*mlx;
 	void			*win;
+	char			*err[10];
 }					win_t;
 
 typedef	struct 		map_s
@@ -23,10 +24,9 @@ typedef	struct 		map_s
 	char			*sprite;
 	char			*name;
 	char			*map;
-	char			*axe[4];
+	char			*img[6];
 	int				map_count;
 	int				map_size_x;
-	int				map_size_y;
 	int				height;
 	int				width;
 	int				map_h;
@@ -173,7 +173,7 @@ typedef	struct		all_s
 	ray_t			r;
 	fps_t			f;
 	tex_t			t;
-	img_t			i[8];
+	img_t			i[7];
 	key_t			k;
 	spr_t			s;
 	pos_t			*d;
@@ -187,9 +187,11 @@ void	map_draw(all_t *a, int i, int n, int color);
 void    map_read(all_t *a);
 void    map_to_img(all_t *a);
 int     map_color(char *str);
+void    map_plan(char c, all_t *a);
+void    map_dir(char c, all_t *a);
 
 void    init_all(all_t *a);
-void    init_win(all_t *a);
+int	    init_win(all_t *a);
 
 int	    ray_launch(all_t *a);
 void    ray_line(int x, all_t *a);
@@ -205,5 +207,6 @@ void    spr_data(all_t *a);
 void    spr_pos(all_t *a);
 void	spr_save(all_t *a);
 void    spr_swap(all_t *a);
+void	ret_exit(char *str);
 
 void	ft_get_color(int i, all_t *a);

@@ -29,14 +29,14 @@ void    map_player(all_t *a)
 
     b = 0;
     c = 0;
-    while (b < a->i[5].texHeight)
+    while (b < a->i[6].texHeight)
     {
         c = 0;
-        while (c < a->i[5].texWidth)
+        while (c < a->i[6].texWidth)
         {
-			if ((a->i[5].img_data[c + b * a->i[5].texWidth] & 0x00FFFFFF) != 0)
+			if ((a->i[6].img_data[c + b * a->i[6].texWidth] & 0x00FFFFFF) != 0)
             	a->i[0].img_data[(a->t.tmp_x + c) + (a->t.tmp_y + b) * a->m.width]
-				= a->i[5].img_data[c + b * a->i[5].texWidth];
+				= a->i[6].img_data[c + b * a->i[6].texWidth];
             c++;
         }
         b++;
@@ -69,25 +69,22 @@ void    map_to_img(all_t *a)
 
     x = -1;
     y = -1;
-	a->m.map_size_x = (a->m.width / 3) / a->m.map_w;
+	a->m.map_size_x = (a->m.width / 2) / a->m.map_w;
 	if (a->m.map_size_x * a->m.map_h > a->m.height)
-		a->m.map_size_x = (a->m.height / 4) / a->m.map_h;
+		a->m.map_size_x = a->m.height / a->m.map_h;
     while (a->m.map_tab[++y])
     {
         while (a->m.map_tab[y][++x])
         {
             if (a->m.map_tab[y][x] == '1')
                 map_draw_img(a, x, y, map_color("125,213,42"));
-			else if (a->m.map_tab[y][x] >= '2' && a->m.map_tab[y][x] <= '6')
+			else if (x == (int)a->r.posY && y == (int)a->r.posX)
+				map_draw_img(a, x, y, map_color("255,255,255"));
+			else if (a->m.map_tab[y][x] == '2')
                 map_draw_img(a, x, y, map_color("139,69,19"));
 			else
                 map_draw_img(a, x, y, map_color("0,0,0"));
-			if (x == (int)a->r.posY && y == (int)a->r.posX)
-            {
-				a->t.tmp_x = x * a->m.map_size_x - ((a->i[5].texWidth - a->m.map_size_x) / 2);
-				a->t.tmp_y = y * a->m.map_size_x - ((a->i[5].texHeight - a->m.map_size_x) / 2);
-				map_player(a);
-			}
+
         }
         x = -1;
     }

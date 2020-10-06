@@ -1,51 +1,20 @@
 #include "../includes/cub3d.h"
 
-void    map_dir(char c, all_t *a)
+void       map_save_next(int *i, char *line, all_t *a)
 {
-    if(c == 'N')
+    while (ft_isdigit(line[*i]) || ft_isstr(line[*i], "NSEW"))
     {
-	    a->r.dirX = -1;
-	    a->r.dirY = 0;
+        if (ft_isstr(line[*i], "NSEW"))
+        {
+            a->r.posX = (double)a->m.map_h + 0.5;
+            a->r.posY = (double)*i + 0.5;
+            map_dir(line[*i], a);
+            map_plan(line[*i], a);
+        }
+        if (line[*i] == '2')
+            a->s.spr_nbr += 1;
+        *i += 1;;
     }
-    if(c == 'S')
-    {
-	    a->r.dirX = 1;
-	    a->r.dirY = 0;
-    }
-    if(c == 'E')
-    {
-	    a->r.dirX = 0;
-	    a->r.dirY = 1;
-    }
-    if(c == 'W')
-    {
-	    a->r.dirX = 0;
-	    a->r.dirY = -1;
-    }
-}
-
-void    map_plan(char c, all_t *a)
-{
-	if (c == 'N')
-	{
-		a->r.planX = 0;
-		a->r.planY = 0.66;
-	}
-	if (c == 'S')
-	{
-		a->r.planX = 0;
-		a->r.planY = -0.66;
-	}
-	if (c == 'W')
-	{
-		a->r.planX = -0.66;
-		a->r.planY = 0;
-	}
-	if (c == 'E')
-	{
-		a->r.planX = 0.66;
-		a->r.planY = 0;
-	}
 }
 
 void    map_save(char *line, all_t *a)
@@ -59,23 +28,29 @@ void    map_save(char *line, all_t *a)
     {
         a->m.map = ft_strjoin(a->m.map, line);
         a->m.map = ft_strjoin(a->m.map, "|");
-        while (ft_isdigit(line[i]) || ft_isstr(line[i], "NSEW"))
-        {
-            if (ft_isstr(line[i], "NSEW"))
-            {
-                a->r.posX = (double)a->m.map_h + 0.5;
-                a->r.posY = (double)i + 0.5;
-                map_dir(line[i], a);
-                map_plan(line[i], a);
-            }
-            if (line[i] >= '2' && line[i] <= '6')
-                a->s.spr_nbr += 1;
-            i++;
-        }
+        map_save_next(&i, line, a);
         a->m.map_h = a->m.map_h + 1;
         if(i > a->m.map_w)
             a->m.map_w = i;
     }
+}
+
+void    map_data_next(char *line, all_t *a)
+{
+    if (line[0] == 'N')
+        a->m.img[0] = ft_strdup(line + 3);
+    if (line[0] == 'S' && line[1] == 'O')
+        a->m.img[1] = ft_strdup(line + 3);
+    if (line[0] == 'W')
+        a->m.img[2] = ft_strdup(line + 3);
+    if (line[0] == 'E')
+        a->m.img[3] = ft_strdup(line + 3);
+    if (line[0] == 'S' && line[1] == ' ')
+        a->m.img[4] = ft_strdup(line + 2);
+    if (line[0] == 'F')
+        a->m.img[5] = ft_strdup(line + 2);
+    if (line[0] == 'C')
+        a->m.c = map_color(line + 2);
 }
 
 void    map_data(char *line, all_t *a)
@@ -90,20 +65,7 @@ void    map_data(char *line, all_t *a)
         while (ft_isdigit(line[++i]))
             a->m.height = a->m.height * 10 + (line[i] - 48);
     }
-    if (line[0] == 'N')
-        a->m.axe[0] = ft_strdup(line + 3);
-    if (line[0] == 'S' && line[1] == 'O')
-        a->m.axe[1] = ft_strdup(line + 3);
-    if (line[0] == 'W')
-        a->m.axe[2] = ft_strdup(line + 3);
-    if (line[0] == 'E')
-        a->m.axe[3] = ft_strdup(line + 3);
-    if (line[0] == 'S' && line[1] == ' ')
-        a->m.sprite = ft_strdup(line + 2);
-    if (line[0] == 'F')
-        a->m.f = map_color(line + 2);
-    if (line[0] == 'C')
-        a->m.c = map_color(line + 2);
+    map_data_next(line, a);
 }
 
 void    map_read(all_t *a)

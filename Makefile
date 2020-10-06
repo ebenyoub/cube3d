@@ -16,6 +16,7 @@ SRCS		+=	cub_init.c
 SRCS		+=	map_fill.c
 SRCS		+=	map_color.c
 SRCS		+=	map_draw.c
+SRCS		+=	map_dir.c
 SRCS		+=	key_init.c
 SRCS		+=	ray_init.c
 SRCS		+=	ray_shift.c

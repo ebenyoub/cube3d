@@ -17,7 +17,7 @@ void    spr_pos(all_t *a)
 		w = -1;
 		while (a->m.map_tab[i][++w])
 		{
-			if (a->m.map_tab[i][w] >= '2' && a->m.map_tab[i][w] <= '6')
+			if (a->m.map_tab[i][w] == '2')
 			{
 				a->d[++x].x = i + 0.5;
 				a->d[x].y = w + 0.5;

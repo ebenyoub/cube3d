@@ -10,3 +10,9 @@ int    cub_fault(int argc)
 	}
     return (0);
 }
+
+void	ret_exit(char *str)
+{
+	ft_putstr(str);
+	exit (EXIT_FAILURE);
+}
