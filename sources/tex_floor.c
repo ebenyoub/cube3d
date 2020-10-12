@@ -1,48 +1,60 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tex_floor.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/09 18:15:54 by ebenyoub          #+#    #+#             */
+/*   Updated: 2020/10/09 18:17:00 by ebenyoub         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3d.h"
 
-void    tex_floor_draw(int x, int y, all_t *a)
+void	tex_floor_draw(int x, int y, all_t *a)
 {
-    while (x < a->m.width)
-    {
-        a->c.cellX = (int) (a->c.floorX);
-        a->c.cellY = (int) (a->c.floorY);
-        a->c.tx = (int)(a->i[5].texWidth * (a->c.floorX - a->c.cellX)) &
-                (a->i[5].texWidth - 1);
-        a->c.ty = (int)(a->i[5].texHeight * (a->c.floorY - a->c.cellY)) &
-                (a->i[5].texHeight - 1);
-        a->c.floorX = a->c.floorX + a->c.floorStepX;
-        a->c.floorY = a->c.floorY + a->c.floorStepY;
-        a->m.w = a->i[5].img_data[a->i[5].texWidth * a->c.ty + a->c.tx];
-        a->i[0].img_data[x + y * a->i[0].size_line / 4] = a->m.w;
-        x++;
-    }
+	while (x < a->m.width)
+	{
+		a->c.cellX = (int)(a->c.floorX);
+		a->c.cellY = (int)(a->c.floorY);
+		a->c.tx = (int)(a->i[6].texWidth * (a->c.floorX - a->c.cellX)) &
+				(a->i[6].texWidth - 1);
+		a->c.ty = (int)(a->i[6].texHeight * (a->c.floorY - a->c.cellY)) &
+				(a->i[6].texHeight - 1);
+		a->c.floorX = a->c.floorX + a->c.floorStepX;
+		a->c.floorY = a->c.floorY + a->c.floorStepY;
+		a->m.w = a->i[6].img_data[a->i[6].texWidth * a->c.ty + a->c.tx];
+		a->i[0].img_data[x + y * a->i[0].size_line / 4] = a->m.w;
+		x++;
+	}
 }
 
-void    tex_floor(all_t *a)
+void	tex_floor(all_t *a)
 {
-    int     x;
-    int     y;
+	int		x;
+	int		y;
 
-    y = 0;
-    while (y < a->m.height)
-    {
-        x = 0;
-        a->c.rayDirX0 = a->r.dirX - a->r.planX;
-        a->c.rayDirY0 = a->r.dirY - a->r.planY;
-        a->c.rayDirX1 = a->r.dirX + a->r.planX;
-        a->c.rayDirY1 = a->r.dirY + a->r.planY;
-        a->c.p = y - a->m.height / 2;
-        a->c.posZ = (double)0.5 * a->m.height;
-        a->c.rowDistance = a->c.posZ / a->c.p;
-        a->c.floorStepX = a->c.rowDistance *
-                        (a->c.rayDirX1 - a->c.rayDirX0) /
-                        (float)a->m.width;
-        a->c.floorStepY = a->c.rowDistance *
-                        (a->c.rayDirY1 - a->c.rayDirY0) /
-                        (float)a->m.width;
-        a->c.floorX = a->r.posX + a->c.rowDistance * a->c.rayDirX0;
-        a->c.floorY = a->r.posY + a->c.rowDistance * a->c.rayDirY0;
-        tex_floor_draw(x, y, a);
-        y += 1;
-    }
+	y = 0;
+	while (y < a->m.height)
+	{
+		x = 0;
+		a->c.rayDirX0 = a->r.dirX - a->r.planX;
+		a->c.rayDirY0 = a->r.dirY - a->r.planY;
+		a->c.rayDirX1 = a->r.dirX + a->r.planX;
+		a->c.rayDirY1 = a->r.dirY + a->r.planY;
+		a->c.p = y - a->m.height / 2;
+		a->c.posZ = (double)0.5 * a->m.height;
+		a->c.rowDistance = a->c.posZ / a->c.p;
+		a->c.floorStepX = a->c.rowDistance *
+						(a->c.rayDirX1 - a->c.rayDirX0) /
+						(float)a->m.width;
+		a->c.floorStepY = a->c.rowDistance *
+						(a->c.rayDirY1 - a->c.rayDirY0) /
+						(float)a->m.width;
+		a->c.floorX = a->r.posX + a->c.rowDistance * a->c.rayDirX0;
+		a->c.floorY = a->r.posY + a->c.rowDistance * a->c.rayDirY0;
+		tex_floor_draw(x, y, a);
+		y += 1;
+	}
 }

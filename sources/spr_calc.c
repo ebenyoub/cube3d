@@ -1,9 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   spr_calc.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/09 17:09:34 by ebenyoub          #+#    #+#             */
+/*   Updated: 2020/10/09 17:15:13 by ebenyoub         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3d.h"
 
-#define uDiv 2
-#define vDiv 2
-
-void    spr_pos(all_t *a)
+void	spr_pos(all_t *a)
 {
 	int i;
 	int w;
@@ -32,20 +41,20 @@ void    spr_pos(all_t *a)
 
 void	spr_draw(int i, int z, all_t *a)
 {
-	int     y;
-	int     d;
+	int		y;
+	int		d;
 
 	y = 0;
 	d = 0;
-	if(a->s.transformY > 0 && z > 0 && z < a->m.width &&
+	if (a->s.transformY > 0 && z > 0 && z < a->m.width &&
 			a->s.transformY < a->s.zbuffer[z])
 	{
 		y = a->s.drawStartY;
-		while (y < a->s.drawEndY) 
+		while (y < a->s.drawEndY)
 		{
-			d = (y - a->s.vMoveScreen) * 256 - a->m.height *
+			d = y * 256 - a->m.height *
 					128 + a->s.spriteHeight * 128;
-			a->s.texY = ((d * a->i[6].texHeight) / a->s.spriteHeight) / 256;
+			a->s.texY = ((d * a->i[5].texHeight) / a->s.spriteHeight) / 256;
 			ft_get_color(a->s.order[i], a);
 			if ((a->m.w & 0x00FFFFFF) != 0)
 				a->i[0].img_data[z + y * (a->i[0].size_line / 4)] = a->m.w;
@@ -56,22 +65,21 @@ void	spr_draw(int i, int z, all_t *a)
 
 void	spr_calc_next(all_t *a)
 {
-	if(a->s.drawStartY < 0)
+	if (a->s.drawStartY < 0)
 		a->s.drawStartY = 0;
-	a->s.drawEndY = a->s.spriteHeight / 2 + a->m.height /
-					2 + a->s.vMoveScreen;
-	if(a->s.drawEndY >= a->m.height)
+	a->s.drawEndY = a->s.spriteHeight / 2 + a->m.height / 2;
+	if (a->s.drawEndY >= a->m.height)
 		a->s.drawEndY = a->m.height - 1;
-	a->s.spriteWidth = abs((int)(a->m.height / (a->s.transformY))) / uDiv;
+	a->s.spriteWidth = abs((int)(a->m.height / (a->s.transformY)));
 	a->s.drawStartX = -a->s.spriteWidth / 2 + a->s.spriteScreenX;
-	if(a->s.drawStartX < 0)
+	if (a->s.drawStartX < 0)
 		a->s.drawStartX = 0;
 	a->s.drawEndX = a->s.spriteWidth / 2 + a->s.spriteScreenX;
-	if(a->s.drawEndX >= a->m.width)
+	if (a->s.drawEndX >= a->m.width)
 		a->s.drawEndX = a->m.width - 1;
 }
 
-void    spr_calc(int i, all_t *a)
+void	spr_calc(int i, all_t *a)
 {
 	a->s.spriteX = a->d[i].x - a->r.posX;
 	a->s.spriteY = a->d[i].y - a->r.posY;
@@ -80,20 +88,18 @@ void    spr_calc(int i, all_t *a)
 					a->r.dirX * a->s.spriteY);
 	a->s.transformY = a->s.invDet * (-(a->r.planY) * a->s.spriteX +
 					a->r.planX * a->s.spriteY);
-	a->s.vMoveScreen = (int)(a->i[6].texHeight / a->s.transformY);
+	a->s.vMoveScreen = (int)(a->i[4].texHeight / a->s.transformY);
 	a->s.spriteScreenX = (int)((a->m.width / 2) *
 					(1 + a->s.transformX / a->s.transformY));
-	a->s.spriteHeight = abs((int)(a->m.height / (a->s.transformY))) / vDiv;
-	a->s.drawStartY = -a->s.spriteHeight / 2 + a->m.height /
-					2 + a->s.vMoveScreen;
+	a->s.spriteHeight = abs((int)(a->m.height / (a->s.transformY)));
+	a->s.drawStartY = -a->s.spriteHeight / 2 + a->m.height / 2;
 	spr_calc_next(a);
-
 }
 
-void    spr_data(all_t *a)
+void	spr_data(all_t *a)
 {
-	int     i;
-	int     z;
+	int		i;
+	int		z;
 
 	i = -1;
 	a->s.spr_dist = malloc(sizeof(double) * a->s.spr_nbr);
@@ -103,13 +109,14 @@ void    spr_data(all_t *a)
 		spr_pos(a);
 		spr_swap(a);
 		spr_calc(a->s.order[i], a);
-		z = a->s.drawStartX;                
+		z = a->s.drawStartX;
 		while (z < a->s.drawEndX)
 		{
-			a->s.texX =  (int)(256 * (z - (-a->s.spriteWidth / 2 +
-					a->s.spriteScreenX)) * a->i[6].texWidth / a->s.spriteWidth) / 256;
+			a->s.texX = (int)(256 * (z - (-a->s.spriteWidth / 2 +
+					a->s.spriteScreenX)) * a->i[5].texWidth /
+					a->s.spriteWidth) / 256;
 			spr_draw(i, z, a);
-			z += 1; 
+			z += 1;
 		}
 	}
 }

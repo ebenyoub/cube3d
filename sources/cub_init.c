@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub_init.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/09 17:16:01 by ebenyoub          #+#    #+#             */
+/*   Updated: 2020/10/13 01:14:37 by ebenyoub         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3d.h"
 
-void    init_map(all_t *a)
+void	init_map(all_t *a)
 {
 	int i;
 
@@ -15,13 +27,13 @@ void    init_map(all_t *a)
 	a->m.map_tab = NULL;
 	a->m.map_count = 0;
 	if (!(a->m.map = ft_strdup("")))
-		ret_exit("erreur: cub_init.c > ft_strdup.c:17");
-	a->f.moveSpeed = 0.04;
+		ret_exit("Error\ncub_init.c > ft_strdup.c:17");
+	a->f.moveSpeed = 0.06;
 	a->f.rotSpeed = 0.08;
 	a->m.map_size_x = 0;
 }
 
-void    init_ray(all_t *a)
+void	init_ray(all_t *a)
 {
 	a->r.mapX = 0;
 	a->r.mapY = 0;
@@ -44,7 +56,7 @@ void    init_ray(all_t *a)
 	a->s.vMoveScreen = 0;
 }
 
-void    init_key(all_t *a)
+void	init_key(all_t *a)
 {
 	a->k.z = 0;
 	a->k.s = 0;
@@ -58,7 +70,7 @@ void    init_key(all_t *a)
 	a->k.lock = 0;
 }
 
-void    init_all(all_t *a)
+void	init_all(all_t *a)
 {
 	init_map(a);
 	init_ray(a);

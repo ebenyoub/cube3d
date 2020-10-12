@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   cub_gnl.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elyasbenyoub <elyasbenyoub@student.42.f    +#+  +:+       +#+        */
+/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 14:53:29 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/09/25 18:29:38 by elyasbenyou      ###   ########.fr       */
+/*   Updated: 2020/10/09 17:19:05 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../includes/get_next_line.h"
 

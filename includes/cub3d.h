@@ -21,6 +21,7 @@ typedef struct		win_s
 typedef	struct 		map_s
 {
 	char			**map_tab;
+	char			**map_test;
 	char			*sprite;
 	char			*name;
 	char			*map;
@@ -210,3 +211,5 @@ void    spr_swap(all_t *a);
 void	ret_exit(char *str);
 
 void	ft_get_color(int i, all_t *a);
+void	map_leak(int x, int y, all_t *a);
+int		map_leak_y(int x, int y, all_t *a);

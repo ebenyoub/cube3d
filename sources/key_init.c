@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   key_init.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/09 17:24:37 by ebenyoub          #+#    #+#             */
+/*   Updated: 2020/10/09 17:27:21 by ebenyoub         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3d.h"
 
 int		key_close(all_t *a)
 {
-		mlx_destroy_window(a->w.mlx, a->w.win);
-		exit(1);
+	mlx_destroy_window(a->w.mlx, a->w.win);
+	exit(1);
 }
 
-int     key_hold(int key, all_t *a)
+int		key_hold(int key, all_t *a)
 {
 	if (key == KEY_Z || key == ARROW_UP)
 		a->k.z = 1;
@@ -20,16 +32,16 @@ int     key_hold(int key, all_t *a)
 		a->k.al = 1;
 	if (key == ARROW_RIGHT)
 		a->k.ar = 1;
-    if (key == KEY_M)
-        a->k.m = 1;
+	if (key == KEY_M)
+		a->k.m = 1;
 	if (key == KEY_L)
-        a->k.m = 1;
+		a->k.m = 1;
 	if (key == KEY_ESC)
 		a->k.esc = 1;
-    return (0);
+	return (0);
 }
 
-int     key_release(int key, all_t *a)
+int		key_release(int key, all_t *a)
 {
 	if (key == KEY_Z || key == ARROW_UP)
 		a->k.z = 0;
@@ -44,10 +56,10 @@ int     key_release(int key, all_t *a)
 	if (key == ARROW_RIGHT)
 		a->k.ar = 0;
 	if (key == KEY_M)
-        a->k.m = 0;
-    if (key == KEY_L)
-        a->k.m = 0;
+		a->k.m = 0;
+	if (key == KEY_L)
+		a->k.m = 0;
 	if (key == KEY_ESC)
 		a->k.esc = 0;
-    return (0);
+	return (0);
 }
