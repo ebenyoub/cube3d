@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:16:01 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/13 01:14:37 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/10/13 13:25:54 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	init_map(all_t *a)
 	a->m.map_tab = NULL;
 	a->m.map_count = 0;
 	if (!(a->m.map = ft_strdup("")))
-		ret_exit("Error\ncub_init.c > ft_strdup.c:17");
+		ret_exit("Error\ncub_init.c > ft_strdup.c:17", a);
 	a->f.moveSpeed = 0.06;
 	a->f.rotSpeed = 0.08;
 	a->m.map_size_x = 0;

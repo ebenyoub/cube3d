@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:57:40 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/12 17:19:49 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/10/13 13:02:54 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,19 +96,8 @@ void	map_read(all_t *a)
 	}
 	a->m.map_tab = ft_split(a->m.map, '|');
 	a->m.map_test = ft_split(a->m.map, '|');
-	int j = 0;
-	while (j <= a->m.map_h)
-	{
-		dprintf(1, "%s\n", a->m.map_test[j]);
-		j++;
-	}
 	map_leak((int)a->r.posY, (int)a->r.posX, a);
-	j = 0;
-	while (j <= a->m.map_h)
-	{
-		dprintf(1, "%s\n", a->m.map_test[j]);
-		j++;
-	}
+	ft_free_tab(&a->m.map_test);
 	a->d = malloc(sizeof(pos_t) * a->s.spr_nbr);
 	close(fd);
 }

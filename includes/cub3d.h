@@ -208,8 +208,10 @@ void    spr_data(all_t *a);
 void    spr_pos(all_t *a);
 void	spr_save(all_t *a);
 void    spr_swap(all_t *a);
-void	ret_exit(char *str);
+void	ret_exit(char *str, all_t *a);
 
 void	ft_get_color(int i, all_t *a);
 void	map_leak(int x, int y, all_t *a);
 int		map_leak_y(int x, int y, all_t *a);
+void    tab_free(char **tab);
+void	exit_free(all_t *a);

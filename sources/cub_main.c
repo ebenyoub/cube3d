@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:19:27 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/09 17:20:11 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/10/13 13:26:56 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		main(int argc, char **argv)
 	map_read(&a);
 	wa = init_win(&a);
 	if (wa != 0)
-		ret_exit("une erreur est survenue\n");
+		ret_exit("une erreur est survenue\n", &a);
 	mlx_hook(a.w.win, 2, 0, key_hold, &a);
 	mlx_hook(a.w.win, 3, 0, key_release, &a);
 	mlx_hook(a.w.win, 17, 0, key_close, &a);
