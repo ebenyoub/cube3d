@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:57:40 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/13 13:02:54 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/10/19 13:51:28 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,10 @@ void	map_data(char *line, all_t *a)
 			a->m.width = a->m.width * 10 + (line[i++] - 48);
 		while (ft_isdigit(line[++i]))
 			a->m.height = a->m.height * 10 + (line[i] - 48);
+		if (a->m.width > 1024)
+			a->m.width = 1024;
+		if (a->m.height > 640)
+			a->m.height = 640;
 	}
 	map_data_next(line, a);
 }
@@ -87,7 +91,12 @@ void	map_read(all_t *a)
 	char	*line;
 
 	ret = 1;
-	fd = open(a->m.name, O_RDONLY);
+	if ((fd = open(a->m.name, O_RDONLY)) < 0)
+	{
+		ft_putstr("Error\nBad syntax argument, ");
+		ft_putstr("do you mean 'souces/map.cub'?\n");
+		exit(EXIT_FAILURE);
+	}
 	while (ret > 0)
 	{
 		ret = get_next_line(fd, &line);
@@ -97,7 +106,6 @@ void	map_read(all_t *a)
 	a->m.map_tab = ft_split(a->m.map, '|');
 	a->m.map_test = ft_split(a->m.map, '|');
 	map_leak((int)a->r.posY, (int)a->r.posX, a);
-	ft_free_tab(&a->m.map_test);
 	a->d = malloc(sizeof(pos_t) * a->s.spr_nbr);
 	close(fd);
 }

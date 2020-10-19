@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 12:53:58 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/13 13:25:54 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/10/19 13:50:58 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ void	map_leak(int x, int y, all_t *a)
 {
 	map_leak_y(x, y, a);
 	if (!map_hole(a))
-		ret_exit("Error\nMap format is not accepted.", a);
+		ret_exit("Error\nMap not closed.\n", a);
+	tab_free(a->m.map_test);
 }

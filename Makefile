@@ -14,6 +14,7 @@ SRCS		+=	cub_gnl.c
 SRCS		+=	cub_error.c
 SRCS		+=	cub_init.c
 SRCS		+=	cub_free.c
+SRCS		+=	cub_bmp.c
 SRCS		+=	map_fill.c
 SRCS		+=	map_color.c
 SRCS		+=	map_draw.c

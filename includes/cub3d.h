@@ -15,8 +15,31 @@ typedef struct		win_s
 {
 	void			*mlx;
 	void			*win;
-	char			*err[10];
 }					win_t;
+
+typedef	struct 		bmp_s
+{
+    unsigned int    info_header_size;
+    unsigned int    info_image_width;
+    unsigned int    info_image_height;
+    short int        info_planes;
+    short int        info_bits_per_pixel;
+    unsigned int    info_compression;
+    unsigned int    info_image_size;
+    unsigned int    info_x_pixels_per_meter;
+    unsigned int    info_y_pixels_per_meter;
+    unsigned int    info_total_colors;
+    unsigned int    info_important_colors;
+	unsigned char   header_file_type[2];
+    int             header_file_size;
+    short           header_reserved1;
+    short           header_reserved2;
+    unsigned int    header_pixel_data_offset;
+	int				red;
+	int				green;
+	int				blue;
+}					bmp_t;
+
 
 typedef	struct 		map_s
 {
@@ -26,18 +49,18 @@ typedef	struct 		map_s
 	char			*name;
 	char			*map;
 	char			*img[6];
+	void			*img_map_ptr;
+	int				*img_map_to_img;
 	int				map_count;
 	int				map_size_x;
 	int				height;
 	int				width;
 	int				map_h;
 	int				map_w;
-	void			*img_map_ptr;
-	int				*img_map_to_img;
 	int				map_bpp;
 	int				map_size_line;
 	int				map_endian;
-	int				f;
+	int				save;
 	int				c;
 	int				w;
 }					map_t;
@@ -179,23 +202,23 @@ typedef	struct		all_s
 	spr_t			s;
 	pos_t			*d;
 	flo_t			c;
+	bmp_t			b;
 }					all_t;
-
-
-int    	cub_fault(int argc);
 
 void	map_draw(all_t *a, int i, int n, int color);
 void    map_read(all_t *a);
 void    map_to_img(all_t *a);
-int     map_color(char *str);
 void    map_plan(char c, all_t *a);
 void    map_dir(char c, all_t *a);
+void	map_leak(int x, int y, all_t *a);
+int		map_leak_y(int x, int y, all_t *a);
+int     map_color(char *str);
 
 void    init_all(all_t *a);
 int	    init_win(all_t *a);
 
-int	    ray_launch(all_t *a);
 void    ray_line(int x, all_t *a);
+int	    ray_launch(all_t *a);
 
 int	    key_read(all_t *a);
 int		key_close(all_t *a);
@@ -208,10 +231,12 @@ void    spr_data(all_t *a);
 void    spr_pos(all_t *a);
 void	spr_save(all_t *a);
 void    spr_swap(all_t *a);
-void	ret_exit(char *str, all_t *a);
 
+void	cub_fault(int argc, char **argv);
+void	ret_exit(char *str, all_t *a);
 void	ft_get_color(int i, all_t *a);
-void	map_leak(int x, int y, all_t *a);
-int		map_leak_y(int x, int y, all_t *a);
 void    tab_free(char **tab);
 void	exit_free(all_t *a);
+void	exit_free_tab(all_t *a);
+void	tab_free(char **tab);
+int     save_bmp(all_t *a);
