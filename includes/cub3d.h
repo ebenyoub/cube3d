@@ -236,7 +236,6 @@ void	cub_fault(int argc, char **argv);
 void	ret_exit(char *str, all_t *a);
 void	ft_get_color(int i, all_t *a);
 void    tab_free(char **tab);
-void	exit_free(all_t *a);
 void	exit_free_tab(all_t *a);
 void	tab_free(char **tab);
 int     save_bmp(all_t *a);

@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:57:40 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/19 13:51:28 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/10/19 15:09:19 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,21 @@ void	map_save_next(int *i, char *line, all_t *a)
 void	map_save(char *line, all_t *a)
 {
 	int		i;
+	char	*tmp;
 
 	i = 0;
 	while (line[i] == ' ' || line[i] == '\t')
 		i++;
 	if (line[i] == '1')
 	{
-		a->m.map = ft_strjoin(a->m.map, line);
-		a->m.map = ft_strjoin(a->m.map, "|");
+		tmp = ft_strjoin(a->m.map, line);
+		free(a->m.map);
+		a->m.map = ft_strdup(tmp);
+		free(tmp);
+		tmp = ft_strjoin(a->m.map, "|");
+		free(a->m.map);
+		a->m.map = ft_strdup(tmp);
+		free(tmp);
 		map_save_next(&i, line, a);
 		a->m.map_h = a->m.map_h + 1;
 		if (i > a->m.map_w)
@@ -102,6 +109,8 @@ void	map_read(all_t *a)
 		ret = get_next_line(fd, &line);
 		map_data(line, a);
 		map_save(line, a);
+		free(line);
+		line = NULL;
 	}
 	a->m.map_tab = ft_split(a->m.map, '|');
 	a->m.map_test = ft_split(a->m.map, '|');

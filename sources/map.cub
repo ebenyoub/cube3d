@@ -1,10 +1,10 @@
-R 1024 640
+R 102423 64045
 NO ./bricks/brick_painted.xpm
 SO ./bricks/ground_root.xpm
 WE ./bricks/brick_grass.xpm
 EA ./bricks/wood_gate.xpm
 
-S ./pokemon/mew.xpm
+S ./pokemon/localisation.xpm
 F ./bricks/grass_floor.xpm
 C 115,192,232
 

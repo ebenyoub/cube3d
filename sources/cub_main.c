@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:19:27 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/19 14:03:31 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/10/20 11:46:49 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int		main(int argc, char **argv)
 		ret_exit("Error\nPasring failure.\n", &a);
 	if (!go_option(option, &a))
 		ret_exit("Error\nOption failure.\n", &a);
-	exit_free_tab(&a);
-	ret_exit("Exit at end\n", &a);
+	ret_exit("Exited at end\n", &a);
 	return (EXIT_SUCCESS);
 }

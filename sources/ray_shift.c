@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 18:10:58 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/19 01:15:09 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/10/20 11:12:14 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,9 @@ int		key_read(all_t *a)
 	key_rotation_al(a);
 	tex_floor(a);
 	if (a->k.esc == 1)
+	{
 		key_close(a);
+	}
 	if (a->k.m == 1)
 	{
 		ray_launch(a);
@@ -110,6 +112,5 @@ int		key_read(all_t *a)
 		ray_launch(a);
 		mlx_put_image_to_window(a->w.mlx, a->w.win, a->i[0].img_ptr, 0, 0);
 	}
-	mlx_put_image_to_window(a->w.mlx, a->w.win, a->i[0].img_ptr, 0, 0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:24:37 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/19 14:05:37 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/10/19 14:57:53 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int		key_close(all_t *a)
 {
 	mlx_destroy_window(a->w.mlx, a->w.win);
-	exit_free_tab(a);
 	ft_putstr("Cub3d by ebenyoub.\n");
 	exit(EXIT_SUCCESS);
 }

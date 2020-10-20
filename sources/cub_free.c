@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 12:59:40 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/19 13:54:54 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/10/20 11:13:26 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,4 @@ void	exit_free_tab(all_t *a)
 	free(a->s.spr_dist);
 	free(a->s.order);
 	free(a->d);
-	free(a->i);
-}
-
-void	exit_free(all_t *a)
-{
-	free(a->m.map);
-	free(a->m.sprite);
 }
