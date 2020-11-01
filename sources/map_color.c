@@ -6,13 +6,13 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:27:47 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/09 17:32:13 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/10/31 16:29:46 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int		atoi_nb(char *str)
+int		map_color(char *str)
 {
 	int		i;
 	int		m;
@@ -33,12 +33,4 @@ int		atoi_nb(char *str)
 	}
 	d = (a[0] * 65536) + (a[1] * 256) + a[2];
 	return (d);
-}
-
-int		map_color(char *str)
-{
-	int		a;
-
-	a = atoi_nb(str);
-	return (a);
 }

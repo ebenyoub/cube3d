@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_fill.c                                         :+:      :+:    :+:   */
+/*   cub_param.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/09 17:57:40 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/31 15:59:34 by ebenyoub         ###   ########lyon.fr   */
+/*   Created: 2020/10/31 16:41:46 by ebenyoub          #+#    #+#             */
+/*   Updated: 2020/11/01 11:03:27 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	map_read(all_t *a)
+void    scan_param(int argc, char **argv, all_t *a)
 {
-	int		fd;
-	int		ret;
-	char	*line;
-
-	ret = 1;
-	if ((fd = open(a->m.name, O_RDONLY)) < 0)
-		m_exit(3);
-	while (ret > 0)
+	if (argc < 2)
 	{
-		ret = get_next_line(fd, &line);
-		map_data(line, a);
-		map_save(line, a);
-		free(line);
-		line = NULL;
+		printf("\r");
+		m_exit(0);
 	}
-	a->m.map_tab = ft_split(a->m.map, '|');
-	map_leak((int)a->r.posY, (int)a->r.posX, a);
-	a->d = malloc(sizeof(pos_t) * a->s.spr_nbr);
-	close(fd);
+	if (argc > 3)
+		m_exit(1);
+	if (argc == 3)
+	{
+		if (ft_strcmp(argv[2], "--save") != 0)
+			m_exit(2);
+	}
+	if (ft_strcmp(argv[1], "sources/map.cub"))
+		m_exit(3);
+	a->m.option = (argc >= 3 && !ft_strcmp(argv[2], "--save")) ? 1 : 0;
 }

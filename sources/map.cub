@@ -6,7 +6,7 @@ EA ./bricks/wood_gate.xpm
 
 S ./pokemon/papillusion.xpm
 F ./bricks/grass_floor.xpm
-C   115,192,232
+C 115,192,232
 
         1111111111111111111111111
         1000000000110000000000001

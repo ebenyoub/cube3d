@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:17:41 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/19 15:15:41 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/10/31 15:41:56 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,39 @@ void	cub_fault(int argc, char **argv)
 	}
 }
 
-void	ret_exit(char *str, all_t *a)
+void	m_exit(int i)
 {
-	ft_putstr(str);
+	find_msg(i);
+	exit(EXIT_FAILURE);
+}
+
+void	r_exit(int i, all_t *a)
+{
 	exit_free_tab(a);
-	key_close(a);
+	m_exit(i);
+}
+
+void	pass_space(int *i, char *line)
+{
+	while (line[*i] == ' ' || line[*i] == '\t')
+		*i = *i + 1;
+}
+
+char	*back_space(char *line)
+{
+	int len;
+	int i;
+	char *nline;
+
+	i = 0;
+	len = ft_strlen(line) - 1;
+	while (line[len] == ' ' || line[len] == '\t')
+	{
+		line[len] = '\0';
+		len--;
+	}
+	pass_space(&i, line);
+	if (!(nline = ft_strdup(line + i)))
+		m_exit(26);
+	return (nline);
 }

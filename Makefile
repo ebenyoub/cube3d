@@ -15,11 +15,18 @@ SRCS		+=	cub_error.c
 SRCS		+=	cub_init.c
 SRCS		+=	cub_free.c
 SRCS		+=	cub_bmp.c
+SRCS		+=	cub_msg.c
+SRCS		+=	cub_gnl_m.c
+SRCS		+=	cub_param.c
 SRCS		+=	map_fill.c
 SRCS		+=	map_color.c
 SRCS		+=	map_draw.c
 SRCS		+=	map_dir.c
 SRCS		+=	map_leak.c
+SRCS		+=	map_data.c
+SRCS		+=	map_save.c
+SRCS		+=	map_scan.c
+SRCS		+=	map_elem.c
 SRCS		+=	key_init.c
 SRCS		+=	ray_init.c
 SRCS		+=	ray_shift.c
@@ -66,6 +73,10 @@ fclean: clean
 
 fclean_wolf: clean
 	$(RM_DIR) $(NAME) a.out cub3d.dSYM a.out.dSYM
+
+git: fclean
+	git add .
+	git commit -m "save auto"
 
 re:
 	$(MAKE) fclean --no-print-directory

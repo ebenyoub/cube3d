@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 12:53:58 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/19 13:50:58 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/10/31 15:50:03 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,9 @@ int		map_leak_y(int x, int y, all_t *a)
 
 void	map_leak(int x, int y, all_t *a)
 {
+	a->m.map_test = ft_split(a->m.map, '|');
 	map_leak_y(x, y, a);
 	if (!map_hole(a))
-		ret_exit("Error\nMap not closed.\n", a);
+		m_exit(4);
 	tab_free(a->m.map_test);
 }

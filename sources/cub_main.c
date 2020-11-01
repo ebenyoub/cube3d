@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:19:27 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/20 11:46:49 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/01 10:47:14 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,17 @@ int		go_parsing(all_t *a)
 	init_all(a);
 	map_read(a);
 	if (!init_win(a))
-	{
-		ft_putstr("Error\nImages Loading failure.\n");
-		exit(EXIT_FAILURE);
-	}
+		m_exit(8);
 	return (1);
 }
 
-int		go_option(int option, all_t *a)
+int		go_option(all_t *a)
 {
-	if (option)
+	if (a->m.option)
 	{
 		if (!save_bmp(a))
 			return (0);
-		ft_putstr("Success\nScreenshot created.\n");
+		m_exit(9);
 	}
 	else
 	{
@@ -46,15 +43,13 @@ int		go_option(int option, all_t *a)
 int		main(int argc, char **argv)
 {
 	all_t		a;
-	int			option;
 
+	scan_param(argc, argv, &a);
 	a.m.name = argv[1];
 	cub_fault(argc, argv);
-	option = (argc >= 3 && !ft_strncmp(argv[2], "--save", 6)) ? 1 : 0;
 	if (!go_parsing(&a))
-		ret_exit("Error\nPasring failure.\n", &a);
-	if (!go_option(option, &a))
-		ret_exit("Error\nOption failure.\n", &a);
-	ret_exit("Exited at end\n", &a);
+		r_exit(10, &a);
+	if (!go_option(&a))
+		r_exit(12, &a);
 	return (EXIT_SUCCESS);
 }

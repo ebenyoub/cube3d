@@ -17,30 +17,6 @@ typedef struct		win_s
 	void			*win;
 }					win_t;
 
-typedef	struct 		bmp_s
-{
-    unsigned int    info_header_size;
-    unsigned int    info_image_width;
-    unsigned int    info_image_height;
-    short int        info_planes;
-    short int        info_bits_per_pixel;
-    unsigned int    info_compression;
-    unsigned int    info_image_size;
-    unsigned int    info_x_pixels_per_meter;
-    unsigned int    info_y_pixels_per_meter;
-    unsigned int    info_total_colors;
-    unsigned int    info_important_colors;
-	unsigned char   header_file_type[2];
-    int             header_file_size;
-    short           header_reserved1;
-    short           header_reserved2;
-    unsigned int    header_pixel_data_offset;
-	int				red;
-	int				green;
-	int				blue;
-}					bmp_t;
-
-
 typedef	struct 		map_s
 {
 	char			**map_tab;
@@ -51,6 +27,7 @@ typedef	struct 		map_s
 	char			*img[6];
 	void			*img_map_ptr;
 	int				*img_map_to_img;
+	int				option;
 	int				map_count;
 	int				map_size_x;
 	int				height;
@@ -202,7 +179,6 @@ typedef	struct		all_s
 	spr_t			s;
 	pos_t			*d;
 	flo_t			c;
-	bmp_t			b;
 }					all_t;
 
 void	map_draw(all_t *a, int i, int n, int color);
@@ -233,9 +209,17 @@ void	spr_save(all_t *a);
 void    spr_swap(all_t *a);
 
 void	cub_fault(int argc, char **argv);
-void	ret_exit(char *str, all_t *a);
 void	ft_get_color(int i, all_t *a);
 void    tab_free(char **tab);
 void	exit_free_tab(all_t *a);
 void	tab_free(char **tab);
 int     save_bmp(all_t *a);
+char	*back_space(char *line);
+void	pass_space(int *i, char *line);
+void	r_exit(int i, all_t *a);
+void	m_exit(int i);
+void    find_msg(int i);
+int		get_next_line_m(int fd, char **line);
+void	map_data(char *line, all_t *a);
+void	map_save(char *line, all_t *a);
+void    scan_param(int argc, char **argv, all_t *a);
