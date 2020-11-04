@@ -13,8 +13,8 @@
 12 Exited at end.
 13 Error\nBad syntax color : "C     R,G,B".
 14 Error\nCeilling color is NULL.
-15 Error\nft_strdup failed in map_scan map_scan.c:25
-16 Error\nft_strdup failed in map_scan map_scan.c:62
+15 Error\nft_strdup failed in map_scan map_scan.c:45
+16 Error\nft_strdup failed in map_scan map_scan.c:25
 17 Error\nft_strdup failed in map_data_next map_data.c:38
 18 Error\nft_strdup failed in map_data_next map_data.c:41
 19 Error\nft_strdup failed in map_data_next map_data.c:44
