@@ -8,10 +8,36 @@ MLXFLAGS 	=	-I ./minilibx-linux -L ./minilibx-linux -lmlx -lm -lbsd -lX11 -lXext
 LIBFLAGS 	=	-I ./libft_cub -L ./libft_cub -lft
 
 OBJS  		=	$(SRCS: .c = .o)
-SRCS		=	cub_main.c
-SRCS		+=	cub_init.c
 
-libft_cub		=	libft_cub/libft_cub.a
+SRCS		=	cub_main.c
+SRCS		+=	cub_gnl.c
+SRCS		+=	cub_error.c
+SRCS		+=	cub_init.c
+SRCS		+=	cub_free.c
+SRCS		+=	cub_bmp.c
+SRCS		+=	cub_msg.c
+SRCS		+=	cub_gnl_m.c
+SRCS		+=	cub_param.c
+SRCS		+=	map_fill.c
+SRCS		+=	map_color.c
+SRCS		+=	map_draw.c
+SRCS		+=	map_dir.c
+SRCS		+=	map_leak.c
+SRCS		+=	map_data.c
+SRCS		+=	map_save.c
+SRCS		+=	map_scan.c
+SRCS		+=	map_elem.c
+SRCS		+=	map_count.c
+SRCS		+=	key_init.c
+SRCS		+=	ray_init.c
+SRCS		+=	ray_shift.c
+SRCS		+=	tex_init.c
+SRCS		+=	tex_floor.c
+SRCS		+=	spr_calc.c
+SRCS		+=	spr_utils.c
+SRCS		+=	img_init.c
+
+libft_cub	=	libft_cub/libft_cub.a
 MINILIBX  	=	minilibX
 
 

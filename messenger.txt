@@ -56,3 +56,4 @@
 55 Error\nmalloc failed in ray_launch ray_init.c:97.
 56 Error\nmalloc failed in spr_data spr_calc:105.
 57 Error\nmalloc failed in spr_data spr_calc:107.
+58 Cub3d by ebenyoub.
