@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:57:40 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/31 15:59:34 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/04 15:32:27 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,15 @@ void	map_read(all_t *a)
 	while (ret > 0)
 	{
 		ret = get_next_line(fd, &line);
-		map_data(line, a);
-		map_save(line, a);
+		map_scan(line, a);
 		free(line);
-		line = NULL;
 	}
+	verif_nb(a);
+	if (a->m.pos_nb == 0)
+		m_exit(48);
 	a->m.map_tab = ft_split(a->m.map, '|');
 	map_leak((int)a->r.posY, (int)a->r.posX, a);
-	a->d = malloc(sizeof(pos_t) * a->s.spr_nbr);
+	if (!(a->d = malloc(sizeof(pos_t) * a->s.spr_nbr)))
+		m_exit(54);
 	close(fd);
 }

@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:59:04 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/31 15:59:44 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/04 15:25:24 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	map_save_next(int *i, char *line, all_t *a)
 {
-	while (ft_isdigit(line[*i]) || ft_isstr(line[*i], "NSEW"))
+	while (ft_isdigit(line[*i]) || ft_isstr(line[*i], "NSEW "))
 	{
 		if (ft_isstr(line[*i], "NSEW"))
 		{
@@ -22,6 +22,9 @@ void	map_save_next(int *i, char *line, all_t *a)
 			a->r.posY = (double)*i + 0.5;
 			map_dir(line[*i], a);
 			map_plan(line[*i], a);
+			a->m.pos_nb += 1;
+			if (a->m.pos_nb > 1)
+				m_exit(47);
 		}
 		if (line[*i] == '2')
 			a->s.spr_nbr += 1;
@@ -35,17 +38,20 @@ void	map_save(char *line, all_t *a)
 	char	*tmp;
 
 	i = 0;
-	while (line[i] == ' ' || line[i] == '\t')
-		i++;
+	pass_space(&i, line);
 	if (line[i] == '1')
 	{
-		tmp = ft_strjoin(a->m.map, line);
+		if (!(tmp = ft_strjoin(a->m.map, line)))
+			m_exit(52);
 		free(a->m.map);
-		a->m.map = ft_strdup(tmp);
+		if (!(a->m.map = ft_strdup(tmp)))
+			m_exit(50);
 		free(tmp);
-		tmp = ft_strjoin(a->m.map, "|");
+		if (!(tmp = ft_strjoin(a->m.map, "|")))
+			m_exit(53);
 		free(a->m.map);
-		a->m.map = ft_strdup(tmp);
+		if (!(a->m.map = ft_strdup(tmp)))
+			m_exit(51);
 		free(tmp);
 		map_save_next(&i, line, a);
 		a->m.map_h = a->m.map_h + 1;

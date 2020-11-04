@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:53:42 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/31 15:57:50 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/04 15:16:18 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,25 @@ void    resolution(all_t *a)
 void	map_data_next(char *line, all_t *a)
 {
 	if (line[0] == 'N')
-		a->m.img[0] = ft_strdup(line + 3);
+		if (!(a->m.img[0] = ft_strdup(map_cut(line))))
+			m_exit(17);
 	if (line[0] == 'S' && line[1] == 'O')
-		a->m.img[1] = ft_strdup(line + 3);
+		if (!(a->m.img[1] = ft_strdup(map_cut(line))))
+			m_exit(18);
 	if (line[0] == 'W')
-		a->m.img[2] = ft_strdup(line + 3);
+		if (!(a->m.img[2] = ft_strdup(map_cut(line))))
+			m_exit(19);
 	if (line[0] == 'E')
-		a->m.img[3] = ft_strdup(line + 3);
+		if (!(a->m.img[3] = ft_strdup(map_cut(line))))
+			m_exit(20);
 	if (line[0] == 'S' && line[1] == ' ')
-		a->m.img[4] = ft_strdup(line + 2);
+		if (!(a->m.img[4] = ft_strdup(map_cut(line))))
+			m_exit(21);
 	if (line[0] == 'F')
-		a->m.img[5] = ft_strdup(line + 2);
+		if (!(a->m.img[5] = ft_strdup(map_cut(line))))
+			m_exit(22);
 	if (line[0] == 'C')
-		a->m.c = map_color(line + 2);
+		a->m.c = map_color(map_cut(line));
 }
 
 void	map_data(char *line, all_t *a)

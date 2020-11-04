@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:19:27 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/01 10:47:14 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/04 10:26:55 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int		main(int argc, char **argv)
 	a.m.name = argv[1];
 	cub_fault(argc, argv);
 	if (!go_parsing(&a))
-		r_exit(10, &a);
+		m_exit(10);
 	if (!go_option(&a))
-		r_exit(12, &a);
+		m_exit(12);
 	return (EXIT_SUCCESS);
 }

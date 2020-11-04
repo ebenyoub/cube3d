@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:09:34 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/09 17:15:13 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/04 15:37:24 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,10 @@ void	spr_data(all_t *a)
 	int		z;
 
 	i = -1;
-	a->s.spr_dist = malloc(sizeof(double) * a->s.spr_nbr);
-	a->s.order = malloc(sizeof(int) * a->s.spr_nbr);
+	if (!(a->s.spr_dist = malloc(sizeof(double) * a->s.spr_nbr)))
+		m_exit(56);
+	if (!(a->s.order = malloc(sizeof(int) * a->s.spr_nbr)))
+		m_exit(57);
 	while (++i < a->s.spr_nbr)
 	{
 		spr_pos(a);

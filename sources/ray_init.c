@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 18:00:57 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/09 18:09:24 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/04 15:33:52 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,8 @@ int		ray_launch(all_t *a)
 	int		x;
 
 	x = 0;
-	a->s.zbuffer = malloc(sizeof(double) * a->m.width);
+	if (!(a->s.zbuffer = malloc(sizeof(double) * a->m.width)))
+		m_exit(55);
 	while (x < a->m.width)
 	{
 		ray_pos(x, a);

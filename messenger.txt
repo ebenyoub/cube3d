@@ -6,25 +6,25 @@
 5 Error\nThe map contains characters other than "2, 1, 0, N, E, W, S".
 6 Error\nEmpty line in the map.
 7 Error\nMore than one location in the map "NSWE".
-8 Error\nImages Loading failure.
+8 Error\nImages Loading failure. Check the textures paths.
 9 Success\nScreenshot created.
 10 Error\nPasring failure.
 11 Error\nOption failure.
 12 Exited at end.
 13 Error\nBad syntax color : "C     R,G,B".
 14 Error\nCeilling color is NULL.
-15 Error\nft_strdup failed in map_data_next map_data.c:80
-16 Error\nft_strdup failed in map_cut map_cut.c:58
-17 Error\nft_strdup failed in map_data_next map_data.c:61
-18 Error\nft_strdup failed in map_data_next map_data.c:66
-19 Error\nft_strdup failed in map_data_next map_data.c:71
-20 Error\nft_strdup failed in map_data_next map_data.c:76
-21 Error\nft_strdup failed in map_data_next map_data.c:40
-22 Error\nft_strdup failed in map_data_next map_data.c:46
+15 Error\nft_strdup failed in map_scan map_scan.c:25
+16 Error\nft_strdup failed in map_scan map_scan.c:62
+17 Error\nft_strdup failed in map_data_next map_data.c:38
+18 Error\nft_strdup failed in map_data_next map_data.c:41
+19 Error\nft_strdup failed in map_data_next map_data.c:44
+20 Error\nft_strdup failed in map_data_next map_data.c:47
+21 Error\nft_strdup failed in map_data_next map_data.c:50
+22 Error\nft_strdup failed in map_data_next map_data.c:53
 23 Error\nAn element in "map.cub" is not recognized.\nElements accepted : R NO SO WE EA F C Map.
 24 Error\nElement "C ceilling" in "map.cub" : numbers RGB must be separated by ','.\nEx : C\t134,34,254
 25 Error\nElement "C ceilling" in "map.cub" : R, G or B color must be between 0 and 255. And only 3 color.\nEx : C\t134,34,254
-26 Error\nft_strdup failed in back_space cub_error.c:57
+26 Error\nft_strdup failed in back_space cub_error.c:66
 27 Error\nIn map.cub : the R element must be present only once.
 28 Error\nIn map.cub : the NO element must be present only once.
 29 Error\nIn map.cub : the S element must be present only once.
@@ -43,4 +43,16 @@
 42 Error\nIn map.cub : the C element must be present once.
 43 Error\nft_strdup failed in map_read map_fill.c:79
 44 Error\nThere is at least one space inside the map.
-45
+45 Error\nAll elements must be before the Map.
+46 Error\nSpace between the RGB colors.\nEx : C\t134,34,254
+47 Error\nPlayer's position N, S, E, W must only be present once.
+48 Error\nPlayer's position N, S, E, W should only be present at least once.
+49 Error\nft_strdup failed in init_map cub_init.c:31.
+50 Error\nft_strdup failed in map_save map_save.c:46.
+51 Error\nft_strdup failed in map_save map_save.c:51.
+52 Error\nft_strjoin failed in map_save map_save.c:44.
+53 Error\nft_strjoin failed in map_save map_save.c:50.
+54 Error\nmalloc failed in map_read map_fill.c:35.
+55 Error\nmalloc failed in ray_launch ray_init.c:97.
+56 Error\nmalloc failed in spr_data spr_calc:105.
+57 Error\nmalloc failed in spr_data spr_calc:107.

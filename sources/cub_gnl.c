@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 14:53:29 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/09 17:19:05 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/04 15:09:47 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int		new_line(char **tmp, int len, char **line)
 	i = 0;
 	if (*tmp == NULL)
 	{
-		*line = ft_strdup("");
+		if (!(*line = ft_strdup("")))
+			return (-1);
 		return (0);
 	}
 	while ((*tmp)[i] != '\n' && (*tmp)[i] != '\0')

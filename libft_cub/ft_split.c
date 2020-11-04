@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elyasbenyoub <elyasbenyoub@student.42.f    +#+  +:+       +#+        */
+/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 16:10:18 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/09/03 17:03:13 by elyasbenyou      ###   ########.fr       */
+/*   Updated: 2020/11/04 15:29:16 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ static int		*word_mark(char *str, char c, int nb)
 
 	i = 0;
 	a = 0;
-	tab = malloc(sizeof(int) * nb);
+	if (!(tab = malloc(sizeof(int) * nb)))
+		return (NULL);
 	while (str[i] && (a < nb))
 	{
 		if (str[i] == c)
@@ -68,7 +69,8 @@ static char		*malloc_word(char *str, char c)
 		return (NULL);
 	while (str[i] && str[i] != c)
 		i++;
-	word = malloc(sizeof(char) * (i + 1));
+	if (!(word = malloc(sizeof(char) * (i + 1))))
+		return (NULL);
 	if (word == NULL)
 		return (NULL);
 	word[i] = '\0';

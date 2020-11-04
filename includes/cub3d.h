@@ -27,7 +27,9 @@ typedef	struct 		map_s
 	char			*img[6];
 	void			*img_map_ptr;
 	int				*img_map_to_img;
+	int				element[8];
 	int				option;
+	int				map_line;
 	int				map_count;
 	int				map_size_x;
 	int				height;
@@ -38,6 +40,7 @@ typedef	struct 		map_s
 	int				map_size_line;
 	int				map_endian;
 	int				save;
+	int				pos_nb;
 	int				c;
 	int				w;
 }					map_t;
@@ -189,6 +192,8 @@ void    map_dir(char c, all_t *a);
 void	map_leak(int x, int y, all_t *a);
 int		map_leak_y(int x, int y, all_t *a);
 int     map_color(char *str);
+void    map_scan(char *line, all_t *a);
+char	*map_cut(char *line);
 
 void    init_all(all_t *a);
 int	    init_win(all_t *a);
@@ -223,3 +228,6 @@ int		get_next_line_m(int fd, char **line);
 void	map_data(char *line, all_t *a);
 void	map_save(char *line, all_t *a);
 void    scan_param(int argc, char **argv, all_t *a);
+void	verif_nb(all_t *a);
+void	init_element(all_t *a);
+void	check_element(char *line, all_t *a);
