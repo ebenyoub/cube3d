@@ -1,3 +1,15 @@
+NAME		=	cub3d
+
+CC			=	gcc
+CFLAGS		=	-Wall -Wextra -Werror -g3
+LFLAGS		=	
+MEMFLAGS	=	-ggdb -fsanitize=address 
+
+SRCS_DIR	=	./sources/
+OBJ_DIR		=	./objects/
+INC_DIR		=	./includes/
+MLX_DIR		=	./minilibx_linux/
+
 SRCS		=	cub_main.c
 SRCS		+=	cub_gnl.c
 SRCS		+=	cub_error.c
@@ -26,60 +38,55 @@ SRCS		+=	spr_calc.c
 SRCS		+=	spr_utils.c
 SRCS		+=	img_init.c
 
-NAME = Cub3D
+OBJ			=	$(addprefix $(OBJ_DIR),$(SRCS:.c=.o))
 
-MLX_DIR = minilibx-linux
-MLX = libmlx.a 
-CC = clang
+INC			=	$(addprefix -I,$(INC_DIR))
 
-# diff entre .a et .dylib
-# .a = lib static, les fonctions utilisees sont directement ecrite dans le binaire
-# .dylib = lib dynamique, les fonctions doivent etre chargees au momnent ou on lance le binaire
+libft_cub		=	libft_cub/libft_cub.a
 
-CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
+RM			=	/bin/rm -f
+RM_DIR		=	/bin/rm -rf
 
-OBJ_DIR = ./objets
-SRC_DIR = ./sources
-INC_DIR = ./includes
 
-OBJ = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
-DPD = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.d))
+$(OBJ_DIR)%.o:$(SRCS_DIR)%.c $(INC_DIR)*.h
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
-.c.o:
-	${CC} ${CFLAGS} -c$< -o ${<:.c=.o}
-
-# -C faire make comme si on etait dana le dossier
-# -j multisreder / ameliore la vitesse de compliation
-# Pas de regle opti car makefile mlx pas compatible
 all:
-	@$(MAKE) -j $(NAME)
+	mkdir -p $(OBJ_DIR)
+	$(MAKE) $(NAME) --no-print-directory
 
-# permet de pouvoir comparer la derniere modification de la dep par rapport a la regle
-# -L donner le nom du dossier / -l donner le nom le la lib
-# loader path = ecrit le chemin de la mlx dans le binaire pour pouvoir la retrouver au moment ou on lance le binaire
-$(NAME): $(OBJ)
-		${CC} $(CFLAGS) -o $(NAME) $(OBJ) -L $(MLX_DIR) -lmlx -lm -lbsd -lX11 -lXext
-		@echo $(NAME) : Created !
+make_libft_cub:
+	make -C libft_cub/
 
-# si le .c est plus recent que le .o on rentre dans la regle
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | .gitignore
-		@mkdir -p $(OBJ_DIR)
-		${CC} $(CFLAGS) -I $(INC_DIR) -I $(MLX_DIR) -c $< -o $@
+make_mlx:
+	make -C minilibx-linux/
 
-.gitignore:
-		@echo $(NAME) > .gitignore
+$(NAME): $(OBJ) $(INC_DIR) make_libft_cub make_mlx
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -L $(MLX_DIR) -lmlx -lXext -lX11 -lm ./libft_cub/libft_cub.a
 
 clean:
-	@rm -rf $(OBJ_DIR)
-	@echo "obj deleted"
+	$(RM_DIR) $(OBJ_DIR)
+	$(MAKE) clean -C libft_cub/
+	$(MAKE) clean -C minilibx_macos/
 
-fclean:	clean
-	@rm -rf $(NAME)
-	@echo "[$(NAME)]: deleted"
+fclean: clean
+	$(RM_DIR) $(NAME) a.out cub3d.dSYM a.out.dSYM
+	$(MAKE) fclean -C libft_cub/
 
-re: fclean all
+fclean_wolf: clean
+	$(RM_DIR) $(NAME) a.out cub3d.dSYM a.out.dSYM
 
-.PHONY: all, clean, fclean, re
+git: fclean
+	git add .
+	git commit -m "save auto"
 
-# Utilise les .d (et ignore s'ils n'existe pas)
--include $(DPD)
+re:
+	$(MAKE) fclean --no-print-directory
+	$(MAKE) all --no-print-directory
+
+bin: re clean
+
+
+.SILENT: make_mlx
+#.PRECIOUS:
+.PHONY: all clean fclean re bin make_libft_cub
