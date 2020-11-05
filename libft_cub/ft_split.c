@@ -108,12 +108,10 @@ static char		**make_tab(char *str, char c)
 
 char			**ft_split(char const *s, char c)
 {
-	int		i;
 	char	*set;
 
 	if (s)
 	{
-		i = 0;
 		if (!(set = malloc(sizeof(char) * 2)))
 			return (NULL);
 		set[0] = c;

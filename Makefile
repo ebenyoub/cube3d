@@ -8,6 +8,7 @@ MEMFLAGS	=	-ggdb -fsanitize=address
 SRCS_DIR	=	./sources/
 OBJ_DIR		=	./objects/
 INC_DIR		=	./includes/
+MLX_DIR		=	./minilibx-linux/
 
 SRCS		=	cub_main.c
 SRCS		+=	cub_gnl.c
@@ -58,11 +59,11 @@ make_libft_cub:
 	make -C libft_cub/
 
 make_mlx:
-	make -C minilibx_macos/
+	make -C minilibx-linux/
 
 $(NAME): $(OBJ) $(INC_DIR) make_libft_cub make_mlx
-	$(CC) $(CFLAGS) $(OBJ) -I ./minilibx_macos/mlx.h ./minilibx_macos/libmlx.a ./libft_cub/libft_cub.a -framework OpenGL -framework AppKit -I ./libft_cub/includes $(INC) -o $(NAME)
-	
+	$(CC) $(CFLAGS) $(MEMFLAGS) -o $(NAME) $(OBJ) -L $(MLX_DIR) -lmlx -lXext -lX11 -lm ./libft_cub/libft_cub.a
+
 clean:
 	$(RM_DIR) $(OBJ_DIR)
 	$(MAKE) clean -C libft_cub/

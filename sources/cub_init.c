@@ -14,9 +14,6 @@
 
 void	init_map(all_t *a)
 {
-	int i;
-
-	i = 0;
 	a->m.width = 0;
 	a->m.height = 0;
 	a->m.map_h = 0;

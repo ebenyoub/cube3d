@@ -168,7 +168,7 @@ typedef struct		key_s
 	int				ar;
 	int				esc;
 	int				lock;
-}					key_t;
+}					t_key;
 
 typedef	struct		all_s
 {
@@ -178,7 +178,7 @@ typedef	struct		all_s
 	fps_t			f;
 	tex_t			t;
 	img_t			i[7];
-	key_t			k;
+	t_key			k;
 	spr_t			s;
 	pos_t			*d;
 	flo_t			c;

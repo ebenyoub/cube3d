@@ -33,7 +33,7 @@ void	spr_swap(all_t *a)
 
 void	ft_get_color(int i, all_t *a)
 {
-	i = 0;
+	(void)i;
 	if (a->s.texY >= 0)
 	{
 		if (a->i[5].img_data[a->s.texX + a->s.texY

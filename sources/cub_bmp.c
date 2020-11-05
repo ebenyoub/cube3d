@@ -57,10 +57,8 @@ void	write_data(all_t *a, int fd)
 {
 	int		i;
 	int		j;
-	int		pad;
 
 	i = a->m.height + 1;
-	pad = (4 - (a->m.width * 3) % 4) % 4;
 	while (--i >= 0)
 	{
 		j = -1;
