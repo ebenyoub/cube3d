@@ -40,7 +40,7 @@ void	pass_space(int *i, char *line)
 		*i = *i + 1;
 }
 
-char	*back_space(char *line)
+char	*bacKEY_Space(char *line)
 {
 	int len;
 	int i;

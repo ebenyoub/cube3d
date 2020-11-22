@@ -67,7 +67,7 @@ $(NAME): $(OBJ) $(INC_DIR) make_libft_cub make_mlx
 clean:
 	$(RM_DIR) $(OBJ_DIR)
 	$(MAKE) clean -C libft_cub/
-	$(MAKE) clean -C minilibx_macos/
+	$(MAKE) clean -C minilibx-linux/
 
 fclean: clean
 	$(RM_DIR) $(NAME) a.out cub3d.dSYM a.out.dSYM

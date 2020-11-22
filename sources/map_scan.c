@@ -22,7 +22,7 @@ void	post_scan(int *i, char *line, all_t *a)
 		m_exit(6);
 	if (line[*i] != '1')
 		m_exit(45);
-	if (!(nline = ft_strdup(back_space(line))))
+	if (!(nline = ft_strdup(bacKEY_Space(line))))
 		m_exit(16);
 	while (nline[d])
 	{
@@ -42,7 +42,7 @@ void	pre_scan(char *line, all_t *a)
 	nline = NULL;
 	if (line[0])
 	{
-		if (!(nline = ft_strdup(back_space(line))))
+		if (!(nline = ft_strdup(bacKEY_Space(line))))
 			m_exit(15);
 		check_element(nline, a);
 		map_data(nline, a);

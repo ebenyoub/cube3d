@@ -4,10 +4,10 @@
 # include <fcntl.h>
 # include <sys/stat.h>
 # include <time.h>
-# include "../minilibx_macos/mlx.h"
 # include "../includes/get_next_line.h"
 # include "../libft_cub/libft_cub.h"
-# include "./keycode.h"
+# include "../minilibx-linux/mlx.h"
+# include "./key.h"
 
 # define BUFFER_SIZE 1
 
@@ -156,7 +156,7 @@ typedef	struct		pos_s
     double          y;
 }					pos_t;
 
-typedef struct		key_s
+typedef struct		s_keycode
 {
 	int				z;
 	int				s;
@@ -168,7 +168,7 @@ typedef struct		key_s
 	int				ar;
 	int				esc;
 	int				lock;
-}					t_key;
+}					t_keycode;
 
 typedef	struct		all_s
 {
@@ -178,7 +178,7 @@ typedef	struct		all_s
 	fps_t			f;
 	tex_t			t;
 	img_t			i[7];
-	t_key			k;
+	t_keycode			k;
 	spr_t			s;
 	pos_t			*d;
 	flo_t			c;
@@ -219,7 +219,7 @@ void    tab_free(char **tab);
 void	exit_free_tab(all_t *a);
 void	tab_free(char **tab);
 int     save_bmp(all_t *a);
-char	*back_space(char *line);
+char	*bacKEY_Space(char *line);
 void	pass_space(int *i, char *line);
 void	r_exit(int i, all_t *a);
 void	m_exit(int i);

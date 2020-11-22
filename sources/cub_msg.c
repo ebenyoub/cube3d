@@ -12,7 +12,7 @@
 
 #include "../includes/cub3d.h"
 
-void    back_slash(int *a, char c)
+void    bacKEY_Slash(int *a, char c)
 {
 	if (c == 'n')
 		write(1, "\n", 1);
@@ -28,7 +28,7 @@ void    write_msg(int *a, char *line)
 	while (line[*a])
 	{
 		if (line[*a] == '\\' && ft_isstr(line[*a + 1], "nt\""))
-			back_slash(&*a, line[*a + 1]);
+			bacKEY_Slash(&*a, line[*a + 1]);
 		else
 			write(1, &line[*a], 1);
 		*a = *a + 1;

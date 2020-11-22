@@ -56,7 +56,7 @@ void	init_ray(all_t *a)
 	a->s.vMoveScreen = 0;
 }
 
-void	init_key(all_t *a)
+void	init_keycode(all_t *a)
 {
 	a->k.z = 0;
 	a->k.s = 0;
@@ -74,6 +74,6 @@ void	init_all(all_t *a)
 {
 	init_map(a);
 	init_ray(a);
-	init_key(a);
+	init_keycode(a);
 	init_element(a);
 }

@@ -21,46 +21,46 @@ int		key_close(all_t *a)
 
 int		key_hold(int key, all_t *a)
 {
-	if (key == KEY_Z || key == ARROW_UP)
+	if (key == K_Z || key == K_ARROW_UP)
 		a->k.z = 1;
-	if (key == KEY_Q)
+	if (key == K_Q)
 		a->k.q = 1;
-	if (key == KEY_S || key == ARROW_DOWN)
+	if (key == KEY_S || key == K_ARROW_DOWN)
 		a->k.s = 1;
-	if (key == KEY_D)
+	if (key == K_D)
 		a->k.d = 1;
-	if (key == ARROW_LEFT)
+	if (key == K_ARROW_LEFT)
 		a->k.al = 1;
-	if (key == ARROW_RIGHT)
+	if (key == K_ARROW_RIGHT)
 		a->k.ar = 1;
-	if (key == KEY_M)
+	if (key == K_M)
 		a->k.m = 1;
-	if (key == KEY_L)
+	if (key == K_L)
 		a->k.m = 1;
-	if (key == KEY_ESC)
+	if (key == K_ESCAPE)
 		a->k.esc = 1;
 	return (0);
 }
 
 int		key_release(int key, all_t *a)
 {
-	if (key == KEY_Z || key == ARROW_UP)
+	if (key == K_Z || key == K_ARROW_UP)
 		a->k.z = 0;
-	if (key == KEY_Q)
+	if (key == K_Q)
 		a->k.q = 0;
-	if (key == KEY_S || key == ARROW_DOWN)
+	if (key == KEY_S || key == K_ARROW_DOWN)
 		a->k.s = 0;
-	if (key == KEY_D)
+	if (key == K_D)
 		a->k.d = 0;
-	if (key == ARROW_LEFT)
+	if (key == K_ARROW_LEFT)
 		a->k.al = 0;
-	if (key == ARROW_RIGHT)
+	if (key == K_ARROW_RIGHT)
 		a->k.ar = 0;
-	if (key == KEY_M)
+	if (key == K_M)
 		a->k.m = 0;
-	if (key == KEY_L)
+	if (key == K_L)
 		a->k.m = 0;
-	if (key == KEY_ESC)
+	if (key == K_ESCAPE)
 		a->k.esc = 0;
 	return (0);
 }
