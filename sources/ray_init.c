@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 18:00:57 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/04 15:33:52 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/25 13:53:32 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,6 @@ int		ray_launch(all_t *a)
 	int		x;
 
 	x = 0;
-	if (!(a->s.zbuffer = malloc(sizeof(double) * a->m.width)))
-		m_exit(55);
 	while (x < a->m.width)
 	{
 		ray_pos(x, a);

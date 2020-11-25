@@ -31,9 +31,9 @@ int		go_option(all_t *a)
 	}
 	else
 	{
-		mlx_hook(a->w.win, 2, 0, key_hold, a);
-		mlx_hook(a->w.win, 3, 0, key_release, a);
-		mlx_hook(a->w.win, 17, 0, key_close, a);
+		mlx_hook(a->w.win, 2, 1L << 0, key_hold, a);
+		mlx_hook(a->w.win, 3, 1L << 1, key_release, a);
+		mlx_hook(a->w.win, 17, 1L << 17, key_close, a);
 		mlx_loop_hook(a->w.mlx, key_read, a);
 		mlx_loop(a->w.mlx);
 	}

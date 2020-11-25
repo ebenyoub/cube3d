@@ -17,6 +17,7 @@ SRCS		+=	cub_init.c
 SRCS		+=	cub_free.c
 SRCS		+=	cub_bmp.c
 SRCS		+=	cub_msg.c
+SRCS		+=	cub_malloc.c
 SRCS		+=	cub_gnl_m.c
 SRCS		+=	cub_param.c
 SRCS		+=	map_fill.c
@@ -62,7 +63,7 @@ make_mlx:
 	make -C minilibx-linux/
 
 $(NAME): $(OBJ) $(INC_DIR) make_libft_cub make_mlx
-	$(CC) $(CFLAGS) $(MEMFLAGS) -o $(NAME) $(OBJ) -L $(MLX_DIR) -lmlx -lXext -lX11 -lm ./libft_cub/libft_cub.a
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -L $(MLX_DIR) -lmlx -lXext -lX11 -lm ./libft_cub/libft_cub.a
 
 clean:
 	$(RM_DIR) $(OBJ_DIR)

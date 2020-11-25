@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_fill.c                                         :+:      :+:    :+:   */
+/*   cub_malloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/09 17:57:40 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/25 13:52:54 by user42           ###   ########lyon.fr   */
+/*   Created: 2020/11/25 13:49:14 by user42            #+#    #+#             */
+/*   Updated: 2020/11/25 13:54:32 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	map_read(all_t *a)
+void    tab_malloc(all_t *a)
 {
-	int		fd;
-	int		ret;
-	char	*line;
-
-	ret = 1;
-	if ((fd = open(a->m.name, O_RDONLY)) < 0)
-		m_exit(3);
-	while (ret > 0)
-	{
-		ret = get_next_line(fd, &line);
-		map_scan(line, a);
-		free(line);
-	}
-	verif_nb(a);
-	if (a->m.pos_nb == 0)
-		m_exit(48);
-	a->m.map_tab = ft_split(a->m.map, '|');
-	map_leak((int)a->r.posY, (int)a->r.posX, a);
-	tab_malloc(a);
-	close(fd);
+    if (!(a->s.zbuffer = malloc(sizeof(double) * a->m.width)))
+		m_exit(55);
+	if (!(a->d = malloc(sizeof(pos_t) * a->s.spr_nbr)))
+		m_exit(54);
+	if (!(a->s.spr_dist = malloc(sizeof(double) * a->s.spr_nbr)))
+		m_exit(56);
+	if (!(a->s.order = malloc(sizeof(int) * a->s.spr_nbr)))
+		m_exit(57);
 }

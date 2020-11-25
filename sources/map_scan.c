@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_scan.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:22:14 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/04 16:29:39 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/25 14:31:03 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ void	post_scan(int *i, char *line, all_t *a)
 		m_exit(6);
 	if (line[*i] != '1')
 		m_exit(45);
-	if (!(nline = ft_strdup(bacKEY_Space(line))))
-		m_exit(16);
+	nline = back_space(line);
 	while (nline[d])
 	{
 		if (ft_isstr(nline[d], "120NSEW \t"))
@@ -32,7 +31,6 @@ void	post_scan(int *i, char *line, all_t *a)
 			m_exit(5);
 	}
 	map_save(line, a);
-	free(nline);
 }
 
 void	pre_scan(char *line, all_t *a)
@@ -42,11 +40,9 @@ void	pre_scan(char *line, all_t *a)
 	nline = NULL;
 	if (line[0])
 	{
-		if (!(nline = ft_strdup(bacKEY_Space(line))))
-			m_exit(15);
+		nline = back_space(line);
 		check_element(nline, a);
 		map_data(nline, a);
-		free(nline);
 	}
 }
 

@@ -21,7 +21,6 @@ typedef	struct 		map_s
 {
 	char			**map_tab;
 	char			**map_test;
-	char			*sprite;
 	char			*name;
 	char			*map;
 	char			*img[6];
@@ -219,7 +218,7 @@ void    tab_free(char **tab);
 void	exit_free_tab(all_t *a);
 void	tab_free(char **tab);
 int     save_bmp(all_t *a);
-char	*bacKEY_Space(char *line);
+char	*back_space(char *line);
 void	pass_space(int *i, char *line);
 void	r_exit(int i, all_t *a);
 void	m_exit(int i);
@@ -231,3 +230,4 @@ void    scan_param(int argc, char **argv, all_t *a);
 void	verif_nb(all_t *a);
 void	init_element(all_t *a);
 void	check_element(char *line, all_t *a);
+void    tab_malloc(all_t *a);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_gnl_m.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:39:07 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/04 16:32:00 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/25 14:03:20 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ int		fill_buffer_m(int len, char *buffer, char **tmp)
 			return (-1);
 		free(*tmp);
 		*tmp = clean;
-		free(clean);
 	}
 	return (0);
 }

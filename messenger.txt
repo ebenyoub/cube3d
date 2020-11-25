@@ -24,7 +24,7 @@
 23 Error\nAn element in "map.cub" is not recognized.\nElements accepted : R NO SO WE EA F C Map.
 24 Error\nElement "C ceilling" in "map.cub" : numbers RGB must be separated by ','.\nEx : C\t134,34,254
 25 Error\nElement "C ceilling" in "map.cub" : R, G or B color must be between 0 and 255. And only 3 color.\nEx : C\t134,34,254
-26 Error\nft_strdup failed in bacKEY_Space cub_error.c:66
+26 Error\nft_strdup failed in back_space cub_error.c:66
 27 Error\nIn map.cub : the R element must be present only once.
 28 Error\nIn map.cub : the NO element must be present only once.
 29 Error\nIn map.cub : the S element must be present only once.

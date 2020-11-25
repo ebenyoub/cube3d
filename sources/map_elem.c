@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_elem.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:37:52 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/01 21:52:33 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/25 14:29:17 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int		syntax_color(char	*line)
 		rgb = 0;
 		while (ft_isdigit(line[i]))
 			rgb = rgb * 10 + (line[i++] - 48);
+		if ((size_t)i >= ft_strlen(line))
+			break;
 		n++;
 		if (n < 3 && line[i] != ',')
 			m_exit(24);
@@ -44,7 +46,6 @@ int		syntax_color(char	*line)
 char	*map_cut(char *line)
 {
 	int		i;
-	char	*str;
 
 	i = 1;
 	if (ft_isstr(line[0], "RNSWEF"))
@@ -59,9 +60,7 @@ char	*map_cut(char *line)
 		pass_space(&i, line);
 		if(!syntax_color(line))
 			m_exit(13);
-		if (!(str = ft_strdup(line + i)))
-			m_exit(16);
-		return (str);
+		return (line + i);
 	}
 	return (NULL);
 }

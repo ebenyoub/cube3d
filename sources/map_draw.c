@@ -17,13 +17,13 @@ void	ray_line(int x, all_t *a)
 	int y;
 
 	y = 0;
-	while (y < a->m.height)
+	while (y < a->m.height - 1)
 	{
 		if (y < a->r.drawStart)
 			a->i[0].img_data[x + y * a->m.width] = a->m.c;
 		if (y >= a->r.drawStart && y <= a->r.drawEnd)
 		{
-			a->t.texY = ((y - a->m.height * 0.5 + a->r.lineHeight * 0.5)
+			a->t.texY = ((y - (a->m.height - 1) * 0.5 + a->r.lineHeight * 0.5)
 				* a->i[a->t.texNum].texHeight - 1) / a->r.lineHeight;
 			a->m.w = a->i[a->t.texNum].img_data[a->i[a->t.texNum].texWidth
 				* a->t.texY + a->t.texX];

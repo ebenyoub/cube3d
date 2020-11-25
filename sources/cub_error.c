@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_error.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:17:41 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/04 15:48:07 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/25 14:06:47 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,10 @@ void	pass_space(int *i, char *line)
 		*i = *i + 1;
 }
 
-char	*bacKEY_Space(char *line)
+char	*back_space(char *line)
 {
 	int len;
 	int i;
-	char *nline;
 
 	i = 0;
 	len = ft_strlen(line) - 1;
@@ -54,7 +53,5 @@ char	*bacKEY_Space(char *line)
 		len--;
 	}
 	pass_space(&i, line);
-	if (!(nline = ft_strdup(line + i)))
-		m_exit(26);
-	return (nline);
+	return (line + i);
 }
