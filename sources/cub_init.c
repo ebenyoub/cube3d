@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:16:01 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/04 16:23:18 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/25 23:43:35 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	init_map(all_t *a)
 	a->m.map_line = 0;
 	if (!(a->m.map = ft_strdup("")))
 		m_exit(49);
-	a->f.moveSpeed = 0.06;
-	a->f.rotSpeed = 0.08;
+	a->f.moveSpeed = 0.04;
+	a->f.rotSpeed = 0.04;
 	a->m.map_size_x = 0;
 	a->m.pos_nb = 0;
 }
