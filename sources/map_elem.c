@@ -6,13 +6,21 @@
 /*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:37:52 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/25 14:29:17 by user42           ###   ########lyon.fr   */
+/*   Updated: 2020/11/26 12:31:05 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int		syntax_color(char	*line)
+void	check_color(int rgb, int i, int n, char *line)
+{
+	if (line[i] == ' ' || line[i] == '\t')
+		m_exit(46);
+	if (n > 3 || rgb < 0 || rgb > 255)
+		m_exit(25);
+}
+
+int		syntax_color(char *line)
 {
 	int i;
 	int n;
@@ -30,15 +38,12 @@ int		syntax_color(char	*line)
 		while (ft_isdigit(line[i]))
 			rgb = rgb * 10 + (line[i++] - 48);
 		if ((size_t)i >= ft_strlen(line))
-			break;
+			break ;
 		n++;
 		if (n < 3 && line[i] != ',')
 			m_exit(24);
 		i++;
-        if (line[i] == ' ' || line[i] == '\t')
-            m_exit(46);
-		if (n > 3 || rgb < 0 || rgb > 255)
-			m_exit(25);
+		check_color(rgb, i, n, line);
 	}
 	return (1);
 }
@@ -58,7 +63,7 @@ char	*map_cut(char *line)
 	else if (line[0] == 'C')
 	{
 		pass_space(&i, line);
-		if(!syntax_color(line))
+		if (!syntax_color(line))
 			m_exit(13);
 		return (line + i);
 	}

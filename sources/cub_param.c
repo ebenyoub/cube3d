@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   cub_param.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 16:41:46 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/01 11:03:27 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/26 12:28:28 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void    scan_param(int argc, char **argv, all_t *a)
+void	scan_param(int argc, char **argv, all_t *a)
 {
 	if (argc < 2)
 	{

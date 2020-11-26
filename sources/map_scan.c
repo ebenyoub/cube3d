@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:22:14 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/25 14:31:03 by user42           ###   ########lyon.fr   */
+/*   Updated: 2020/11/26 12:33:04 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	pre_scan(char *line, all_t *a)
 	}
 }
 
-void    map_scan(char *line, all_t *a)
+void	map_scan(char *line, all_t *a)
 {
 	int i;
 

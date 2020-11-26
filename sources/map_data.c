@@ -3,33 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   map_data.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:53:42 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/04 15:16:18 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/26 12:20:43 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void    resolution(all_t *a)
+void	resolution(all_t *a)
 {
 	if (a->m.width > 1024)
 	{
 		a->m.width = 1400;
 		a->m.height = 855;
-	}    
+	}
 	if (a->m.width <= 1024)
 	{
 		a->m.width = 1024;
 		a->m.height = 640;
-	}  
+	}
 	if (a->m.width <= 640)
 	{
 		a->m.width = 640;
 		a->m.height = 400;
 	}
-
 }
 
 void	map_data_next(char *line, all_t *a)

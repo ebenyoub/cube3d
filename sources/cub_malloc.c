@@ -6,15 +6,15 @@
 /*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 13:49:14 by user42            #+#    #+#             */
-/*   Updated: 2020/11/25 13:54:32 by user42           ###   ########lyon.fr   */
+/*   Updated: 2020/11/26 12:13:31 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void    tab_malloc(all_t *a)
+void	tab_malloc(all_t *a)
 {
-    if (!(a->s.zbuffer = malloc(sizeof(double) * a->m.width)))
+	if (!(a->s.zbuffer = malloc(sizeof(double) * a->m.width)))
 		m_exit(55);
 	if (!(a->d = malloc(sizeof(pos_t) * a->s.spr_nbr)))
 		m_exit(54);

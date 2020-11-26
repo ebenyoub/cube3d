@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_count.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 12:22:34 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/04 10:14:37 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/26 12:19:34 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ void	verif_nb_next(all_t *a)
 		m_exit(35);
 	if (a->m.element[1] <= 0)
 		m_exit(36);
-	if (a->m.element[2] <= 0) 
+	if (a->m.element[2] <= 0)
 		m_exit(37);
-	if (a->m.element[3] <= 0) 
+	if (a->m.element[3] <= 0)
 		m_exit(38);
-	if (a->m.element[4] <= 0) 
+	if (a->m.element[4] <= 0)
 		m_exit(39);
-	if (a->m.element[5] <= 0) 
+	if (a->m.element[5] <= 0)
 		m_exit(40);
 	if (a->m.element[6] <= 0)
 		m_exit(41);
@@ -70,15 +70,15 @@ void	verif_nb(all_t *a)
 		m_exit(48);
 	if (a->m.element[0] > 1)
 		m_exit(27);
-	if (a->m.element[1] > 1) 
+	if (a->m.element[1] > 1)
 		m_exit(28);
-	if (a->m.element[2] > 1) 
+	if (a->m.element[2] > 1)
 		m_exit(29);
-	if (a->m.element[3] > 1) 
+	if (a->m.element[3] > 1)
 		m_exit(30);
-	if (a->m.element[4] > 1) 
+	if (a->m.element[4] > 1)
 		m_exit(31);
-	if (a->m.element[5] > 1) 
+	if (a->m.element[5] > 1)
 		m_exit(32);
 	if (a->m.element[6] > 1)
 		m_exit(33);
