@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 19:05:05 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/18 14:13:00 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/27 11:33:54 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ int		save_bmp(all_t *a)
 		return (0);
 	write_bmp_header(a, fd, size);
 	write_data(a, fd);
+	close(fd);
 	return (1);
 }
