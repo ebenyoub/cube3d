@@ -4,11 +4,13 @@ ifeq ($(UNAME), Linux)
 	sys = linux
 	mlx = minilibx-linux
 	MFLAGS = -lmlx -lXext -lX11 -lm
+	COMP = -L./libft_cub -lft_cub -L./minilibx-linux -lmlx_Linux -L%%%% -lXext -lX11 -lm -lbsd
 endif
 ifeq ($(UNAME), Darwin)
 	sys = macos
 	mlx = minilibx_macos
 	MFLAGS = -framework OpenGL -framework AppKit
+ 	COMP = ./$(mlx)/libmlx.a ./libft_cub/libft_cub.a $(MFLAGS)
 endif
 
 NAME		=	cub3d
@@ -76,7 +78,7 @@ make_mlx:
 	make -C $(mlx)/
 
 $(NAME): $(OBJ) $(INC_DIR) make_libft_cub make_mlx
-	$(CC) $(CFLAGS) $(OBJ) -I ./$(mlx)/mlx.h ./$(mlx)/libmlx.a ./libft_cub/libft_cub.a $(MFLAGS) -I ./libft_cub/includes $(INC) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -I ./$(mlx)/mlx.h $(INC) $(COMP)  -o $(NAME)
 	
 clean:
 	$(RM_DIR) $(OBJ_DIR)
