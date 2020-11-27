@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 19:05:05 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/27 11:33:54 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/27 15:26:14 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	write_data(all_t *a, int fd)
 	while (--i >= 0)
 	{
 		j = -1;
-		while (++j < a->m.width)
+		while (++j <= a->m.width)
 			write_data_next(fd, i, j, a);
 	}
 }
