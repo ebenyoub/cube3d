@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_msg.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:38:40 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/27 02:26:24 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/27 11:54:01 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void	find_msg(int i)
 		a++;
 		if (nb == i)
 			write_msg(&a, line);
-		free(line);
-		close(fd);
+		if (line)
+			free(line);
 	}
 	close(fd);
 }

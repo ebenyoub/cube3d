@@ -6,7 +6,7 @@
 # include <time.h>
 # include "../includes/get_next_line.h"
 # include "../libft_cub/libft_cub.h"
-# include "../minilibx_macos/mlx.h"
+# include "../minilibx-linux/mlx.h"
 # include "./keycode.h"
 
 # define BUFFER_SIZE 1
