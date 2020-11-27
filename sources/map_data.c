@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:53:42 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/26 14:09:25 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/27 17:52:03 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,14 @@
 
 void	resolution(all_t *a)
 {
-	if (a->m.width > 1024)
-	{
+	if (a->m.width > 1395)
 		a->m.width = 1395;
-		a->m.height = 845;
-	}
-	if (a->m.width <= 1024)
-	{
-		a->m.width = 1024;
-		a->m.height = 640;
-	}
-	if (a->m.width <= 640)
-	{
-		a->m.width = 640;
-		a->m.height = 400;
-	}
+	if (a->m.width < 100)
+		a->m.width = 100;
+	if (a->m.height > 872)
+		a->m.height = 872;
+	if (a->m.height < 62)
+		a->m.height = 62;
 }
 
 void	map_data_next(char *line, all_t *a)

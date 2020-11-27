@@ -1,7 +1,7 @@
-0 Error\nToo few arguments, add the map : 'souces/map.cub'.
+0 Error\nToo few arguments, add the map : 'map.cub'.
 1 Error\nToo much arguments.
 2 Error\nBad syntax argument, do you mean '--save'?
-3 Error\nBad syntax argument, do you mean 'souces/map.cub'?
+3 Error\nBad syntax argument, do you mean 'map.cub'?
 4 Error\nMap not closed.
 5 Error\nThe map contains characters other than "2, 1, 0, N, E, W, S".
 6 Error\nEmpty line in the map.

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_param.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 16:41:46 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/26 12:28:28 by user42           ###   ########lyon.fr   */
+/*   Updated: 2020/11/27 16:40:29 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	scan_param(int argc, char **argv, all_t *a)
 		if (ft_strcmp(argv[2], "--save") != 0)
 			m_exit(2);
 	}
-	if (ft_strcmp(argv[1], "sources/map.cub"))
+	if (ft_strcmp(argv[1], "map.cub"))
 		m_exit(3);
 	a->m.option = (argc >= 3 && !ft_strcmp(argv[2], "--save")) ? 1 : 0;
 }

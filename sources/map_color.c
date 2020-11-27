@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:27:47 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/10/31 16:29:46 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/27 17:28:05 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ int		map_color(char *str)
 	m = -1;
 	while (++m < 3)
 	{
+		pass_space(&i, str);
 		a[m] = 0;
-		while (ft_isdigit(str[i]) && str[i])
+		while (ft_isdigit(str[i]))
 		{
 			a[m] = a[m] * 10 + (str[i] - 48);
 			i++;
