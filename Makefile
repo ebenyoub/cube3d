@@ -66,6 +66,7 @@ RM_DIR		=	/bin/rm -rf
 $(OBJ_DIR)%.o:$(SRCS_DIR)%.c $(INC_DIR)*.h
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
+
 all:
 	sh ressources/$(sys)/$(sys).sh
 	mkdir -p $(OBJ_DIR)
