@@ -2,12 +2,14 @@ UNAME := $(shell uname)
 
 ifeq ($(UNAME), Linux)
 	sys = linux
+	os = Linux
 	mlx = minilibx-linux
-	MFLAGS = -lmlx -lXext -lX11 -lm
-	COMP = -L./libft_cub -lft_cub -L./minilibx-linux -lmlx_Linux -L%%%% -lXext -lX11 -lm -lbsd
+	MFLAGS = -lmlx_Linux -L%%%% -lXext -lX11 -lm -lbsd
+	COMP = -L./libft_cub -lft_cub -L./minilibx-linux $(MFLAGS)
 endif
 ifeq ($(UNAME), Darwin)
 	sys = macos
+	os = Darwin
 	mlx = minilibx_macos
 	MFLAGS = -framework OpenGL -framework AppKit
  	COMP = ./$(mlx)/libmlx.a ./libft_cub/libft_cub.a $(MFLAGS)
@@ -62,15 +64,20 @@ libft_cub		=	libft_cub/libft_cub.a
 RM			=	/bin/rm -f
 RM_DIR		=	/bin/rm -rf
 
+script = sh ressources/$(sys)/$(sys).sh
 
 $(OBJ_DIR)%.o:$(SRCS_DIR)%.c $(INC_DIR)*.h
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 
 all:
-	sh ressources/$(sys)/$(sys).sh
+ifeq ($(UNAME), $(os))
 	mkdir -p $(OBJ_DIR)
 	$(MAKE) $(NAME) --no-print-directory
+else
+	$(script)
+endif
+
 
 make_libft_cub:
 	make -C libft_cub/
