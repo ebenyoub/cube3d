@@ -64,19 +64,16 @@ libft_cub		=	libft_cub/libft_cub.a
 RM			=	/bin/rm -f
 RM_DIR		=	/bin/rm -rf
 
-script = sh ressources/$(sys)/$(sys).sh
+script = sh ressources/choose_os.sh
 
 $(OBJ_DIR)%.o:$(SRCS_DIR)%.c $(INC_DIR)*.h
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 
 all:
-ifeq ($(UNAME), $(os))
-	mkdir -p $(OBJ_DIR)
+	if [ ! -e includes/cub3d.h ]; then $(script); fi
+	if [ ! -e $(OBJ_DIR) ]; then mkdir -p  $(OBJ_DIR); fi
 	$(MAKE) $(NAME) --no-print-directory
-else
-	$(script)
-endif
 
 
 make_libft_cub:
@@ -96,10 +93,16 @@ clean:
 fclean: clean
 	$(RM_DIR) $(NAME) a.out cub3d.dSYM a.out.dSYM
 	$(MAKE) fclean -C libft_cub/
+	ressources/clean.sh
 
 re:
 	$(MAKE) fclean --no-print-directory
 	$(MAKE) all --no-print-directory
+
+git:
+	git add .
+	git commit -m "transfert"
+	git push
 
 bin: re clean
 
