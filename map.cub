@@ -1,4 +1,4 @@
-R 102423 64045
+R 1600 1000
 NO              ressources/bricks/brick_painted.xpm
 SO ressources/bricks/ground_root.xpm
 WE ressources/bricks/brick_grass.xpm
@@ -6,7 +6,7 @@ EA ressources/bricks/wood_gate.xpm
 
 S ressources/pokemon/papillusion.xpm
 F ressources/bricks/grass_floor.xpm
-C 115,192,232
+C 115,  192,232
 
         11111111111111111111111110001
         1200000000110000000000001
