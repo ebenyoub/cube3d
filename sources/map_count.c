@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_count.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 12:22:34 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/26 12:19:34 by user42           ###   ########lyon.fr   */
+/*   Updated: 2020/11/29 17:17:12 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ void	check_element(char *line, all_t *a)
 {
 	if (line[0] == 'R')
 		a->m.element[0] += 1;
-	if (line[0] == 'N')
+	if (line[0] == 'N' && line[1] == 'O')
 		a->m.element[1] += 1;
 	if (line[0] == 'S' && (line[1] == ' ' || line[1] == '\t'))
 		a->m.element[2] += 1;
 	if (line[0] == 'S' && line[1] == 'O')
 		a->m.element[3] += 1;
-	if (line[0] == 'W')
+	if (line[0] == 'W' && line[1] == 'E')
 		a->m.element[4] += 1;
-	if (line[0] == 'E')
+	if (line[0] == 'E' && line[1] == 'A')
 		a->m.element[5] += 1;
 	if (line[0] == 'F')
 		a->m.element[6] += 1;

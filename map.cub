@@ -1,4 +1,4 @@
-R 0 0
+R 640 480
 NO              ressources/bricks/brick_painted.xpm
 SO ressources/bricks/ground_root.xpm
 WE ressources/bricks/brick_grass.xpm
