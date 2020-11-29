@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:20:33 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/29 13:47:37 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/29 14:16:47 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int		spr_img(all_t *a)
 
 	i = 0;
 	a->w.mlx = mlx_init();
-	a->w.win = mlx_new_window(a->w.mlx, a->m.width, a->m.height, "cub3d");
 	if (!(a->i[0].img_ptr = mlx_new_image(a->w.mlx, a->m.width, a->m.height)))
 		return (0);
 	a->i[0].img_data = (int *)mlx_get_data_addr(a->i[0].img_ptr,
