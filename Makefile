@@ -84,7 +84,7 @@ make_mlx:
 	make -C $(mlx)/ --no-print-directory
 
 $(NAME): $(OBJ) $(INC_DIR) make_libft_cub make_mlx
-	$(CC) $(CFLAGS) $(OBJ) -I ./$(mlx)/mlx.h $(INC) $(COMP)  -o $@
+	$(CC) $(CFLAGS) $(MEMFLAGS) $(OBJ) -I ./$(mlx)/mlx.h $(INC) $(COMP)  -o $@
 	
 clean:
 	$(RM_DIR) $(OBJ_DIR)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_bmp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 19:05:05 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/29 15:20:24 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/29 15:22:54 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	write_data(all_t *a, int fd)
 	while (--i >= 0)
 	{
 		j = -1;
-		while (++j <= a->m.width)
+		while (++j < a->m.width)
 			write_data_next(fd, i, j, a);
 	}
 }
