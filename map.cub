@@ -1,4 +1,4 @@
-R 1000 300
+R 2560 1600
 NO              ressources/bricks/brick_painted.xpm
 SO ressources/bricks/ground_root.xpm
 WE ressources/bricks/brick_grass.xpm
