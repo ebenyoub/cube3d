@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:19:27 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/29 14:03:03 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/29 14:16:44 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,12 @@ int		go_option(all_t *a)
 			return (0);
 		m_exit(9);
 	}
-	else
-	{
-		mlx_hook(a->w.win, 2, 1L << 0, key_hold, a);
-		mlx_hook(a->w.win, 3, 1L << 1, key_release, a);
-		mlx_hook(a->w.win, 17, 1L << 17, key_close, a);
-		mlx_loop_hook(a->w.mlx, go_loop, a);
-		mlx_loop(a->w.mlx);
-	}
+	a->w.win = mlx_new_window(a->w.mlx, a->m.width, a->m.height, "cub3d");
+	mlx_hook(a->w.win, 2, 1L << 0, key_hold, a);
+	mlx_hook(a->w.win, 3, 1L << 1, key_release, a);
+	mlx_hook(a->w.win, 17, 1L << 17, key_close, a);
+	mlx_loop_hook(a->w.mlx, go_loop, a);
+	mlx_loop(a->w.mlx);
 	return (1);
 }
 
