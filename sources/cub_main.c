@@ -6,11 +6,32 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:19:27 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/29 13:47:37 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/29 14:03:03 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+int		go_loop(all_t *a)
+{
+	key_read(a);
+	if (a->k.esc == 1)
+	{
+		key_close(a);
+	}
+	if (a->k.m == 1)
+	{
+		ray_launch(a);
+		map_to_img(a);
+		mlx_put_image_to_window(a->w.mlx, a->w.win, a->i[0].img_ptr, 0, 0);
+	}
+	else if (!a->m.option)
+	{
+		ray_launch(a);
+		mlx_put_image_to_window(a->w.mlx, a->w.win, a->i[0].img_ptr, 0, 0);
+	}
+	return (0);
+}
 
 int		go_parsing(all_t *a)
 {
@@ -34,7 +55,7 @@ int		go_option(all_t *a)
 		mlx_hook(a->w.win, 2, 1L << 0, key_hold, a);
 		mlx_hook(a->w.win, 3, 1L << 1, key_release, a);
 		mlx_hook(a->w.win, 17, 1L << 17, key_close, a);
-		mlx_loop_hook(a->w.mlx, key_read, a);
+		mlx_loop_hook(a->w.mlx, go_loop, a);
 		mlx_loop(a->w.mlx);
 	}
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 19:05:05 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/29 13:51:47 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/29 14:12:31 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int		save_bmp(all_t *a)
 	int	size;
 
 	key_read(a);
+	ray_launch(a);
 	size = 54 + 3 * a->m.width * a->m.height;
 	if ((fd = open("./screenshot.bmp", O_WRONLY | O_CREAT |\
 						O_TRUNC | O_APPEND, 00755)) < 0)
