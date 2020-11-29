@@ -101,6 +101,7 @@ re:
 	$(MAKE) all --no-print-directory
 
 git:
+	make fclean
 	git add .
 	git commit -m "transfert"
 	git push

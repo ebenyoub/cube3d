@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 18:10:58 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/04 10:29:52 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/29 10:24:40 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@ void	key_vertical(all_t *a)
 {
 	if (a->k.z == 1)
 	{
-		if ((a->m.map_tab[(int)(a->r.posX + a->r.dirX\
-		* a->f.moveSpeed)][(int)a->r.posY]) != '1')
+		if (!ft_isstr((a->m.map_tab[(int)(a->r.posX + a->r.dirX\
+		* a->f.moveSpeed)][(int)a->r.posY]), "12"))
 			a->r.posX += a->r.dirX * a->f.moveSpeed;
-		if ((a->m.map_tab[(int)a->r.posX][(int)(a->r.posY\
-		+ a->r.dirY * a->f.moveSpeed)]) != '1')
+		if (!ft_isstr((a->m.map_tab[(int)a->r.posX][(int)(a->r.posY\
+		+ a->r.dirY * a->f.moveSpeed)]), "12"))
 			a->r.posY += a->r.dirY * a->f.moveSpeed;
 	}
 	if (a->k.s == 1)
 	{
-		if ((a->m.map_tab[(int)(a->r.posX - a->r.dirX\
-		* a->f.moveSpeed)][(int)a->r.posY]) != '1')
+		if (!ft_isstr((a->m.map_tab[(int)(a->r.posX - a->r.dirX\
+		* a->f.moveSpeed)][(int)a->r.posY]), "12"))
 			a->r.posX -= a->r.dirX * a->f.moveSpeed;
-		if ((a->m.map_tab[(int)a->r.posX][(int)(a->r.posY\
-		- a->r.dirY * a->f.moveSpeed)]) != '1')
+		if (!ft_isstr((a->m.map_tab[(int)a->r.posX][(int)(a->r.posY\
+		- a->r.dirY * a->f.moveSpeed)]), "12"))
 			a->r.posY -= a->r.dirY * a->f.moveSpeed;
 	}
 }
@@ -38,20 +38,20 @@ void	key_horizontal(all_t *a)
 {
 	if (a->k.d == 1)
 	{
-		if ((a->m.map_tab[(int)(a->r.posX + a->r.planX\
-		* a->f.moveSpeed)][(int)a->r.posY]) != '1')
+		if (!ft_isstr((a->m.map_tab[(int)(a->r.posX + a->r.planX\
+		* a->f.moveSpeed)][(int)a->r.posY]), "12"))
 			a->r.posX += a->r.planX * a->f.moveSpeed;
-		if ((a->m.map_tab[(int)a->r.posX][(int)(a->r.posY\
-		+ a->r.planY * a->f.moveSpeed)]) != '1')
+		if (!ft_isstr((a->m.map_tab[(int)a->r.posX][(int)(a->r.posY\
+		+ a->r.planY * a->f.moveSpeed)]), "12"))
 			a->r.posY += a->r.planY * a->f.moveSpeed;
 	}
 	if (a->k.q == 1)
 	{
-		if ((a->m.map_tab[(int)(a->r.posX - a->r.planX\
-		* a->f.moveSpeed)][(int)a->r.posY]) != '1')
+		if (!ft_isstr((a->m.map_tab[(int)(a->r.posX - a->r.planX\
+		* a->f.moveSpeed)][(int)a->r.posY]), "12"))
 			a->r.posX -= a->r.planX * a->f.moveSpeed;
-		if ((a->m.map_tab[(int)a->r.posX][(int)(a->r.posY\
-		- a->r.planY * a->f.moveSpeed)]) != '1')
+		if (!ft_isstr((a->m.map_tab[(int)a->r.posX][(int)(a->r.posY\
+		- a->r.planY * a->f.moveSpeed)]), "12"))
 			a->r.posY -= a->r.planY * a->f.moveSpeed;
 	}
 }
