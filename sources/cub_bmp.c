@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 19:05:05 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/29 16:57:24 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/29 17:13:44 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ int		save_bmp(all_t *a)
 	int	fd;
 	int	size;
 
-	printf("w = %d et h = %d\n", a->m.width, a->m.height);
 	key_read(a);
 	ray_launch(a);
 	size = (54 + 3) * a->m.width * a->m.height;
