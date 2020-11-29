@@ -74,14 +74,14 @@ all:
 	@if [ ! -e "includes/cub3d.h" ] && [ $(os) = 'Linux' ]; then ressources/linux/linux.sh; fi
 	@if [ ! -e "includes/cub3d.h" ] &&  [ $(os) = 'Darwin' ]; then ressources/macos/macos.sh; fi
 	@if [ ! -e $(OBJ_DIR) ]; then mkdir -p  $(OBJ_DIR); fi
-	$(MAKE) $(NAME) --no-print-directory
+	@$(MAKE) $(NAME) --no-print-directory
 
 
 make_libft_cub:
-	make -C libft_cub/
+	@make -C libft_cub/ --no-print-directory
 
 make_mlx:
-	make -C $(mlx)/
+	@make -C $(mlx)/ --no-print-directory
 
 $(NAME): $(OBJ) $(INC_DIR) make_libft_cub make_mlx
 	@$(CC) $(CFLAGS) $(OBJ) -I ./$(mlx)/mlx.h $(INC) $(COMP)  -o $@
