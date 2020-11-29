@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 18:00:57 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/29 12:48:50 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/29 16:32:48 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ int		ray_launch(all_t *a)
 	int		x;
 
 	x = 0;
+	tex_floor(a);
 	while (x < a->m.width)
 	{
 		ray_pos(x, a);

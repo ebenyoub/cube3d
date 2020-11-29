@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_data.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:53:42 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/29 15:17:34 by user42           ###   ########lyon.fr   */
+/*   Updated: 2020/11/29 17:03:09 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	resolution(all_t *a)
 {
-	if (a->m.width > 1395)
-		a->m.width = 1395;
-	if (a->m.width < 250)
-		a->m.width = 250;
+	if (a->m.width > 1340)
+		a->m.width = 1340;
+	if (a->m.width < 300)
+		a->m.width = 300;
 	if (a->m.height > 872)
 		a->m.height = 872;
-	if (a->m.height < 250)
-		a->m.height = 250;
+	if (a->m.height < 300)
+		a->m.height = 300;
 }
 
 void	map_data_next(char *line, all_t *a)

@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 18:10:58 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/29 14:02:59 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/29 16:33:32 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,5 @@ int		key_read(all_t *a)
 	key_horizontal(a);
 	key_rotation_ar(a);
 	key_rotation_al(a);
-	tex_floor(a);
 	return (0);
 }
