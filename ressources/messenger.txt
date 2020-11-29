@@ -58,3 +58,4 @@
 57 Error\nmalloc failed in spr_data spr_calc:107.
 58 Cub3d by ebenyoub.
 59 Error\nIn 'map.cub', the player (N,S,E,W) is outside the map.
+60 Error\nmlx_new_window() failed.

@@ -15,8 +15,8 @@ $(NOM): $(OBJ)
 	@clear
 
 clean:
-	rm -f $(NOM) $(OBJ) *~
-	rm -f mlx_app
+	@rm -f $(NOM) $(OBJ) *~
+	@rm -f mlx_app
 
 re: clean all
 
