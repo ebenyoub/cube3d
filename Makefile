@@ -100,8 +100,7 @@ re:
 	$(MAKE) fclean --no-print-directory
 	$(MAKE) all --no-print-directory
 
-git:
-	make fclean
+git: fclean
 	git add .
 	git commit -m "transfert"
 	git push

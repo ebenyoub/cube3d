@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_scan.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:22:14 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/29 11:10:19 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/29 12:00:04 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	post_scan(int *i, char *line, all_t *a)
 	d = 0;
 	if (!line[0])
 		m_exit(6);
+	if (ft_isstr(line[*i], "NSEW"))
+		m_exit(59);
 	if (line[*i] != '1')
 		m_exit(45);
 	nline = back_space(line);

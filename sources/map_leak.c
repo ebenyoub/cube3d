@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_leak.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 12:53:58 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/29 11:22:04 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/29 12:07:44 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,10 @@ int		map_leak_y(int x, int y, all_t *a)
 void	map_leak(int x, int y, all_t *a)
 {
 	a->m.map_test = ft_split(a->m.map, '|');
+	if (y == 0 && ft_isstr(a->m.map_test[y][x], "NSEW"))
+		m_exit(59);
 	map_leak_y(x, y, a);
-	if (a->m.map_test[(int)a->r.posX][(int)a->r.posY] != 'X')
+	if (a->m.map_test[y][x] != 'X')
 		m_exit(59);
 	if (!map_hole(a))
 		m_exit(4);
