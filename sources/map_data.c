@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:53:42 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/29 18:03:39 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/30 13:13:42 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	resolution(all_t *a)
 		a->m.width = 1340;
 	if (a->m.width < 100)
 		a->m.width = 100;
-	if (a->m.height > 872)
-		a->m.height = 872;
+	if (a->m.height > 845)
+		a->m.height = 845;
 	if (a->m.height < 100)
 		a->m.height = 100;
 }
