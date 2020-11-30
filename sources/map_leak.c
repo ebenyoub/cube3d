@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 12:53:58 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/29 12:19:44 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/30 16:08:35 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int		map_hole(all_t *a)
 		{
 			if (a->m.map_test[y][x] == 'X')
 			{
-				if (!ft_isstr(a->m.map_test[y][x - 1], "X1") ||
+				if (!a->m.map_test[y + 1][x]  ||
+					!ft_isstr(a->m.map_test[y][x - 1], "X1") ||
 					!ft_isstr(a->m.map_test[y][x + 1], "X1") ||
 					!ft_isstr(a->m.map_test[y - 1][x], "X1") ||
 					!ft_isstr(a->m.map_test[y + 1][x], "X1"))
