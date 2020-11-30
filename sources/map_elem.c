@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:37:52 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/27 17:27:27 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/30 23:51:51 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	check_color(int rgb, int i, int n, char *line)
 		m_exit(24);
 	if (n > 3 || rgb < 0 || rgb > 255)
 		m_exit(25);
+	if (n == 3 && line[i])
+		m_exit(62);
 }
 
 int		syntax_color(char *line)

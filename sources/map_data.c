@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:53:42 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/30 13:13:42 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/30 23:34:47 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ void	intruder_map(char *line)
 		(line[0] == 'R' && line[1] != ' ') ||
 		(line[0] == 'F' && line[1] != ' ') ||
 		(line[0] == 'C' && line[1] != ' '))
-		m_exit(23);
-	if ((line[0] == 'S' && !ft_isstr(line[1], "O ")))
 		m_exit(23);
 }
 
@@ -89,11 +87,16 @@ void	map_data(char *line, all_t *a)
 		m_exit(23);
 	if (line[0] == 'R')
 	{
+		pass_space(&i, line);
 		while (ft_isdigit(line[i]))
 			a->m.width = a->m.width * 10 + (line[i++] - 48);
-		while (ft_isdigit(line[++i]))
-			a->m.height = a->m.height * 10 + (line[i] - 48);
+		pass_space(&i, line);
+		while (ft_isdigit(line[i]))
+			a->m.height = a->m.height * 10 + (line[i++] - 48);
 		resolution(a);
+		pass_space(&i, line);
+		if (line[i])
+			m_exit(61);
 	}
 	map_data_next(line, a);
 }

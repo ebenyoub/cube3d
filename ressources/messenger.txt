@@ -23,7 +23,7 @@
 22 Error\nft_strdup failed in map_data_next map_data.c:53
 23 Error\nAn element in "map.cub" is not recognized.\nElements accepted : R NO SO WE EA F C Map.
 24 Error\nElement "C ceilling" in "map.cub" : numbers RGB must be separated by ','.\nEx : C\t134,34,254
-25 Error\nElement "C ceilling" in "map.cub" : R, G or B color must be between 0 and 255. And only 3 color.\nEx : C\t134,34,254
+25 Error\nElement "C ceilling" in "map.cub" : R, G or B color must be between 0 and 255.\nEx : C\t134,34,254
 26 Error\nft_strdup failed in back_space cub_error.c:66
 27 Error\nIn map.cub : the R element must be present only once.
 28 Error\nIn map.cub : the NO element must be present only once.
@@ -42,7 +42,7 @@
 41 Error\nIn map.cub : the F element must be present once.
 42 Error\nIn map.cub : the C element must be present once.
 43 Error\nft_strdup failed in map_read map_fill.c:79
-44 Error\nThere is at least one space inside the map.
+44 Error\nThere is at least one space inside the map.\nOr the player is outside the map.
 45 Error\nAll elements must be before the Map.
 46 Error\nSpace between the RGB colors.\nEx : C\t134,34,254
 47 Error\nPlayer's position N, S, E, W must only be present once.
@@ -59,3 +59,5 @@
 58 Cub3d by ebenyoub.
 59 Error\nIn 'map.cub', the player (N,S,E,W) is outside the map.
 60 Error\nmlx_new_window() failed.
+61 Error\nThe resolution must have 2 elements.
+62 Error\nThe C element must have only 3 numbers.\nEx : C\t134,34,254

@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 12:53:58 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/30 17:27:42 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/30 22:59:44 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,16 +93,21 @@ int		map_leak_y(int x, int y, all_t *a)
 	return (0);
 }
 
-void	map_leak(int x, int y, all_t *a)
+void	pre_check(int x, int y, all_t *a)
 {
-	a->m.map_test = ft_split(a->m.map, '|');
-	if ((y == 0 && ft_isstr(a->m.map_test[y][x], "NSEW")) ||
-		(y + 1 > a->m.map_h && ft_isstr(a->m.map_test[y][x], "NSEW")) ||
+	if (y == 0 || y == a->m.map_h - 1 || x == 0 || x + 1 == (int)ft_strlen(a->m.map_test[y]))
+		m_exit(59);
+	if ((y + 1 > a->m.map_h && ft_isstr(a->m.map_test[y][x], "NSEW")) ||
 		(ft_strlen(a->m.map_test[y - 1]) < ft_strlen(a->m.map_test[y])) ||
 		(x + 1 > (int)ft_strlen(a->m.map_test[y]) && ft_isstr(a->m.map_test[y][x], "NSEW")) ||
 		(x - 1 < 0 && ft_isstr(a->m.map_test[y][x], "NSEW")))
 		m_exit(59);
-	printf("y = %d et mapH = %d\n", y, a->m.map_h);
+}
+
+void	map_leak(int x, int y, all_t *a)
+{
+	a->m.map_test = ft_split(a->m.map, '|');
+	pre_check(x, y, a);
 	map_leak_y(x, y, a);
 	if (a->m.map_test[y][x] != 'X')
 		m_exit(59);

@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 12:22:34 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/29 17:17:12 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/11/30 23:36:52 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	check_element(char *line, all_t *a)
 		a->m.element[0] += 1;
 	if (line[0] == 'N' && line[1] == 'O')
 		a->m.element[1] += 1;
-	if (line[0] == 'S' && (line[1] == ' ' || line[1] == '\t'))
+	if (line[0] == 'S' && line[1] != 'O')
 		a->m.element[2] += 1;
 	if (line[0] == 'S' && line[1] == 'O')
 		a->m.element[3] += 1;
