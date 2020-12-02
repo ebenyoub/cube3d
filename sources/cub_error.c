@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:17:41 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/02 14:18:36 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 14:47:41 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	m_exit(int i, all_t *a)
 	{
 		mlx_destroy_image(a->w.mlx, a->i[0].img_ptr);
 		mlx_destroy_window(a->w.mlx, a->w.win);
-		free(a->i[0].img_ptr);
 		exit_free_tab(a);
 	}
 	find_msg(i);

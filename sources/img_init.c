@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:20:33 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/02 14:31:51 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 15:02:10 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,6 @@ int		spr_img(all_t *a)
 
 	i = 0;
 	a->w.mlx = mlx_init();
-	if (!(a->i[0].img_ptr = mlx_new_image(a->w.mlx, a->m.width, a->m.height)))
-	{
-		mlx_destroy_image(a->w.mlx, a->i[0].img_ptr);
-		return (0);
-	}
-	a->i[0].img_data = (int *)mlx_get_data_addr(a->i[0].img_ptr,
-		&a->i[0].bpp, &a->i[0].size_line, &a->i[0].endian);
 	while (++i < 7)
 		if (!img_make(i, a))
 		return (0);

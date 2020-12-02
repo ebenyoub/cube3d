@@ -2,11 +2,11 @@ R 10000 10000
 NO      ressources/bricks/brick_painted.xpm
 
 SO ressources/bricks/ground_root.xpm
-WE ressources/bricks/brick_grass.xpmsdf
+WE ressources/bricks/brick_grass.xpm
 EA ressources/bricks/wood_gate.xpm
 
 S ressources/pokemon/pikachu.xpm
-F ressources/bricks/grass_floor.xpm
+F ressources/bricks/grass_floor.xpmfdgbsdf
 C 115,  192,232
 
         11111111111211111111111110001
