@@ -1,4 +1,4 @@
-R 10000 300
+R 10000 300 sdf
 NO      ressources/bricks/brick_painted.xpm
 
 SO ressources/bricks/ground_root.xpm
