@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_main.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:19:27 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/02 15:54:47 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 16:22:35 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		go_option(all_t *a)
 		m_exit(65, a);
 	mlx_hook(a->w.win, 2, 1L << 0, key_hold, a);
 	mlx_hook(a->w.win, 3, 1L << 1, key_release, a);
-	mlx_hook(a->w.win, 17, 1L << 17, key_close, a);
+	mlx_hook(a->w.win, 33, 1L << 17, key_close, a);
 	mlx_loop_hook(a->w.mlx, go_loop, a);
 	mlx_loop(a->w.mlx);
 	return (1);
