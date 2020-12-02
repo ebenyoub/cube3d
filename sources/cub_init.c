@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:16:01 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/29 18:08:27 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 13:30:53 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ void	init_map(all_t *a)
 	a->m.map_tab = NULL;
 	a->m.map_count = 0;
 	a->m.save = 0;
+	a->m.parse = 0;
 	a->m.map_line = 0;
 	if (!(a->m.map = ft_strdup("")))
-		m_exit(49);
+		m_exit(49, a);
 	a->f.moveSpeed = 0.08;
 	a->f.rotSpeed = 0.06;
 	a->m.map_size_x = 0;

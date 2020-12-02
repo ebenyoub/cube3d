@@ -6,7 +6,7 @@
 5 Error\nThe map contains characters other than "2, 1, 0, N, E, W, S".
 6 Error\nEmpty line in the map.
 7 Error\nMore than one location in the map "NSWE".
-8 Error\nImages Loading failure. Check the textures paths.
+8 Images Loading failure. Check the textures paths.
 9 Success\nScreenshot created.
 10 Error\nPasring failure.
 11 Error\nOption failure.
@@ -63,3 +63,4 @@
 62 Error\nThe C element must have only 3 numbers.\nEx : C\t134,34,254.
 63 Error\nThe floor texture can't be a sprite.
 64 Error\nIn the map, the sprite number (2) can't be at the begining of the line.
+65 Error\nmlx_new_window() failed.

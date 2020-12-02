@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 12:53:58 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/02 02:14:49 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 12:21:12 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int		map_leak_x(int x, int y, all_t *a)
 	if (x - 1 >= 0 && !ft_isstr(a->m.map_test[y][x - 1], "X1"))
 	{
 		if (ft_isstr(a->m.map_test[y][x - 1], " \t"))
-			m_exit(44);
+			m_exit(44, a);
 		else if (!ft_isstr(a->m.map_test[y][x - 1], "120NSEW"))
-			m_exit(5);
+			m_exit(5, a);
 		else
 			a->m.map_test[y][x - 1] = 'X';
 		map_leak_y(x - 1, y, a);
@@ -55,9 +55,9 @@ int		map_leak_x(int x, int y, all_t *a)
 		&& !ft_isstr(a->m.map_test[y][x + 1], "X1"))
 	{
 		if (ft_isstr(a->m.map_test[y][x + 1], " \t"))
-			m_exit(44);
+			m_exit(44, a);
 		else if (!ft_isstr(a->m.map_test[y][x + 1], "120NSEW"))
-			m_exit(5);
+			m_exit(5, a);
 		else
 			a->m.map_test[y][x + 1] = 'X';
 		map_leak_y(x + 1, y, a);
@@ -72,9 +72,9 @@ int		map_leak_y(int x, int y, all_t *a)
 		&& !ft_isstr(a->m.map_test[y - 1][x], "X1"))
 	{
 		if (ft_isstr(a->m.map_test[y - 1][x], " \t"))
-			m_exit(44);
+			m_exit(44, a);
 		else if (!ft_isstr(a->m.map_test[y - 1][x], "120NSEW"))
-			m_exit(5);
+			m_exit(5, a);
 		else
 			a->m.map_test[y - 1][x] = 'X';
 		map_leak_y(x, y - 1, a);
@@ -83,9 +83,9 @@ int		map_leak_y(int x, int y, all_t *a)
 		&& !ft_isstr(a->m.map_test[y + 1][x], "X1"))
 	{
 		if (ft_isstr(a->m.map_test[y + 1][x], " \t"))
-			m_exit(44);
+			m_exit(44, a);
 		else if (!ft_isstr(a->m.map_test[y + 1][x], "120NSEW"))
-			m_exit(5);
+			m_exit(5, a);
 		else
 			a->m.map_test[y + 1][x] = 'X';
 		map_leak_y(x, y + 1, a);
@@ -98,13 +98,13 @@ void	pre_check(int x, int y, all_t *a)
 {
 	if (y == 0 || y == a->m.map_h - 1 || x == 0
 		|| x + 1 == (int)ft_strlen(a->m.map_test[y]))
-		m_exit(59);
+		m_exit(59, a);
 	if ((y + 1 > a->m.map_h - 1 && ft_isstr(a->m.map_test[y][x], "NSEW")) ||
 		(ft_strlen(a->m.map_test[y - 1]) < ft_strlen(a->m.map_test[y])) ||
 		(x + 1 > (int)ft_strlen(a->m.map_test[y]) &&
 		ft_isstr(a->m.map_test[y][x], "NSEW")) ||
 		(x - 1 < 0 && ft_isstr(a->m.map_test[y][x], "NSEW")))
-		m_exit(59);
+		m_exit(59, a);
 }
 
 void	map_leak(int x, int y, all_t *a)
@@ -113,8 +113,8 @@ void	map_leak(int x, int y, all_t *a)
 	pre_check(x, y, a);
 	map_leak_y(x, y, a);
 	if (a->m.map_test[y][x] != 'X')
-		m_exit(59);
+		m_exit(59, a);
 	if (!map_hole(a))
-		m_exit(4);
+		m_exit(4, a);
 	tab_free(a->m.map_test);
 }

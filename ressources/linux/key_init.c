@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:24:37 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/30 13:01:02 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 13:18:10 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		key_close(all_t *a)
 {
 	mlx_destroy_window(a->w.mlx, a->w.win);
-	r_exit(58, a);
+	m_exit(58, a);
 	return (0);
 }
 

@@ -192,7 +192,7 @@ void	map_leak(int x, int y, all_t *a);
 int		map_leak_y(int x, int y, all_t *a);
 int     map_color(char *str);
 void    map_scan(char *line, all_t *a);
-char	*map_cut(char *line);
+char	*map_cut(char *line, all_t *a);
 
 void    init_all(all_t *a);
 int	    init_win(all_t *a);
@@ -212,7 +212,7 @@ void    spr_pos(all_t *a);
 void	spr_save(all_t *a);
 void    spr_swap(all_t *a);
 
-void	cub_fault(int argc, char **argv);
+void	cub_fault(int argc, char **argv, all_t *a);
 void	ft_get_color(int i, all_t *a);
 void    tab_free(char **tab);
 void	exit_free_tab(all_t *a);
@@ -220,8 +220,7 @@ void	tab_free(char **tab);
 int     save_bmp(all_t *a);
 char	*back_space(char *line);
 void	pass_space(int *i, char *line);
-void	r_exit(int i, all_t *a);
-void	m_exit(int i);
+void	m_exit(int i, all_t *a);
 void    find_msg(int i);
 int		get_next_line_m(int fd, char **line);
 void	map_data(char *line, all_t *a);

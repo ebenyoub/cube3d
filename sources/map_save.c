@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:59:04 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/30 17:02:02 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 12:20:21 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	map_save_next(int *i, char *line, all_t *a)
 			map_plan(line[*i], a);
 			a->m.pos_nb += 1;
 			if (a->m.pos_nb > 1)
-				m_exit(47);
+				m_exit(47, a);
 		}
 		if (line[*i] == '2')
 			a->s.spr_nbr += 1;
@@ -42,16 +42,16 @@ void	map_save(char *line, all_t *a)
 	if (line[i] == '1')
 	{
 		if (!(tmp = ft_strjoin(a->m.map, line)))
-			m_exit(52);
+			m_exit(52, a);
 		free(a->m.map);
 		if (!(a->m.map = ft_strdup(tmp)))
-			m_exit(50);
+			m_exit(50, a);
 		free(tmp);
 		if (!(tmp = ft_strjoin(a->m.map, "|")))
-			m_exit(53);
+			m_exit(53, a);
 		free(a->m.map);
 		if (!(a->m.map = ft_strdup(tmp)))
-			m_exit(51);
+			m_exit(51, a);
 		free(tmp);
 		map_save_next(&i, line, a);
 		a->m.map_h = a->m.map_h + 1;

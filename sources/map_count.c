@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 12:22:34 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/30 23:36:52 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 12:18:34 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,42 +47,42 @@ void	check_element(char *line, all_t *a)
 void	verif_nb_next(all_t *a)
 {
 	if (a->m.element[0] <= 0)
-		m_exit(35);
+		m_exit(35, a);
 	if (a->m.element[1] <= 0)
-		m_exit(36);
+		m_exit(36, a);
 	if (a->m.element[2] <= 0)
-		m_exit(37);
+		m_exit(37, a);
 	if (a->m.element[3] <= 0)
-		m_exit(38);
+		m_exit(38, a);
 	if (a->m.element[4] <= 0)
-		m_exit(39);
+		m_exit(39, a);
 	if (a->m.element[5] <= 0)
-		m_exit(40);
+		m_exit(40, a);
 	if (a->m.element[6] <= 0)
-		m_exit(41);
+		m_exit(41, a);
 	if (a->m.element[7] <= 0)
-		m_exit(42);
+		m_exit(42, a);
 }
 
 void	verif_nb(all_t *a)
 {
 	if (a->m.pos_nb == 0)
-		m_exit(48);
+		m_exit(48, a);
 	if (a->m.element[0] > 1)
-		m_exit(27);
+		m_exit(27, a);
 	if (a->m.element[1] > 1)
-		m_exit(28);
+		m_exit(28, a);
 	if (a->m.element[2] > 1)
-		m_exit(29);
+		m_exit(29, a);
 	if (a->m.element[3] > 1)
-		m_exit(30);
+		m_exit(30, a);
 	if (a->m.element[4] > 1)
-		m_exit(31);
+		m_exit(31, a);
 	if (a->m.element[5] > 1)
-		m_exit(32);
+		m_exit(32, a);
 	if (a->m.element[6] > 1)
-		m_exit(33);
+		m_exit(33, a);
 	if (a->m.element[7] > 1)
-		m_exit(34);
+		m_exit(34, a);
 	verif_nb_next(a);
 }

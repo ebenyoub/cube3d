@@ -3,35 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   cub_error.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:17:41 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/26 12:10:05 by user42           ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 14:18:36 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	cub_fault(int argc, char **argv)
+void	cub_fault(int argc, char **argv, all_t *a)
 {
 	if (argc < 2)
-		m_exit(0);
+		m_exit(0, a);
 	if (argc > 3)
-		m_exit(1);
+		m_exit(1, a);
 	if (argc == 3 && ft_strncmp(argv[2], "--save", 6))
-		m_exit(2);
+		m_exit(2, a);
 }
 
-void	m_exit(int i)
+void	m_exit(int i, all_t *a)
 {
+	if (a->m.parse)
+	{
+		mlx_destroy_image(a->w.mlx, a->i[0].img_ptr);
+		mlx_destroy_window(a->w.mlx, a->w.win);
+		free(a->i[0].img_ptr);
+		exit_free_tab(a);
+	}
 	find_msg(i);
-	exit(EXIT_FAILURE);
-}
-
-void	r_exit(int i, all_t *a)
-{
-	exit_free_tab(a);
-	m_exit(i);
+	exit(EXIT_SUCCESS);
 }
 
 void	pass_space(int *i, char *line)
