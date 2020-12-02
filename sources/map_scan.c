@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:22:14 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/30 17:14:11 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 02:32:49 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	post_scan(int *i, char *line, all_t *a)
 		m_exit(6);
 	if (ft_isstr(line[*i], "NSEW"))
 		m_exit(59);
-	if (line[*i] != '1')
+	if (!ft_isstr(line[*i], "12"))
 		m_exit(45);
 	nline = back_space(line);
 	while (nline[d])
@@ -31,6 +31,8 @@ void	post_scan(int *i, char *line, all_t *a)
 			d++;
 		else
 			m_exit(5);
+		if (nline[0] == '2')
+			m_exit(64);
 	}
 	map_save(line, a);
 }

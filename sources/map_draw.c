@@ -6,35 +6,35 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:35:03 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/30 16:49:17 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 02:15:53 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void    ray_line(int x, all_t *a)
+void	ray_line(int x, all_t *a)
 {
-    int y;
+	int y;
 
-    y = 0;
-    while (y < a->m.height)
-    {
-        if (y < a->r.drawStart)
-            a->i[0].img_data[x + y * a->m.width] = a->m.c;
-        if (y >= a->r.drawStart && y <= a->r.drawEnd)
-        {
-            a->t.texY = ((y - (a->m.height ) * 0.5 + a->r.lineHeight * 0.5)
-                * a->i[a->t.texNum].texHeight) / a->r.lineHeight;
-            a->m.w = a->t.texY < 0 || a->t.texY > a->i[a->t.texNum].texHeight ?\
-            0 : a->i[a->t.texNum].img_data[a->i[a->t.texNum].texWidth *
-            a->t.texY + a->t.texX];
-            if ((a->m.w & 0x00FFFFFF) != 0)
-                a->i[0].img_data[x + y * a->m.width] = a->m.w;
-            else
-                a->i[0].img_data[x + y * a->m.width] = 0;
-        }
-        y++;
-    }
+	y = 0;
+	while (y < a->m.height)
+	{
+		if (y < a->r.drawStart)
+			a->i[0].img_data[x + y * a->m.width] = a->m.c;
+		if (y >= a->r.drawStart && y <= a->r.drawEnd)
+		{
+			a->t.texY = ((y - (a->m.height) * 0.5 + a->r.lineHeight * 0.5)
+				* a->i[a->t.texNum].texHeight) / a->r.lineHeight;
+			a->m.w = a->t.texY < 0 || a->t.texY > a->i[a->t.texNum].texHeight ?\
+			0 : a->i[a->t.texNum].img_data[a->i[a->t.texNum].texWidth *
+			a->t.texY + a->t.texX];
+			if ((a->m.w & 0x00FFFFFF) != 0)
+				a->i[0].img_data[x + y * a->m.width] = a->m.w;
+			else
+				a->i[0].img_data[x + y * a->m.width] = 0;
+		}
+		y++;
+	}
 }
 
 void	map_draw_img(all_t *z, int i, int n, int color)

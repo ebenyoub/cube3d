@@ -42,7 +42,7 @@
 41 Error\nIn map.cub : the F element must be present once.
 42 Error\nIn map.cub : the C element must be present once.
 43 Error\nft_strdup failed in map_read map_fill.c:79
-44 Error\nThere is at least one space inside the map.\nOr the player is outside the map.
+44 Error\nVerify the following possible errors :\n- there is at least one space inside the map.\n- the player is outside the map.\n- the number 2 is in the side of the wall.
 45 Error\nAll elements must be before the Map.
 46 Error\nSpace between the RGB colors.\nEx : C\t134,34,254
 47 Error\nPlayer's position N, S, E, W must only be present once.
@@ -60,4 +60,6 @@
 59 Error\nIn 'map.cub', the player (N,S,E,W) is outside the map.
 60 Error\nmlx_new_window() failed.
 61 Error\nThe resolution must have 2 elements.
-62 Error\nThe C element must have only 3 numbers.\nEx : C\t134,34,254
+62 Error\nThe C element must have only 3 numbers.\nEx : C\t134,34,254.
+63 Error\nThe floor texture can't be a sprite.
+64 Error\nIn the map, the sprite number (2) can't be at the begining of the line.

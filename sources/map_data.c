@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:53:42 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/11/30 23:34:47 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 02:00:47 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	resolution(all_t *a)
 {
-	if (a->m.width > 1340)
-		a->m.width = 1340;
+	if (a->m.width > 1395)
+		a->m.width = 1395;
 	if (a->m.width < 100)
 		a->m.width = 100;
 	if (a->m.height > 845)
@@ -37,6 +37,9 @@ void	intruder_map(char *line)
 
 void	map_data_three(char *line, all_t *a)
 {
+	int i;
+
+	i = 1;
 	if (line[0] == 'E' && line[1] == 'A')
 	{
 		if (!(a->m.img[3] = ft_strdup(map_cut(line))))
@@ -49,6 +52,9 @@ void	map_data_three(char *line, all_t *a)
 	}
 	else if (line[0] == 'F')
 	{
+		pass_space(&i, line);
+		if (!ft_strncmp(line + i, "ressources/pokemon", 18))
+			m_exit(63);
 		if (!(a->m.img[5] = ft_strdup(map_cut(line))))
 			m_exit(22);
 	}
