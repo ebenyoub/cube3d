@@ -6,11 +6,22 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:22:14 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/02 12:20:49 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 16:52:23 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+void	intruder_map(char *line, all_t *a)
+{
+	if ((line[0] == 'N' && line[1] != 'O') ||
+		(line[0] == 'W' && line[1] != 'E') ||
+		(line[0] == 'E' && line[1] != 'A') ||
+		(line[0] == 'R' && line[1] != ' ') ||
+		(line[0] == 'F' && line[1] != ' ') ||
+		(line[0] == 'C' && line[1] != ' '))
+		m_exit(23, a);
+}
 
 void	post_scan(int *i, char *line, all_t *a)
 {

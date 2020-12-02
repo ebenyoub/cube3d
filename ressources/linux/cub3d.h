@@ -232,3 +232,4 @@ void	verif_nb(all_t *a);
 void	init_element(all_t *a);
 void	check_element(char *line, all_t *a);
 void    tab_malloc(all_t *a);
+void	intruder_map(char *line, all_t *a);
