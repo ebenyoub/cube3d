@@ -35,6 +35,7 @@ typedef	struct 		map_s
 	int				width;
 	int				map_h;
 	int				map_w;
+	int				rgb;
 	int				map_bpp;
 	int				map_size_line;
 	int				map_endian;

@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:19:27 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/02 15:02:10 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 15:54:47 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,9 @@ int		go_option(all_t *a)
 		m_exit(9, a);
 	}
 	a->m.parse = 1;
-	if (!(a->w.win = mlx_new_window(a->w.mlx, a->m.width, a->m.height, "cub3d")))
+	if (!(a->w.win = mlx_new_window
+		(a->w.mlx, a->m.width, a->m.height, "cub3d")))
 		m_exit(65, a);
-	if (!(a->i[0].img_ptr = mlx_new_image(a->w.mlx, a->m.width, a->m.height)))
-	{
-		mlx_destroy_image(a->w.mlx, a->i[0].img_ptr);
-		return (0);
-	}
-	a->i[0].img_data = (int *)mlx_get_data_addr(a->i[0].img_ptr,
-		&a->i[0].bpp, &a->i[0].size_line, &a->i[0].endian);
 	mlx_hook(a->w.win, 2, 1L << 0, key_hold, a);
 	mlx_hook(a->w.win, 3, 1L << 1, key_release, a);
 	mlx_hook(a->w.win, 17, 1L << 17, key_close, a);

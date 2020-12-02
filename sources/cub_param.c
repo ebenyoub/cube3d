@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 16:41:46 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/02 12:18:20 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 15:39:07 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 void	scan_param(int argc, char **argv, all_t *a)
 {
 	if (argc < 2)
-	{
-		printf("\r");
 		m_exit(0, a);
-	}
 	if (argc > 3)
 		m_exit(1, a);
 	if (argc == 3)

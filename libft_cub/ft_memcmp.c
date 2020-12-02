@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elyasbenyoub <elyasbenyoub@student.42.f    +#+  +:+       +#+        */
+/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 15:24:46 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/09/03 17:03:13 by elyasbenyou      ###   ########.fr       */
+/*   Updated: 2020/12/02 15:38:28 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,3 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-
-int		main()
-{
-	char s1[] = "\200";
-	char s2[] = "\0";
-	printf("moi : %d\n", ft_memcmp(s1, s2, 5));
-	printf("lui : %d\n", memcmp(s1, s2, 5));
-	return (0);
-}
-

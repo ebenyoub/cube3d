@@ -60,7 +60,7 @@
 59 Error\nIn 'map.cub', the player (N,S,E,W) is outside the map.
 60 Error\nmlx_new_window() failed.
 61 Error\nThe resolution must have 2 elements.
-62 Error\nThe C element must have only 3 numbers.\nEx : C\t134,34,254.
+62 Error\nThe C element must have 3 numbers.\nEx : C\t134,34,254.
 63 Error\nThe floor texture can't be a sprite.
 64 Error\nIn the map, the sprite number (2) can't be at the begining of the line.
 65 Error\nmlx_new_window() failed.

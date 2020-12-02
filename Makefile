@@ -95,6 +95,7 @@ fclean: clean
 	$(RM_DIR) $(NAME) a.out cub3d.dSYM a.out.dSYM
 	$(MAKE) fclean -C libft_cub/
 	ressources/clean.sh
+	@if [ -e "screenshot.bmp" ]; then rm screenshot.bmp; fi
 
 re:
 	$(MAKE) fclean --no-print-directory
