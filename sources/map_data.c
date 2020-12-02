@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_data.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:53:42 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/02 17:03:30 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 17:21:23 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,8 @@ void	r_save(int *e, char *line, all_t *a)
 void	map_data(char *line, all_t *a)
 {
 	int i;
-	int r;
 
 	i = 2;
-	r = 0;
 	intruder_map(line, a);
 	if (!ft_isstr(line[0], "RNSWEFC"))
 		m_exit(23, a);
