@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:24:37 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/02 13:18:10 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 16:16:46 by user42           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int		key_close(all_t *a)
 {
-	mlx_destroy_window(a->w.mlx, a->w.win);
 	m_exit(58, a);
 	return (0);
 }
