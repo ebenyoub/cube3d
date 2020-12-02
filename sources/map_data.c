@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:53:42 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/02 12:30:21 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 17:03:30 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,6 @@ void	resolution(all_t *a)
 		a->m.height = 845;
 	if (a->m.height < 100)
 		a->m.height = 100;
-}
-
-void	intruder_map(char *line, all_t *a)
-{
-	if ((line[0] == 'N' && line[1] != 'O') ||
-		(line[0] == 'W' && line[1] != 'E') ||
-		(line[0] == 'E' && line[1] != 'A') ||
-		(line[0] == 'R' && line[1] != ' ') ||
-		(line[0] == 'F' && line[1] != ' ') ||
-		(line[0] == 'C' && line[1] != ' '))
-		m_exit(23, a);
 }
 
 void	map_data_three(char *line, all_t *a)
@@ -83,22 +72,45 @@ void	map_data_next(char *line, all_t *a)
 		map_data_three(line, a);
 }
 
+void	r_save(int *e, char *line, all_t *a)
+{
+	int r;
+	int i;
+
+	r = 0;
+	i = *e;
+	while (ft_isdigit(line[i]))
+	{
+		a->m.width = a->m.width * 10 + (line[i] - 48);
+		i += 1;
+	}
+	r++;
+	pass_space(&(i), line);
+	while (ft_isdigit(line[i]))
+	{
+		a->m.height = a->m.height * 10 + (line[i] - 48);
+		i++;
+	}
+	r++;
+	if (r != 2)
+		m_exit(61, a);
+	*e = i;
+}
+
 void	map_data(char *line, all_t *a)
 {
 	int i;
+	int r;
 
 	i = 2;
+	r = 0;
 	intruder_map(line, a);
 	if (!ft_isstr(line[0], "RNSWEFC"))
 		m_exit(23, a);
 	if (line[0] == 'R')
 	{
 		pass_space(&i, line);
-		while (ft_isdigit(line[i]))
-			a->m.width = a->m.width * 10 + (line[i++] - 48);
-		pass_space(&i, line);
-		while (ft_isdigit(line[i]))
-			a->m.height = a->m.height * 10 + (line[i++] - 48);
+		r_save(&i, line, a);
 		resolution(a);
 		pass_space(&i, line);
 		if (line[i])
