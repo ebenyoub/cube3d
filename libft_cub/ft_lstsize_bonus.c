@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elyasbenyoub <elyasbenyoub@student.42.f    +#+  +:+       +#+        */
+/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 18:39:38 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/09/03 17:03:13 by elyasbenyou      ###   ########.fr       */
+/*   Updated: 2020/12/02 19:34:59 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "libft_cub.h"
 

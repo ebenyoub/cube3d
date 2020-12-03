@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elyasbenyoub <elyasbenyoub@student.42.f    +#+  +:+       +#+        */
+/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 14:31:59 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/09/03 17:08:15 by elyasbenyou      ###   ########.fr       */
+/*   Created: 2020/12/02 19:23:06 by ebenyoub          #+#    #+#             */
+/*   Updated: 2020/12/02 19:43:53 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "libft_cub.h"
 

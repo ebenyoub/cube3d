@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:20:33 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/02 15:21:55 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 19:05:50 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		spr_img(all_t *a)
 		&a->i[0].bpp, &a->i[0].size_line, &a->i[0].endian);
 	while (++i < 7)
 		if (!img_make(i, a))
-		return (0);
+			return (0);
 	return (1);
 }
 

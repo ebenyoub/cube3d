@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elyasbenyoub <elyasbenyoub@student.42.f    +#+  +:+       +#+        */
+/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 11:33:27 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/09/03 17:03:13 by elyasbenyou      ###   ########.fr       */
+/*   Created: 2020/12/02 19:43:37 by ebenyoub          #+#    #+#             */
+/*   Updated: 2020/12/02 19:43:39 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "libft_cub.h"
 

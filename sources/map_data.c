@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_data.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:53:42 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/02 17:21:23 by user42           ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 20:18:05 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,19 +79,19 @@ void	r_save(int *e, char *line, all_t *a)
 
 	r = 0;
 	i = *e;
-	while (ft_isdigit(line[i]))
+	if (ft_isdigit(line[i]))
 	{
-		a->m.width = a->m.width * 10 + (line[i] - 48);
-		i += 1;
+		while (ft_isdigit(line[i]))
+			a->m.width = a->m.width * 10 + (line[i++] - 48);
+		r++;
 	}
-	r++;
 	pass_space(&(i), line);
-	while (ft_isdigit(line[i]))
+	if (ft_isdigit(line[i]))
 	{
-		a->m.height = a->m.height * 10 + (line[i] - 48);
-		i++;
+		while (ft_isdigit(line[i]))
+			a->m.height = a->m.height * 10 + (line[i++] - 48);
+		r++;
 	}
-	r++;
 	if (r != 2)
 		m_exit(61, a);
 	*e = i;
@@ -101,7 +101,7 @@ void	map_data(char *line, all_t *a)
 {
 	int i;
 
-	i = 2;
+	i = 1;
 	intruder_map(line, a);
 	if (!ft_isstr(line[0], "RNSWEFC"))
 		m_exit(23, a);
