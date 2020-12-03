@@ -11,7 +11,7 @@
 10 Error\nPasring failure.
 11 Error\nOption failure.
 12 Exited at end.
-13 Error\nBad syntax color : "C     R,G,B".
+13 Error\nBad syntax color : "C     R,G,B" or texture path.
 14 Error\nCeilling color is NULL.
 15 Error\nft_strdup failed in map_scan map_scan.c:45
 16 Error\nft_strdup failed in map_scan map_scan.c:25
@@ -61,6 +61,8 @@
 60 Error\nmlx_new_window() failed.
 61 Error\nThe resolution must have 2 elements.
 62 Error\nThe C element must have 3 numbers.\nEx : C\t134,34,254.
-63 Error\nThe floor texture can't be a sprite.
+63 Error\nThe floor/ceilling texture can't be a sprite.
 64 Error\nIn the map, the sprite number (2) can't be at the begining of the line.
 65 Error\nmlx_new_window() failed.
+66 Error\nAll elements of resolution must be positive.
+67 Error\nThe resolution is too big.

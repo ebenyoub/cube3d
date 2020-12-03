@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:37:52 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/02 15:52:32 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/03 15:44:33 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ int		syntax_color(char *line, all_t *a)
 	while (line[i])
 	{
 		a->m.rgb = 0;
+		back_space(line);
 		pass_space(&i, line);
+		if (n < 3 && line[i] == '-')
+			m_exit(25, a);
 		if (n < 3 && !ft_isdigit(line[i]))
 			m_exit(13, a);
 		while (ft_isdigit(line[i]))
@@ -53,14 +56,16 @@ char	*map_cut(char *line, all_t *a)
 	int		i;
 
 	i = 1;
-	if (ft_isstr(line[0], "RNSWEF"))
+	if (ft_isstr(line[0], "RNSWE") ||
+		(ft_isstr(line[0], "F") && a->m.ftex_on) ||
+		(ft_isstr(line[0], "C") && a->m.ctex_on))
 	{
 		if (ft_isstr(line[1], "OEA"))
 			i++;
 		pass_space(&i, line);
 		return (line + i);
 	}
-	else if (line[0] == 'C')
+	else if (ft_isstr(line[0], "FC"))
 	{
 		pass_space(&i, line);
 		if (!syntax_color(line, a))

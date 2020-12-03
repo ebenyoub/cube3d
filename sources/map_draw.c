@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:35:03 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/02 02:15:53 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/03 14:14:47 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ray_line(int x, all_t *a)
 	y = 0;
 	while (y < a->m.height)
 	{
-		if (y < a->r.drawStart)
+		if (!a->m.ctex_on && y < a->r.drawStart)
 			a->i[0].img_data[x + y * a->m.width] = a->m.c;
 		if (y >= a->r.drawStart && y <= a->r.drawEnd)
 		{
@@ -33,6 +33,8 @@ void	ray_line(int x, all_t *a)
 			else
 				a->i[0].img_data[x + y * a->m.width] = 0;
 		}
+		if (!a->m.ftex_on && y > a->r.drawEnd)
+			a->i[0].img_data[x + y * a->m.width] = a->m.f;
 		y++;
 	}
 }

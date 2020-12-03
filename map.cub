@@ -1,4 +1,4 @@
-R 1395 845
+R 1395 2147483647
 NO      ressources/bricks/brick_painted.xpm
 
 SO ressources/bricks/ground_root.xpm
@@ -7,7 +7,8 @@ EA ressources/bricks/wood_gate.xpm
 
 S ressources/pokemon/pikachu.xpm
 F ressources/bricks/grass_floor.xpm
-C 115,  192, 232
+C 115, 192, 232 
+
 
         11111111111211111111111110001
         10000002001100000000000W1

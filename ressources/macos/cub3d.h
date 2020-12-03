@@ -23,7 +23,7 @@ typedef	struct 		map_s
 	char			**map_test;
 	char			*name;
 	char			*map;
-	char			*img[6];
+	char			*img[7];
 	void			*img_map_ptr;
 	int				*img_map_to_img;
 	int				element[8];
@@ -37,12 +37,15 @@ typedef	struct 		map_s
 	int				map_w;
 	int				rgb;
 	int				map_bpp;
+	int				ftex_on;
+	int				ctex_on;
 	int				map_size_line;
 	int				map_endian;
 	int				save;
 	int				pos_nb;
 	int				parse;
 	int				c;
+	int				f;
 	int				w;
 }					map_t;
 
@@ -178,8 +181,8 @@ typedef	struct		all_s
 	ray_t			r;
 	fps_t			f;
 	tex_t			t;
-	img_t			i[7];
-	t_keycode			k;
+	img_t			i[8];
+	t_keycode		k;
 	spr_t			s;
 	pos_t			*d;
 	flo_t			c;
@@ -195,6 +198,9 @@ int		map_leak_y(int x, int y, all_t *a);
 int     map_color(char *str);
 void    map_scan(char *line, all_t *a);
 char	*map_cut(char *line, all_t *a);
+void	map_data(char *line, all_t *a);
+void	map_save(char *line, all_t *a);
+void    map_f(char *line, all_t *a);
 
 void    init_all(all_t *a);
 int	    init_win(all_t *a);
@@ -209,6 +215,7 @@ int     key_release(int key, all_t *a);
 
 void    tex_wall(all_t *a);
 void    tex_floor(all_t *a);
+void	tex_ceilling(all_t *a);
 void    spr_data(all_t *a);
 void    spr_pos(all_t *a);
 void	spr_save(all_t *a);
@@ -225,11 +232,10 @@ void	pass_space(int *i, char *line);
 void	m_exit(int i, all_t *a);
 void    find_msg(int i);
 int		get_next_line_m(int fd, char **line);
-void	map_data(char *line, all_t *a);
-void	map_save(char *line, all_t *a);
 void    scan_param(int argc, char **argv, all_t *a);
 void	verif_nb(all_t *a);
 void	init_element(all_t *a);
 void	check_element(char *line, all_t *a);
 void    tab_malloc(all_t *a);
 void	intruder_map(char *line, all_t *a);
+void	resolution(all_t *a);

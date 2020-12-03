@@ -6,11 +6,23 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:22:14 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/02 16:52:23 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/03 16:04:08 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+void	resolution(all_t *a)
+{
+	if (a->m.width > 1395)
+		a->m.width = 1395;
+	if (a->m.width < 100)
+		a->m.width = 100;
+	if (a->m.height > 845)
+		a->m.height = 845;
+	if (a->m.height < 100)
+		a->m.height = 100;
+}
 
 void	intruder_map(char *line, all_t *a)
 {

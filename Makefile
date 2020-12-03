@@ -43,6 +43,7 @@ SRCS		+=	map_draw.c
 SRCS		+=	map_dir.c
 SRCS		+=	map_leak.c
 SRCS		+=	map_data.c
+SRCS		+=	map_f_c.c
 SRCS		+=	map_save.c
 SRCS		+=	map_scan.c
 SRCS		+=	map_elem.c
@@ -51,6 +52,7 @@ SRCS		+=	ray_init.c
 SRCS		+=	ray_shift.c
 SRCS		+=	tex_init.c
 SRCS		+=	tex_floor.c
+SRCS		+=	tex_ceilling.c
 SRCS		+=	spr_calc.c
 SRCS		+=	spr_utils.c
 SRCS		+=	img_init.c
@@ -84,7 +86,7 @@ make_mlx:
 	make -C $(mlx)/ --no-print-directory
 
 $(NAME): $(OBJ) $(INC_DIR) make_libft_cub make_mlx
-	$(CC) $(CFLAGS) $(OBJ) -I ./$(mlx)/mlx.h $(INC) $(COMP)  -o $@
+	$(CC) $(CFLAGS) $(MEMFLAGS) $(OBJ) -I ./$(mlx)/mlx.h $(INC) $(COMP)  -o $@
 	
 clean:
 	$(RM_DIR) $(OBJ_DIR)

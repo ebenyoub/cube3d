@@ -6,23 +6,11 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:53:42 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/02 20:18:05 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/03 16:21:57 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-void	resolution(all_t *a)
-{
-	if (a->m.width > 1395)
-		a->m.width = 1395;
-	if (a->m.width < 100)
-		a->m.width = 100;
-	if (a->m.height > 845)
-		a->m.height = 845;
-	if (a->m.height < 100)
-		a->m.height = 100;
-}
 
 void	map_data_three(char *line, all_t *a)
 {
@@ -39,16 +27,7 @@ void	map_data_three(char *line, all_t *a)
 		if (!(a->m.img[4] = ft_strdup(map_cut(line, a))))
 			m_exit(21, a);
 	}
-	else if (line[0] == 'F')
-	{
-		pass_space(&i, line);
-		if (!ft_strncmp(line + i, "ressources/pokemon", 18))
-			m_exit(63, a);
-		if (!(a->m.img[5] = ft_strdup(map_cut(line, a))))
-			m_exit(22, a);
-	}
-	else if (line[0] == 'C')
-		a->m.c = map_color(map_cut(line, a));
+	map_f(line, a);
 }
 
 void	map_data_next(char *line, all_t *a)
@@ -72,6 +51,22 @@ void	map_data_next(char *line, all_t *a)
 		map_data_three(line, a);
 }
 
+void	r_negative(int *res, int *e, char *line, all_t *a)
+{
+	long	l;
+	int		i;
+
+	l = 0;
+	i = *e;
+	while (ft_isdigit(line[i]))
+		l = l * 10 + (line[i++] - 48);
+	if (l > 2147483647)
+		m_exit(67, a);
+	else
+		*res = (int)l;
+	*e = i;
+}
+
 void	r_save(int *e, char *line, all_t *a)
 {
 	int r;
@@ -79,17 +74,19 @@ void	r_save(int *e, char *line, all_t *a)
 
 	r = 0;
 	i = *e;
+	if (line[i] == '-')
+		m_exit(66, a);
 	if (ft_isdigit(line[i]))
 	{
-		while (ft_isdigit(line[i]))
-			a->m.width = a->m.width * 10 + (line[i++] - 48);
+		r_negative(&a->m.width, &i, line, a);
 		r++;
 	}
 	pass_space(&(i), line);
+	if (line[i] == '-')
+		m_exit(66, a);
 	if (ft_isdigit(line[i]))
 	{
-		while (ft_isdigit(line[i]))
-			a->m.height = a->m.height * 10 + (line[i++] - 48);
+		r_negative(&a->m.height, &i, line, a);
 		r++;
 	}
 	if (r != 2)

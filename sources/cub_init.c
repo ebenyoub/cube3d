@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:16:01 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/02 15:50:56 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/03 10:27:03 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,13 @@ void	init_map(all_t *a)
 	a->m.save = 0;
 	a->m.parse = 0;
 	a->m.rgb = 0;
+	a->m.ftex_on = 0;
+	a->m.ctex_on = 0;
 	a->m.map_line = 0;
 	if (!(a->m.map = ft_strdup("")))
 		m_exit(49, a);
+	while (*a->m.img)
+		*a->m.img = NULL;
 	a->f.moveSpeed = 0.08;
 	a->f.rotSpeed = 0.06;
 	a->m.map_size_x = 0;
