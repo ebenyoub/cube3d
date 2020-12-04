@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:22:14 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/03 16:04:08 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/04 12:01:39 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ void	post_scan(int *i, char *line, all_t *a)
 	char	*nline;
 
 	d = 0;
-	if (!line[0])
+	if (!line[0] && a->m.ret_line)
 		m_exit(6, a);
 	if (ft_isstr(line[*i], "NSEW"))
 		m_exit(59, a);
-	if (!ft_isstr(line[*i], "12"))
+	if (!ft_isstr(line[*i], "12") && a->m.ret_line)
 		m_exit(45, a);
 	nline = back_space(line);
 	while (nline[d])

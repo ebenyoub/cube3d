@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:57:40 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/02 12:19:07 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/04 11:43:31 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	map_read(all_t *a)
 	while (ret > 0)
 	{
 		ret = get_next_line(fd, &line);
+		a->m.ret_line = ret;
 		map_scan(line, a);
 		free(line);
 	}

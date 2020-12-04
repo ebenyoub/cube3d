@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 17:35:03 by ebenyoub          #+#    #+#             */
-/*   Updated: 2020/12/03 14:14:47 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2020/12/04 12:13:12 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	ray_line(int x, all_t *a)
 	y = 0;
 	while (y < a->m.height)
 	{
-		if (!a->m.ctex_on && y < a->r.drawStart)
+		if (!a->m.ctex_on && y <= a->r.drawStart)
 			a->i[0].img_data[x + y * a->m.width] = a->m.c;
-		if (y >= a->r.drawStart && y <= a->r.drawEnd)
+		if (y > a->r.drawStart && y <= a->r.drawEnd)
 		{
 			a->t.texY = ((y - (a->m.height) * 0.5 + a->r.lineHeight * 0.5)
 				* a->i[a->t.texNum].texHeight) / a->r.lineHeight;
