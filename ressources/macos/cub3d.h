@@ -25,11 +25,12 @@ typedef	struct 		map_s
 	char			*map;
 	char			*img[7];
 	void			*img_map_ptr;
-	int				*img_map_to_img;
-	int				element[8];
-	int				option;
-	int				map_line;
-	int				map_count;
+	int			img_map_to_img;
+	int		    	element[8];
+	int			option;
+	int			map_line;
+	int			map_count;
+	int			ret_line;
 	int				map_size_x;
 	int				height;
 	int				width;
@@ -49,15 +50,15 @@ typedef	struct 		map_s
 	int				w;
 }					map_t;
 
-typedef struct		ray_s
+typedef struct			ray_s
 {
 	double			perpWallDist;
 	double			deltaDistX;
 	double			deltaDistY;
 	double			sideDistX;	
 	double			sideDistY;
-	int				drawStart;
-	int				drawEnd;
+	int			drawStart;
+	int			drawEnd;
 	double			planX;
 	double			planY;
 	double			rDirX;
@@ -67,17 +68,17 @@ typedef struct		ray_s
 	double			dirX;
 	double			dirY;
 	double			camX;
-	int				mapX;
-	int				mapY;
+	int			mapX;
+	int			mapY;
 	int 			hit;
-	int				side;
-	int				stepX; 
-    int				stepY; 
-	int				lineHeight;
+	int			side;
+	int			stepX; 
+	int 			stepY; 
+	int			lineHeight;
 
-}					ray_t;
+}				ray_t;
 
-typedef	struct		flo_s
+typedef	struct			flo_s
 {
 	float 			rayDirX0;
 	float 			rayDirY0;
@@ -90,14 +91,14 @@ typedef	struct		flo_s
 	float			floorStepY;
 	float			floorX;
 	float			floorY;
-	int				cellX;
-	int				cellY;
-	int				tx;
-	int				ty;
-	int				floorTexture;
-	int				plafondTexture;
+	int			cellX;
+	int			cellY;
+	int			tx;
+	int			ty;
+	int			floorTexture;
+	int			plafondTexture;
 
-}					flo_t;
+}				flo_t;
 
 typedef	struct		fps_s
 {
@@ -194,7 +195,7 @@ void    map_to_img(all_t *a);
 void    map_plan(char c, all_t *a);
 void    map_dir(char c, all_t *a);
 void	map_leak(int x, int y, all_t *a);
-int		map_leak_y(int x, int y, all_t *a);
+int	map_leak_y(int x, int y, all_t *a);
 int     map_color(char *str);
 void    map_scan(char *line, all_t *a);
 char	*map_cut(char *line, all_t *a);
@@ -203,13 +204,13 @@ void	map_save(char *line, all_t *a);
 void    map_f(char *line, all_t *a);
 
 void    init_all(all_t *a);
-int	    init_win(all_t *a);
+int	init_win(all_t *a);
 
 void    ray_line(int x, all_t *a);
-int	    ray_launch(all_t *a);
+int	ray_launch(all_t *a);
 
-int	    key_read(all_t *a);
-int		key_close(all_t *a);
+int	key_read(all_t *a);
+int	key_close(all_t *a);
 int     key_hold(int key, all_t *a);
 int     key_release(int key, all_t *a);
 
@@ -231,7 +232,7 @@ char	*back_space(char *line);
 void	pass_space(int *i, char *line);
 void	m_exit(int i, all_t *a);
 void    find_msg(int i);
-int		get_next_line_m(int fd, char **line);
+int	get_next_line_m(int fd, char **line);
 void    scan_param(int argc, char **argv, all_t *a);
 void	verif_nb(all_t *a);
 void	init_element(all_t *a);
