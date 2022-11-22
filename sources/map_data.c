@@ -14,9 +14,6 @@
 
 void	map_data_three(char *line, all_t *a)
 {
-	int i;
-
-	i = 1;
 	if (line[0] == 'E' && line[1] == 'A')
 	{
 		if (!(a->m.img[3] = ft_strdup(map_cut(line, a))))
